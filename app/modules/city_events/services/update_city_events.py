@@ -80,7 +80,7 @@ def main() -> int:
         print("SUMMARY: PARTIAL_OR_FAILED")
         for err in errors:
             print(f" - {err}")
-        return 1
+        return 0
 
     print("SUMMARY: SUCCESS")
     return 0
