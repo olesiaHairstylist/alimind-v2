@@ -4,13 +4,30 @@ import json
 from pathlib import Path
 
 import requests
-
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 APP_DIR = Path(__file__).resolve().parents[3]
-
 RAW_FILE = APP_DIR / "data" / "sources" / "electricity_raw.json"
 
 URL = "https://www.akdenizedas.com.tr/elektrik-getir"
+
+
+def build_session() -> requests.Session:
+    retry = Retry(
+        total=2,
+        connect=2,
+        read=2,
+        backoff_factor=1.5,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=frozenset(["POST"]),
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+
+    session = requests.Session()
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
 
 
 def fetch_raw_data() -> list[dict]:
@@ -22,9 +39,11 @@ def fetch_raw_data() -> list[dict]:
     headers = {
         "X-Requested-With": "XMLHttpRequest",
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "User-Agent": "Mozilla/5.0",
     }
 
-    response = requests.post(URL, data=payload, headers=headers, timeout=20)
+    session = build_session()
+    response = session.post(URL, data=payload, headers=headers, timeout=(30, 60))
     response.raise_for_status()
 
     data = response.json()

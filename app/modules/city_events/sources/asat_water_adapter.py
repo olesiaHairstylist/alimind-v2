@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 from datetime import datetime
-from zoneinfo import ZoneInfo
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 from app.modules.city_events.contracts.categories import CityEventCategory
 from app.modules.city_events.parsers.water_cards import parse_water_items_from_html
@@ -19,10 +21,28 @@ def _now_iso() -> str:
     return datetime.now(TZ).isoformat(timespec="seconds")
 
 
+def build_session() -> requests.Session:
+    retry = Retry(
+        total=2,
+        connect=2,
+        read=2,
+        backoff_factor=1.5,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=frozenset(["GET"]),
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+
+    session = requests.Session()
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
 def fetch_html() -> str:
-    r = requests.get(
+    session = build_session()
+    r = session.get(
         ASAT_URL,
-        timeout=25,
+        timeout=(30, 60),
         headers={
             "User-Agent": "Mozilla/5.0"
         },
