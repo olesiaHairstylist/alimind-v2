@@ -1,0 +1,23 @@
+{
+  "id": "BEAUTY_001",
+  "category": "beauty",
+  "title": "Olesya — мастер по волосам",
+  "description_short": "Женский мастер по волосам: стрижки, окрашивание, уход.",
+  "description_full": "Профессиональный женский мастер по волосам. Индивидуальный подход, аккуратная работа и качественные материалы.",
+  "contact": "@olesya.hair07",
+  "phone": "+905521523287",
+  "location": "Mahmutlar, Alanya",
+  "languages": ["RU", "EN"],
+  "services": [
+    "Стрижки каре",
+    "Стрижки боб",
+    "Окрашивание",
+    "Тонирование",
+    "Уход и восстановление"
+  ],
+  "image": "partners/Olesya.jpg",
+  "partner_status": "partner",
+  "partner_chat_id": null,
+  "request_enabled": true,
+  "updated_at": "2026-03-21"
+}

@@ -1,0 +1,36 @@
+{
+  "category": "electricity",
+  "updated_at": "2026-03-24T10:42:56+03:00",
+  "items": [
+    {
+      "title": "MERKEZ TÜRKLER ARIK",
+      "details": "⏱ 2026-03-23 09:00:00 - 2026-03-23 12:00:00\n📌 Yatırım Çalışması",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "title": "MERKEZ YALÇI Mah.",
+      "details": "⏱ 2026-03-26 08:00:00 - 2026-03-26 19:00:00\n📌 Güvenlik",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "title": "MERKEZ BEYRELİ Mah.",
+      "details": "⏱ 2026-03-26 08:00:00 - 2026-03-26 19:00:00\n📌 Güvenlik",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "title": "MERKEZ YALÇI Mah.",
+      "details": "⏱ 2026-03-27 08:00:00 - 2026-03-27 19:00:00\n📌 Güvenlik",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "title": "MERKEZ BEYRELİ Mah.",
+      "details": "⏱ 2026-03-27 08:00:00 - 2026-03-27 19:00:00\n📌 Güvenlik",
+      "address": "",
+      "phone": ""
+    }
+  ]
+}

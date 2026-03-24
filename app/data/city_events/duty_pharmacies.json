@@ -1,0 +1,36 @@
+{
+  "category": "pharmacies",
+  "updated_at": "2026-03-23 19:56",
+  "items": [
+    {
+      "title": "AYYÜCE ECZANESİ",
+      "details": "Дежурная аптека (ALANYA MERKEZ)",
+      "address": "SARAY MAH. BAŞKENT HASTANESİ YANI NO:13 ALANYA",
+      "phone": "0(242) 511-15-61"
+    },
+    {
+      "title": "SAĞLIK ECZANESİ",
+      "details": "Дежурная аптека (ALANYA MERKEZ)",
+      "address": "KADIPASA MAH. IKIZLER SOK. 2 NOLU SAGLIK OCAGI KARSISI",
+      "phone": "0(242) 513-66-67"
+    },
+    {
+      "title": "EYUP ECZANESİ",
+      "details": "Дежурная аптека (ALANYA MERKEZ)",
+      "address": "CİKCİLLİ SAĞLIK OCAĞI KARŞISI ALANYUM ALIŞVERİŞ MERKEZİ ÜSTÜ",
+      "phone": "0(242) 515-31-30"
+    },
+    {
+      "title": "LOTUS ECZANESİ",
+      "details": "Дежурная аптека (MAHMUTLAR)",
+      "address": "MAHMUTLAR MAH. MENDERES BULVARI SARUHAN APT. 16/D GARİP RESTAURANT YANI",
+      "phone": "0(540) 090-39-90"
+    },
+    {
+      "title": "ÖRS ECZANESİ",
+      "details": "Дежурная аптека (KONAKLI)",
+      "address": "KONAKLI MAH. FATİH CAD. NO:156/A (KONAKLI SAĞLIK OCAĞI KARŞISI)",
+      "phone": "0(242) 565-11-72"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+CITY_EVENTS_MENU_CB = "city_events:menu"
+CITY_EVENTS_PHARMACIES_CB = "city_events:pharmacies"
+CITY_EVENTS_ELECTRICITY_CB = "city_events:electricity"
+CITY_EVENTS_WATER_CB = "city_events:water"
+CITY_EVENTS_EMERGENCY_CB = "city_events:emergency"
+CITY_EVENTS_BACK_CB = "city_events:back"
+CITY_EVENTS_MAIN_MENU_CB = "city_events:main_menu"

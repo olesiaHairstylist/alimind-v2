@@ -1,0 +1,65 @@
+[
+  {
+    "version": 1,
+    "insertDateTime": "2026-03-23T00:00:05.4687522+03:00",
+    "updateDateTime": "2026-03-23T18:10:03.8383428+03:00",
+    "id": "10468730",
+    "plannedOutage": {
+      "reason": "Yatırım Çalışması",
+      "city": "ANTALYA",
+      "city2": "",
+      "city3": "",
+      "county": "ALANYA",
+      "county2": "",
+      "county3": "",
+      "endDateTime": "2026-03-23 12:00:00",
+      "id": "10468730",
+      "startDateTime": "2026-03-23 09:00:00",
+      "message": "ANTALYA,ALANYA,MERKEZ TÜRKLER ARIK,MERKEZ TÜRKLER ATATÜRK,MERKEZ TÜRKLER Mah. ATATÜRK Cd bölgelerinde 23/03/2026 09:00:00 - 23/03/2026 12:00:00 saatleri arasında Yatırım Çalışması Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır.",
+      "lat": " 36.602165",
+      "lon": " 31.816264"
+    }
+  },
+  {
+    "version": 1,
+    "insertDateTime": "2026-03-23T10:20:08.1235326+03:00",
+    "updateDateTime": "2026-03-23T18:10:07.2177778+03:00",
+    "id": "10471415",
+    "plannedOutage": {
+      "reason": "Güvenlik",
+      "city": "ANTALYA",
+      "city2": "",
+      "city3": "",
+      "county": "ALANYA",
+      "county2": "",
+      "county3": "",
+      "endDateTime": "2026-03-26 19:00:00",
+      "id": "10471415",
+      "startDateTime": "2026-03-26 08:00:00",
+      "message": "ANTALYA,ALANYA,MERKEZ YALÇI Mah. KAPLANHANI Sk. bölgelerinde 26/03/2026 08:00:00 - 26/03/2026 19:00:00 saatleri arasında Güvenlik Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır.",
+      "lat": " 36.571886",
+      "lon": " 32.361056"
+    }
+  },
+  {
+    "version": 1,
+    "insertDateTime": "2026-03-23T10:30:07.6838342+03:00",
+    "updateDateTime": "2026-03-23T18:10:07.2959137+03:00",
+    "id": "10471412",
+    "plannedOutage": {
+      "reason": "Güvenlik",
+      "city": "ANTALYA",
+      "city2": "ANTALYA",
+      "city3": "",
+      "county": "ALANYA",
+      "county2": "GAZİPAŞA",
+      "county3": "",
+      "endDateTime": "2026-03-26 19:00:00",
+      "id": "10471412",
+      "startDateTime": "2026-03-26 08:00:00",
+      "message": "ANTALYA,ALANYA,MERKEZ BEYRELİ Mah. BEYRELİ YAYLASI,MERKEZ FAKIRCALI Mah. AKSU Sk.,MERKEZ FAKIRCALI Mah. SARIPINAR Sk.,MERKEZ FAKIRCALI SARIPINAR,MERKEZ FAKIRCALI SOLAKLI,MERKEZ GÜMÜŞKAVAK,MERKEZ GÜMÜŞKAVAK Mah. GÜMÜŞKAVAK YAYLASI Sk.,MERKEZ GÜMÜŞKAVAK Mah. KİRLİK Sk.,MERKEZ HOCALAR Mah. SÖĞÜT CEVİZLİ-,MERKEZ KARAPINAR Mah.,MERKEZ MAHMUTLAR -,MERKEZ MAHMUTLAR Mah. CİNDİ YAYLASI,MERKEZ MAHMUTLAR Mah. KEŞBELENİ YAYLASI,MERKEZ UĞRAK Mah. ADA-146 / PAR-4,MERKEZ UĞRAK Mah. UĞRAK YAYLASI,MERKEZ YALÇI,MERKEZ YAYLAKONAK Mah. AVLA Sk.,MERKEZ YAYLAKONAK Mah. AVLA Sk. AVLA YAYLASI,MERKEZ YAYLALI Mah. BOYALI YAYLASI,MERKEZ YAYLALI Mah. YAYLALI YAYLASI Sk.,MERKEZ YAYLALI YAYLALI YAYLASI,MERKEZ YEŞİLÖZ YEŞİLÖZ GÖDÜRE,MERKEZ ÇAMLICA Mah. GOZLAR YAYLASI,MERKEZ ÇAMLICA Mah. KOZLAR YAYLASI,MERKEZ ÖZVADİ Mah. GÖDÜRE Sk.,MERKEZ ÖZVADİ Mah. KÖYİÇİ MEVKİİ,MERKEZ İMAMLI GÖDÜRE (MERKEZ),MERKEZ İMAMLI GÖDÜRE(BÜK),MERKEZ İMAMLI Mah. GÖDÜRE(BÜK),MERKEZ İMAMLI Mah. GÖDÜRE(BÜK) Sk.,MERKEZ ŞIHLAR,MERKEZ ŞIHLAR Mah.;ANTALYA,GAZİPAŞA,MERKEZ ŞAHİNLER BEREM KIZILGÜNEY,MERKEZ ŞAHİNLER Mah. BEREM KIZILGÜNEY Sk.,MERKEZ ŞAHİNLER Mah. UZUN PİLADAN KIZILGÜNEY Sk. bölgelerinde 26/03/2026 08:00:00 - 26/03/2026 19:00:00 saatleri arasında Güvenlik Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır.",
+      "lat": " 36.571886",
+      "lon": " 32.361056"
+    }
+  }
+]
