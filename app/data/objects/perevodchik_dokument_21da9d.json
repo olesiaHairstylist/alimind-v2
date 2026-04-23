@@ -1,0 +1,36 @@
+{
+  "id": "perevodchik_dokument_21da9d",
+  "title": {
+    "ru": "Переводчик документов",
+    "en": "Document Translator",
+    "tr": "Belge Çevirmeni"
+  },
+  "category": "legal",
+  "subcategory": "document_translation",
+  "description_short": {
+    "ru": "Перевод документов, помощь с переводом справок, договоров и заявлений.",
+    "en": "Document translation and help with translating certificates, contracts, and applications.",
+    "tr": "Belge çevirisi, sertifika, sözleşme ve başvuru çevirilerinde yardım."
+  },
+  "description_full": {
+    "ru": "Перевод документов для личных и бытовых задач. Помощь с переводом справок, договоров, заявлений и других документов.",
+    "en": "Document translation for personal and everyday needs. Help with translating certificates, contracts, applications, and other documents.",
+    "tr": "Kişisel ve günlük ihtiyaçlar için belge çevirisi. Sertifikalar, sözleşmeler, başvurular ve diğer belgelerin çevirisinde yardım."
+  },
+  "location": {
+    "ru": "Alanya",
+    "en": "Alanya",
+    "tr": "Alanya"
+  },
+  "contact": {
+    "ru": "@Serkan_Akg",
+    "en": "@Serkan_Akg",
+    "tr": "@Serkan_Akg"
+  },
+  "image_url": "",
+  "languages": [
+    "ru"
+  ],
+  "is_partner": true,
+  "image_path": "app/data/object_photos/perevodchik_dokument_21da9d.jpg"
+}

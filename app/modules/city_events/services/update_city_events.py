@@ -1,90 +1,64 @@
 from __future__ import annotations
 
-import json
-from datetime import datetime
-from pathlib import Path
-from zoneinfo import ZoneInfo
-
-from app.modules.city_events.sources.electricity_source import fetch_raw_data
-from app.modules.city_events.parsers.electricity_cards import (
-    parse_electricity_items_from_raw,
-)
-from app.modules.city_events.sources.asat_water_adapter import run_and_save as run_water_update
 
 
-TZ = ZoneInfo("Europe/Istanbul")
-APP_DIR = Path(__file__).resolve().parents[3]
-DATA_DIR = APP_DIR / "data" / "city_events"
-ELECTRICITY_FILE = DATA_DIR / "electricity_outages.json"
+from app.modules import run_fetch as run_water_fetch
+from app.modules import run_fetch as run_pharmacies_fetch
+from app.modules import build_electricity_payload
+from app.modules import save_electricity_payload
 
 
-def now_iso() -> str:
-    return datetime.now(TZ).isoformat(timespec="seconds")
-
-
-def ensure_data_dir() -> None:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-
-def atomic_write_json(path: Path, payload: dict) -> None:
-    tmp_path = path.with_suffix(path.suffix + ".tmp")
-
-    with tmp_path.open("w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-
-    tmp_path.replace(path)
-
-
-def update_electricity() -> None:
-    raw = fetch_raw_data()
-    print(f"[FETCH] electricity raw: {len(raw)}")
-
-    items = parse_electricity_items_from_raw(raw)
-
-    payload = {
-        "category": "electricity",
-        "updated_at": now_iso(),
-        "items": items,
-    }
-
-    atomic_write_json(ELECTRICITY_FILE, payload)
-    print(f"[OK] electricity updated -> {ELECTRICITY_FILE} (items={len(items)})")
-
-
-def update_water() -> None:
-    path = run_water_update(DATA_DIR)
-    print(f"[OK] water updated -> {path}")
-
+from app.modules import save_electricity_payload
 
 def main() -> int:
-    ensure_data_dir()
-    errors: list[str] = []
-
     print("CITY_EVENTS_UPDATE_START")
 
+    # PHARMACIES
     try:
-        update_electricity()
+        path = run_pharmacies_fetch()
+        print(f"[OK] pharmacies -> {path}")
     except Exception as e:
-        errors.append(f"electricity: {e}")
-        print(f"[ERROR] electricity failed: {e}")
+        print(f"[ERROR] pharmacies -> {e}")
 
+    # ELECTRICITY
     try:
-        update_water()
+        payload = build_electricity_payload()
+        path = save_electricity_payload(payload)
+
+        status = payload.get("status")
+
+        if status == "ok":
+            print(f"[OK] electricity -> {path}")
+        elif status == "empty":
+            print("[EMPTY] electricity")
+        else:
+            print("[ERROR] electricity source failed")
+
     except Exception as e:
-        errors.append(f"water: {e}")
-        print(f"[ERROR] water failed: {e}")
+        print(f"[ERROR] electricity -> {e}")
 
-    print("CITY_EVENTS_UPDATE_END")
+    # WATER
+    try:
+        path = run_water_fetch()
+        print(f"[OK] water -> {path}")
+    except Exception as e:
+        print(f"[ERROR] water -> {e}")
 
-    if errors:
-        print("SUMMARY: PARTIAL_OR_FAILED")
-        for err in errors:
-            print(f" - {err}")
-        return 0
-
-    print("SUMMARY: SUCCESS")
+    print("CITY_EVENTS_UPDATE_DONE")
     return 0
+def update_electricity() -> None:
+    payload = build_electricity_payload()
+    save_electricity_payload(payload)
 
+    status = payload.get("status")
+
+    if status == "ok":
+        print("[OK] electricity -> saved")
+    elif status == "empty":
+        print("[EMPTY] electricity")
+    else:
+        print("[ERROR] electricity source failed")
 
 if __name__ == "__main__":
+    update_electricity()
     raise SystemExit(main())

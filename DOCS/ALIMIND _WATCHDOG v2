@@ -1,0 +1,104 @@
+# ALIMIND — WATCHDOG SYSTEM FINAL DOCUMENT
+VERSION: v2.2
+STATUS: STABLE · LOCKED · PRODUCTION READY
+
+## Role in System
+DATA → HEALTH → WATCHDOG → HUMAN ALERT
+
+## Core Features
+
+### Central Logger
+log_info / log_warn / log_error
+INFO → off in SILENT_MODE
+WARN / ERROR → always active
+
+### Silent Mode
+SILENT_MODE=true → removes noise, keeps only important logs
+
+### Human-readable Alerts
+❗ WATCHDOG
+Модуль: <название>
+Проблема: <простое объяснение>
+
+⚠️ WATCHDOG
+Модуль: <название>
+Проблема: <простое объяснение>
+
+### Issue Structure
+{
+  "id": "...",
+  "level": "info | warning | critical",
+  "kind": "...",
+  "module": "...",
+  "human_text": "..."
+}
+
+Kinds:
+- system_error
+- data_error
+- stale_data
+- expected_empty
+- unexpected_empty
+- internal_watchdog_error
+
+### Noise Control
+- Grouped stale alerts (multiple → one)
+- Grouped module alerts
+- Expected empty → no alert
+- Critical → always individual
+
+### Snapshot Structure
+{
+  "timestamp": "...",
+  "status": "ok | warning | error",
+  "health_score": 0-100,
+  "modules": {...},
+  "issues": [...],
+  "alerts_sent": [...]
+}
+
+### Health Score
+100
+-30 critical
+-10 warning
+min = 0
+
+### Anti-spam
+should_alert()
+save_alert()
++ grouped keys
+
+## Invariants (DO NOT BREAK)
+- routers
+- handlers
+- FSM
+- callbacks
+- business logic
+- JSON structure
+
+## Files
+app/modules/watchdog/logger.py
+app/modules/watchdog/alerts.py
+app/modules/watchdog/service.py
+app/modules/watchdog/contracts.py
+
+## Limitations
+- no TTL
+- no priority system
+- no degradation tracking
+- no auto-fix
+
+## System Level
+v2.0 — basic checks
+v2.1 — human alerts
+v2.2 — noise control + intelligence
+
+## FINAL LOCK
+WATCHDOG v2.2
+STABLE · READ-ONLY · INTELLIGENT
+
+## Next (not now)
+v2.3:
+- TTL
+- priorities
+- degradation detection

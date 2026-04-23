@@ -8,4 +8,4 @@ TITLE_WATER = "🚰 Отключения воды"
 TITLE_EMERGENCY = "🚨 Экстренные службы"
 
 BACK_BUTTON = "⬅️ Назад"
-MAIN_MENU_BUTTON = "🏠 В меню"
+MAIN_MENU_BUTTON = "🏠 Главное меню"

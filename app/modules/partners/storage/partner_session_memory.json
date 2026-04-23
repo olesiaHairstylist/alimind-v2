@@ -1,0 +1,68 @@
+{
+  "geo_session": {
+    "shown": [
+      "partner_insure_trip_001",
+      "partner_esim_global_001"
+    ]
+  },
+  "rotation_session": {
+    "shown": [
+      "partner_airport_transfer_001",
+      "partner_insure_trip_001",
+      "partner_esim_global_001"
+    ]
+  },
+  "rotation_session_3": {
+    "shown": [
+      "partner_airport_transfer_001",
+      "partner_insure_trip_001",
+      "partner_esim_global_001"
+    ]
+  },
+  "demo_session": {
+    "shown": [
+      "partner_airport_transfer_001",
+      "partner_insure_trip_001",
+      "partner_esim_global_001"
+    ],
+    "counts": {
+      "partner_airport_transfer_001": 66,
+      "partner_insure_trip_001": 66,
+      "partner_esim_global_001": 66
+    },
+    "last_displayed": [
+      "partner_airport_transfer_001",
+      "partner_esim_global_001"
+    ]
+  },
+  "anti_dom_session": {
+    "shown": [
+      "partner_airport_transfer_001",
+      "partner_insure_trip_001",
+      "partner_esim_global_001"
+    ],
+    "counts": {
+      "partner_airport_transfer_001": 4,
+      "partner_insure_trip_001": 4,
+      "partner_esim_global_001": 4
+    },
+    "last_displayed": [
+      "partner_insure_trip_001",
+      "partner_esim_global_001"
+    ]
+  },
+  "demo_click_session": {
+    "shown": [
+      "partner_airport_transfer_001",
+      "partner_insure_trip_001"
+    ],
+    "counts": {
+      "partner_airport_transfer_001": 1,
+      "partner_insure_trip_001": 1
+    },
+    "last_displayed": [
+      "partner_airport_transfer_001",
+      "partner_insure_trip_001"
+    ]
+  }
+}

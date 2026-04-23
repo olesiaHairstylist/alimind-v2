@@ -5,7 +5,132 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48cc3d0a-ca01-4013-9c6b-d3acc0ad9dc2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.codex/agents/revisor.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.codex/agents/worker.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.codex/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCS/AB_TEST_WEIGHT_V1 LOCKED.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCS/ALIMIND _WATCHDOG v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCS/CLICK_TRACKING_BRIDGE_V1_LOCK.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCS/DOC_DIRECTORY_MULTILANG_LOCK.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCS/INTERNAL_SYSTEM_AUDIT_DOCUMENT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCS/MODULE_03 LOCK.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/data/partners/travel/esim/partner_esim_global_001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/data/partners/travel/insurance/partner_insure_trip_001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/data/partners/travel/transfer/partner_airport_transfer_001.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/data/system/health_writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/data/system/source_health_contracts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/admin/access.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/admin/handlers/admin_health.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/admin/handlers/admin_help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/contracts/source_health_contracts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/parsers/electricity_payload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/render/electricity_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/render/emergency_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/render/health_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/render/pharmacies_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/render/renderers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/electricity_public_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/emergency_payload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/emergency_public_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/health_rules.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/health_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/health_snapshot_reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/health_writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/pharmacies_payload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/pharmacies_public_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/public_health_reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/public_status_reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/update_all.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/water_payload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/services/water_public_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_html_extractor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_normalizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/storage/health_reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/storage/health_writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/city_events/storage/public_reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/contracts/callbacks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/contracts/categories.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/handlers/category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/handlers/menu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/handlers/object.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/handlers/partner_add.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/handlers/subcategory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/render/card_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/render/category_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/render/keyboard_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/render/screen_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/services/export_partners_public.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/services/loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/services/partner_saver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/services/photo_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/services/subcategories_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/services/subcategory_title.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/directory/states.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/ admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/ admin/handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/ admin/keyboard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/ admin/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/ admin/states.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/partners/services/engagement_ranking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/phrasebook/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/sea_status/handlers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/modules/sea_status/sea_status.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/photo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_card_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_categories_contract.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_category_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_directory_callbacks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_directory_keyboard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_health_view.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_list_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_object_by_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_update_all.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOCS/ALIMIND_V2_ROADMAP.md" beforeDir="false" afterPath="$PROJECT_DIR$/DOCS/ALIMIND_V2_ROADMAP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/city_events/duty_pharmacies.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/city_events/duty_pharmacies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/city_events/emergency_contacts.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/city_events/emergency_contacts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/objects/BEAUTY_001.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data/sources/electricity_raw.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/sources/electricity_raw.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.codex/agents/explorer_local.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/contracts/categories.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/contracts/categories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/contracts/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/contracts/messages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/feed/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/feed/builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/parsers/electricity_cards.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/parsers/electricity_cards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/parsers/water_cards.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/parsers/water_cards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/render/electricity.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/render/electricity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/render/event_card.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/render/event_card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/render/keyboard_render.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/render/keyboard_render.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/services/app/data/city_events/pharmacies_directory_snapshot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/services/update_city_events.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/services/update_city_events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/services/updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/services/updater.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/app/data/sources/electricity_raw.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/asat_water_adapter.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/sources/asat_water_adapter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_fetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_source.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/sources/electricity_source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/pharmacies_html_source.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/sources/pharmacies_html_source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/sources/water_source.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/sources/water_source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/storage/pharmacies_snapshot_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/storage/pharmacies_snapshot_writer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/storage/reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/storage/reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/ui/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/ui/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/city_events/ui/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/city_events/ui/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/core/language/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/core/language/handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/core/language/keyboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/core/language/keyboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/directory/card_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/directory/card_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/directory/object_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/directory/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/directory/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_asat.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_asat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_write_snapshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_write_snapshot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +147,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <hideBySeverity>
+      <option value="300" />
+    </hideBySeverity>
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -34,39 +165,67 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.asat_water_adapter.executor": "Run",
+    "Python.builder.executor": "Run",
+    "Python.category.executor": "Run",
     "Python.category_menu.executor": "Run",
     "Python.electricity_builder.executor": "Run",
     "Python.electricity_fetcher.executor": "Run",
+    "Python.electricity_public_builder.executor": "Run",
     "Python.electricity_source.executor": "Run",
+    "Python.handlers.executor": "Run",
+    "Python.loader.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.object.executor": "Run",
+    "Python.partner_add.executor": "Run",
     "Python.pharmacies_adapter.executor": "Run",
     "Python.pharmacies_api.executor": "Run",
+    "Python.pharmacies_html_source.executor": "Run",
+    "Python.pharmacies_public_builder.executor": "Run",
     "Python.pharmacies_snapshot_writer.executor": "Run",
+    "Python.public_status_reader.executor": "Run",
+    "Python.reader.executor": "Run",
+    "Python.revenue_engine.executor": "Run",
+    "Python.test_api (1).executor": "Run",
+    "Python.test_api.executor": "Run",
     "Python.test_asat.executor": "Run",
+    "Python.test_card_render.executor": "Run",
+    "Python.test_categories_contract.executor": "Run",
+    "Python.test_category_render.executor": "Run",
+    "Python.test_directory_callbacks.executor": "Run",
+    "Python.test_directory_keyboard.executor": "Run",
+    "Python.test_health_view.executor": "Run",
+    "Python.test_list_render.executor": "Run",
+    "Python.test_loader.executor": "Run",
+    "Python.test_object_by_id.executor": "Run",
     "Python.test_pharmacies_ajax.executor": "Run",
+    "Python.test_token.executor": "Run",
+    "Python.test_update_all.executor": "Run",
     "Python.test_write_snapshot.executor": "Run",
     "Python.update_city_events.executor": "Run",
     "Python.updater.executor": "Run",
     "Python.water_builder.executor": "Run",
+    "Python.water_public_builder.executor": "Run",
+    "Python.water_source.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "junie.onboarding.icon.badge.shown": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\DOCS\AGENTS_CODEX\.codex" />
+      <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\app\modules\partners" />
+      <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\app\modules\partners\ admin" />
       <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\DOCS" />
       <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\app\data\city_events" />
-      <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\app\modules\city_events" />
-      <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\app\data" />
-      <recent name="C:\Users\Acer\PycharmProjects\ALIMIND_V2\data\city_events" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.update_city_events">
-    <configuration name="asat_water_adapter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="handlers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ALIMIND_V2" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,33 +234,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/modules/city_events/sources" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/modules/sea_status" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/modules/city_events/sources/asat_water_adapter.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="electricity_builder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ALIMIND_V2" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/modules/city_events/sources" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/modules/city_events/sources/electricity_builder.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/modules/sea_status/handlers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,7 +269,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="update_city_events" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_api (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ALIMIND_V2" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,11 +278,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/modules/city_events/services" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/modules/tickets/data_api" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/modules/city_events/services/update_city_events.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/modules/tickets/data_api/test_api.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,7 +291,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="water_builder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ALIMIND_V2" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,11 +300,33 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/modules/city_events/sources" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/modules/city_events/sources/water_builder.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_token" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ALIMIND_V2" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_token.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,11 +337,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.update_city_events" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.asat_water_adapter" />
-        <item itemvalue="Python.water_builder" />
-        <item itemvalue="Python.electricity_builder" />
+        <item itemvalue="Python.handlers" />
+        <item itemvalue="Python.test_api" />
+        <item itemvalue="Python.test_api (1)" />
+        <item itemvalue="Python.test_token" />
       </list>
     </recent_temporary>
   </component>
@@ -202,5 +361,31 @@
       <updated>1773908114112</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/modules/directory/services/partner_saver.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/modules/partners/services/revenue_engine.py</url>
+          <line>286</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/modules/partners/services/revenue_engine.py</url>
+          <line>365</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/modules/partners/services/revenue_engine.py</url>
+          <line>293</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

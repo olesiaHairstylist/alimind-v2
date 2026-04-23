@@ -1,0 +1,37 @@
+{
+  "category": "pharmacies",
+  "updated_at": "2026-04-23T18:57:25.331494+03:00",
+  "status": "ok",
+  "items": [
+    {
+      "title": "TEZCAN ECZANESİ",
+      "details": "Дежурная аптека (ALANYA MERKEZ)",
+      "address": "CUMA PAZARI GÜNEY GİRİŞİ ŞEKERCİLER MARKET KARŞISI",
+      "phone": "0(242) 513-78-59"
+    },
+    {
+      "title": "TUNA ECZANESİ",
+      "details": "Дежурная аптека (ALANYA MERKEZ)",
+      "address": "KADIPAŞA MAH. TEL SOK. 2. NOLU SAĞLIK OCAĞI KARŞISI",
+      "phone": "0(242) 519-03-11"
+    },
+    {
+      "title": "AYNUR ECZANESİ",
+      "details": "Дежурная аптека (ALANYA MERKEZ)",
+      "address": "OBA MAH. FİDANLIK CAD. EĞİTİM ARAŞTIRMA HASTANESİ KARŞISI NO:5/A ALANYA",
+      "phone": "0(242) 538-91-99"
+    },
+    {
+      "title": "ANILGAN ECZANESİ",
+      "details": "Дежурная аптека (MAHMUTLAR)",
+      "address": "MAHMUTLAR MAH. 4 YOL MEVKİİ, GOLD CİTY OTEL KAVŞAĞI DORİS AYTUR OTEL KARŞISI",
+      "phone": "0(242) 528-62-00"
+    },
+    {
+      "title": "YENİ MEVLANA ECZANESİ",
+      "details": "Дежурная аптека (KONAKLI)",
+      "address": "KALE MAH. ALAADDIN KEYKUBAT BULVARI NO:6/B",
+      "phone": "0(242) 565-36-00"
+    }
+  ]
+}

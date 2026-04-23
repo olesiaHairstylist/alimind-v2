@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from app.modules.city_events.storage.schema import CityEventItem
+from app.modules import CityEventItem
 
 
 def clean_text(value: str | None) -> str:

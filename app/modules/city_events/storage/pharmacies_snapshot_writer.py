@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 from typing import Iterable
 
-from app.modules.city_events.sources.pharmacies_api import fetch_pharmacies_raw_by_region
-from app.modules.city_events.sources.pharmacies_adapter import adapt_pharmacies_raw
+from app.modules import fetch_pharmacies_raw_by_region
+from app.modules import adapt_pharmacies_raw
 
 
 OUTPUT_FILE = Path("app/data/sources/pharmacies_snapshot.json")

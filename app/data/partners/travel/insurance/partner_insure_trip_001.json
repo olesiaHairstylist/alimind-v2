@@ -1,0 +1,50 @@
+{
+  "id": "partner_insure_trip_001",
+  "title": {
+    "ru": "SafeTrip Insurance",
+    "en": "SafeTrip Insurance",
+    "tr": "SafeTrip Insurance"
+  },
+  "category": "partner_travel",
+  "subcategory": "insurance",
+  "status": "active",
+  "is_partner": true,
+  "partner_type": "cpa",
+  "geo_scope": "global",
+  "route_scope": {
+    "origins": [],
+    "destinations": [],
+    "airports": [],
+    "countries": [],
+    "match_mode": "any"
+  },
+  "offer_title": {
+    "ru": "Страховка поездки онлайн",
+    "en": "Online travel insurance",
+    "tr": "Online seyahat sigortasi"
+  },
+  "offer_text": {
+    "ru": "Быстрый расчёт и оформление страховки перед поездкой.",
+    "en": "Quick quote and travel insurance purchase before your trip.",
+    "tr": "Yolculuk oncesi hizli teklif ve seyahat sigortasi satin alma."
+  },
+  "action_type": "url",
+  "action_value": "https://example.com/insurance",
+  "contact": {
+    "name": "Partner Manager",
+    "telegram": "@partner_insurance_support",
+    "whatsapp": "",
+    "phone": "",
+    "email": "insurance@example.com"
+  },
+  "priority": 100,
+  "tags": ["travel", "insurance", "international"],
+  "languages": ["ru", "en", "tr"],
+  "disclosure": {
+    "ru": "Партнёрское предложение",
+    "en": "Partner offer",
+    "tr": "Partner teklifi"
+  },
+  "created_at": "2026-04-12T10:00:00+03:00",
+  "updated_at": "2026-04-12T10:00:00+03:00"
+}

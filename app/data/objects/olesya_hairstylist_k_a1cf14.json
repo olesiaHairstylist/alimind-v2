@@ -1,0 +1,36 @@
+{
+  "id": "olesya_hairstylist_k_a1cf14",
+  "title": {
+    "ru": "Olesya Hairstylist — холодный блонд и сложное окрашивание",
+    "en": "Olesya Hairstylist — cool blonde and advanced coloring",
+    "tr": "Olesya Hairstylist — soguk sarı ve ileri seviye sac boyama"
+  },
+  "category": "beauty",
+  "subcategory": "hair",
+  "description_short": {
+    "ru": "Холодный блонд и сложное окрашивание с гарантией качества.",
+    "en": "Cool blonde and advanced coloring with guaranteed quality.",
+    "tr": "Kalite garantili soguk sarı ve ileri seviye sac boyama."
+  },
+  "description_full": {
+    "ru": "Работа с любым типом волос. Холодный блонд, сложные техники окрашивания, восстановление и уход.",
+    "en": "Work with any hair type. Cool blonde, advanced coloring techniques, restoration, and care.",
+    "tr": "Her sac tipiyle calısılır. Soguk sarı, ileri seviye boyama teknikleri, onarım ve bakım."
+  },
+  "location": {
+    "ru": "Alanya, Mahmutlar",
+    "en": "Alanya, Mahmutlar",
+    "tr": "Alanya, Mahmutlar"
+  },
+  "contact": {
+    "ru": "@olesya_hair_mahmutlar",
+    "en": "@olesya_hair_mahmutlar",
+    "tr": "@olesya_hair_mahmutlar"
+  },
+  "image_url": "",
+  "image_path": "app/data/object_photos/olesya_hairstylist_k_a1cf14.jpg",
+  "languages": [
+    "ru"
+  ],
+  "is_partner": true
+}

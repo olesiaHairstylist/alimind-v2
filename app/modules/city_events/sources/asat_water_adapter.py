@@ -9,7 +9,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 from app.modules.city_events.contracts.categories import CityEventCategory
-from app.modules.city_events.parsers.water_cards import parse_water_items_from_html
+from app.modules.city_events.parsers.asat_water_parser import parse_water_items_from_html
 from app.modules.city_events.storage.schema import CityEventPayload
 from app.modules.city_events.storage.writer import write_payload
 

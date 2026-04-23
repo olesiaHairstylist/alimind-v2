@@ -1,0 +1,268 @@
+{
+  "watchdog_version": "v1",
+  "timestamp": "2026-04-10T13:03:44.694759+00:00",
+  "overall_status": "error",
+  "summary": {
+    "json_dirs_status": "ok",
+    "object_files_status": "ok",
+    "router_modules_status": "error",
+    "callback_contracts_status": "warning",
+    "findings_count": 6
+  },
+  "findings": [
+    {
+      "status": "error",
+      "code": "router_import_failed",
+      "message": "Router module import failed.",
+      "module": "app.modules.language.handlers",
+      "error": "No module named 'app.modules.language'"
+    },
+    {
+      "status": "warning",
+      "code": "callback_answer_missing",
+      "message": "Callback handler source does not contain callback.answer().",
+      "module": "app.modules.city_events.ui.handlers",
+      "function": "open_pharmacies"
+    },
+    {
+      "status": "warning",
+      "code": "callback_answer_missing",
+      "message": "Callback handler source does not contain callback.answer().",
+      "module": "app.modules.city_events.ui.handlers",
+      "function": "open_electricity"
+    },
+    {
+      "status": "warning",
+      "code": "callback_answer_missing",
+      "message": "Callback handler source does not contain callback.answer().",
+      "module": "app.modules.city_events.ui.handlers",
+      "function": "open_water"
+    },
+    {
+      "status": "warning",
+      "code": "callback_answer_missing",
+      "message": "Callback handler source does not contain callback.answer().",
+      "module": "app.modules.city_events.ui.handlers",
+      "function": "open_emergency"
+    },
+    {
+      "status": "warning",
+      "code": "button_handler_missing",
+      "message": "Button callback exists in main menu but matching handler was not found.",
+      "callback_data": "main:info",
+      "module": "app.handlers.start"
+    }
+  ],
+  "details": {
+    "json_dirs": {
+      "directories": [
+        {
+          "path": "app/data/public",
+          "exists": true,
+          "json_files_count": 5,
+          "status": "ok"
+        },
+        {
+          "path": "app/data/system/health",
+          "exists": true,
+          "json_files_count": 1,
+          "status": "ok"
+        },
+        {
+          "path": "app/data/objects",
+          "exists": true,
+          "json_files_count": 3,
+          "status": "ok"
+        }
+      ]
+    },
+    "object_files": {
+      "files": [
+        {
+          "path": "app/data/objects/olesya_hairstylist_k_a1cf14.json",
+          "status": "ok"
+        },
+        {
+          "path": "app/data/objects/perevodchik_dokument_21da9d.json",
+          "status": "ok"
+        },
+        {
+          "path": "app/data/objects/trener_po_boksu_5c1cc6.json",
+          "status": "ok"
+        }
+      ]
+    },
+    "router_modules": {
+      "modules": [
+        {
+          "module": "app.handlers.start",
+          "import_status": "ok",
+          "router_found": true,
+          "handlers_count": 2,
+          "error": null
+        },
+        {
+          "module": "app.modules.language.handlers",
+          "import_status": "error",
+          "router_found": false,
+          "handlers_count": null,
+          "error": "No module named 'app.modules.language'"
+        },
+        {
+          "module": "app.modules.directory.router",
+          "import_status": "ok",
+          "router_found": true,
+          "handlers_count": 1,
+          "error": null
+        },
+        {
+          "module": "app.modules.city_events.ui.router",
+          "import_status": "ok",
+          "router_found": true,
+          "handlers_count": 7,
+          "error": null
+        },
+        {
+          "module": "app.modules.admin.handlers.admin_health",
+          "import_status": "ok",
+          "router_found": true,
+          "handlers_count": 1,
+          "error": null
+        },
+        {
+          "module": "app.modules.admin.handlers.admin_help",
+          "import_status": "ok",
+          "router_found": true,
+          "handlers_count": 1,
+          "error": null
+        }
+      ]
+    },
+    "callback_contracts": {
+      "directory": {
+        "status": "ok",
+        "findings": [],
+        "details": {
+          "imports": {
+            "callbacks": null,
+            "menu": null,
+            "category": null,
+            "subcategory": null,
+            "object": null
+          },
+          "callback_checks": {
+            "DIRECTORY_MENU_CB": true,
+            "build_directory_category_cb": true,
+            "build_directory_subcategory_cb": true,
+            "build_directory_open_cb": true
+          },
+          "callback_answer_checks": [
+            {
+              "module": "app.modules.directory.handlers.menu",
+              "function": "open_directory_menu",
+              "callback_answer_present": true
+            },
+            {
+              "module": "app.modules.directory.handlers.category",
+              "function": "open_directory_category",
+              "callback_answer_present": true
+            },
+            {
+              "module": "app.modules.directory.handlers.subcategory",
+              "function": "open_directory_subcategory",
+              "callback_answer_present": true
+            },
+            {
+              "module": "app.modules.directory.handlers.object",
+              "function": "open_directory_object",
+              "callback_answer_present": true
+            }
+          ]
+        }
+      },
+      "city_events": {
+        "status": "warning",
+        "findings": [
+          {
+            "status": "warning",
+            "code": "callback_answer_missing",
+            "message": "Callback handler source does not contain callback.answer().",
+            "module": "app.modules.city_events.ui.handlers",
+            "function": "open_pharmacies"
+          },
+          {
+            "status": "warning",
+            "code": "callback_answer_missing",
+            "message": "Callback handler source does not contain callback.answer().",
+            "module": "app.modules.city_events.ui.handlers",
+            "function": "open_electricity"
+          },
+          {
+            "status": "warning",
+            "code": "callback_answer_missing",
+            "message": "Callback handler source does not contain callback.answer().",
+            "module": "app.modules.city_events.ui.handlers",
+            "function": "open_water"
+          },
+          {
+            "status": "warning",
+            "code": "callback_answer_missing",
+            "message": "Callback handler source does not contain callback.answer().",
+            "module": "app.modules.city_events.ui.handlers",
+            "function": "open_emergency"
+          },
+          {
+            "status": "warning",
+            "code": "button_handler_missing",
+            "message": "Button callback exists in main menu but matching handler was not found.",
+            "callback_data": "main:info",
+            "module": "app.handlers.start"
+          }
+        ],
+        "details": {
+          "imports": {
+            "callbacks": null,
+            "router": null,
+            "handlers": null,
+            "start": null
+          },
+          "callback_checks": {
+            "CITY_EVENTS_MENU_CB": true,
+            "CITY_EVENTS_BACK_CB": true,
+            "CITY_EVENTS_PHARMACIES_CB": true,
+            "CITY_EVENTS_ELECTRICITY_CB": true,
+            "CITY_EVENTS_WATER_CB": true,
+            "CITY_EVENTS_EMERGENCY_CB": true
+          },
+          "callback_answer_checks": [
+            {
+              "module": "app.modules.city_events.ui.handlers",
+              "function": "open_city_events_menu",
+              "callback_answer_present": true
+            },
+            {
+              "module": "app.modules.city_events.ui.handlers",
+              "function": "open_pharmacies",
+              "callback_answer_present": false
+            },
+            {
+              "module": "app.modules.city_events.ui.handlers",
+              "function": "open_electricity",
+              "callback_answer_present": false
+            },
+            {
+              "module": "app.modules.city_events.ui.handlers",
+              "function": "open_water",
+              "callback_answer_present": false
+            },
+            {
+              "module": "app.modules.city_events.ui.handlers",
+              "function": "open_emergency",
+              "callback_answer_present": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}

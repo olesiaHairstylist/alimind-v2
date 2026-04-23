@@ -1,0 +1,106 @@
+{
+  "rotation_demo": {
+    "seen": {
+      "partner_insure_trip_001": {
+        "count": 2,
+        "last_shown_at": "2026-04-12T10:48:17.404111+00:00"
+      },
+      "partner_airport_transfer_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T10:48:17.391575+00:00"
+      },
+      "partner_esim_global_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T10:48:17.404111+00:00"
+      }
+    }
+  },
+  "geo_user": {
+    "seen": {
+      "partner_insure_trip_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T11:41:44.001336+00:00"
+      },
+      "partner_esim_global_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T11:41:44.001336+00:00"
+      }
+    }
+  },
+  "rotation_user": {
+    "seen": {
+      "partner_airport_transfer_001": {
+        "count": 2,
+        "last_shown_at": "2026-04-12T11:42:06.447317+00:00"
+      },
+      "partner_insure_trip_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T11:42:06.431717+00:00"
+      },
+      "partner_esim_global_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T11:42:06.447317+00:00"
+      }
+    }
+  },
+  "rotation_user_3": {
+    "seen": {
+      "partner_airport_transfer_001": {
+        "count": 3,
+        "last_shown_at": "2026-04-12T12:27:03.907003+00:00"
+      },
+      "partner_insure_trip_001": {
+        "count": 2,
+        "last_shown_at": "2026-04-12T12:27:03.907003+00:00"
+      },
+      "partner_esim_global_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T12:27:03.881935+00:00"
+      }
+    }
+  },
+  "demo": {
+    "seen": {
+      "partner_airport_transfer_001": {
+        "count": 66,
+        "last_shown_at": "2026-04-14T16:03:56.021045+00:00"
+      },
+      "partner_insure_trip_001": {
+        "count": 66,
+        "last_shown_at": "2026-04-14T16:03:55.988113+00:00"
+      },
+      "partner_esim_global_001": {
+        "count": 66,
+        "last_shown_at": "2026-04-14T16:03:56.021045+00:00"
+      }
+    }
+  },
+  "anti_dom_user": {
+    "seen": {
+      "partner_airport_transfer_001": {
+        "count": 4,
+        "last_shown_at": "2026-04-12T12:35:11.985904+00:00"
+      },
+      "partner_insure_trip_001": {
+        "count": 4,
+        "last_shown_at": "2026-04-12T12:35:12.013476+00:00"
+      },
+      "partner_esim_global_001": {
+        "count": 4,
+        "last_shown_at": "2026-04-12T12:35:12.013476+00:00"
+      }
+    }
+  },
+  "123456": {
+    "seen": {
+      "partner_airport_transfer_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T13:07:58.410459+00:00"
+      },
+      "partner_insure_trip_001": {
+        "count": 1,
+        "last_shown_at": "2026-04-12T13:07:58.410459+00:00"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "partner_esim_global_001",
+  "title": {
+    "ru": "Global eSIM Connect",
+    "en": "Global eSIM Connect",
+    "tr": "Global eSIM Connect"
+  },
+  "category": "partner_travel",
+  "subcategory": "esim",
+  "status": "active",
+  "is_partner": true,
+  "partner_type": "cpa",
+  "geo_scope": "global",
+  "route_scope": {
+    "origins": [],
+    "destinations": [],
+    "airports": [],
+    "countries": [],
+    "match_mode": "any"
+  },
+  "offer_title": {
+    "ru": "eSIM для поездки",
+    "en": "Travel eSIM",
+    "tr": "Seyahat icin eSIM"
+  },
+  "offer_text": {
+    "ru": "Подключите интернет до вылета и оставайтесь на связи сразу после прилёта.",
+    "en": "Activate mobile internet before departure and stay connected right after arrival.",
+    "tr": "Ucustan once mobil internetinizi aktif edin ve iner inmez bagli kalin."
+  },
+  "action_type": "url",
+  "action_value": "https://example.com/esim",
+  "contact": {
+    "name": "eSIM Support",
+    "telegram": "@esim_support_partner",
+    "whatsapp": "",
+    "phone": "",
+    "email": "esim@example.com"
+  },
+  "priority": 80,
+  "tags": ["travel", "esim", "internet", "mobile"],
+  "languages": ["ru", "en", "tr"],
+  "disclosure": {
+    "ru": "Партнёрское предложение",
+    "en": "Partner offer",
+    "tr": "Partner teklifi"
+  },
+  "created_at": "2026-04-12T10:00:00+03:00",
+  "updated_at": "2026-04-12T10:00:00+03:00"
+}

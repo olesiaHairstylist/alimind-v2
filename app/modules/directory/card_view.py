@@ -1,39 +1,50 @@
+from __future__ import annotations
+
 import json
-import os
+from pathlib import Path
 
 from aiogram.types import InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-DATA_PATH = "app/data/objects"
+from app.core.text import get_text
+
+DATA_PATH = Path("app/data/objects")
 
 
-def load_object_by_id(object_id: str):
-    filename = f"{object_id}.json"
-    full_path = os.path.join(DATA_PATH, filename)
+def load_object_by_id(object_id: str) -> dict | None:
+    file_path = DATA_PATH / f"{object_id}.json"
 
-    if not os.path.exists(full_path):
+    print("DEBUG OBJECT ID:", object_id)
+    print("DEBUG PATH:", file_path.resolve())
+
+    if not file_path.exists():
+        print("DEBUG ERROR: FILE NOT FOUND")
         return None
 
-    with open(full_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    with file_path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    print("DEBUG FILE DATA:", data)
+    return data
 
 
-def render_object_card(obj: dict) -> str:
-    lines = []
+def render_object_card(obj: dict, lang: str = "ru") -> str:
+    lines: list[str] = []
 
-    lines.append(obj.get("title", "Без названия"))
+    title = get_text(obj.get("title"), lang) or "Без названия"
+    lines.append(title)
     lines.append("")
 
-    description_full = obj.get("description_full")
-    if description_full:
-        lines.append(description_full)
+    description = get_text(obj.get("description_short"), lang) or get_text(obj.get("description_full"), lang)
+    if description:
+        lines.append(description)
         lines.append("")
 
-    location = obj.get("location")
+    location = get_text(obj.get("location"), lang)
     if location:
         lines.append(f"📍 Локация: {location}")
 
-    contact = obj.get("contact")
+    contact = get_text(obj.get("contact"), lang)
     if contact:
         lines.append(f"💬 Контакт: {contact}")
 

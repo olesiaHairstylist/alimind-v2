@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from app.modules.city_events.parsers.electricity_cards import normalize_electricity_payload
-from app.modules.city_events.render.event_card import render_city_event_card
+from app.modules import normalize_electricity_payload
+from app.modules import render_city_event_card
 
 
 def render_electricity_cards(payload: dict[str, Any]) -> str:

@@ -1,0 +1,32 @@
+{
+  "id": "trener_po_boksu_5c1cc6 ",
+  "title": {
+    "ru": "Тренер по боксу",
+    "en": "Boxing trainer",
+    "tr": "Boks antrenörü"
+  },
+  "category": "sport",
+  "subcategory": "boxing",
+  "description_short": {
+    "ru": "Персональные тренировки по боксу",
+    "en": "Personal boxing training",
+    "tr": "Kişisel boks antrenmanları"
+  },
+  "description_full": {
+    "ru": "Подготовка к соревнованиям, техника, выносливость",
+    "en": "Competition preparation, technique, endurance",
+    "tr": "Müsabaka hazırlığı, teknik ve dayanıklılık"
+  },
+  "location": {
+    "ru": "Alanya",
+    "en": "Alanya",
+    "tr": "Alanya"
+  },
+  "contact": {
+    "ru": "@Farid8891",
+    "en": "@Farid8891",
+    "tr": "@Farid8891"
+  },
+  "languages": ["ru"],
+  "is_partner": false
+}

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from app.modules.city_events.contracts.event_card import CityEventCard
+from app.modules import CityEventCard
 
 
 def render_city_event_card(event: CityEventCard) -> str:

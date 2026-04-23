@@ -1,0 +1,50 @@
+{
+  "id": "partner_airport_transfer_001",
+  "title": {
+    "ru": "Airport Transfer Pro",
+    "en": "Airport Transfer Pro",
+    "tr": "Airport Transfer Pro"
+  },
+  "category": "partner_travel",
+  "subcategory": "transfer",
+  "status": "active",
+  "is_partner": true,
+  "partner_type": "hybrid",
+  "geo_scope": "airport",
+  "route_scope": {
+    "origins": [],
+    "destinations": [],
+    "airports": ["AYT", "IST", "SAW", "SVO", "VKO"],
+    "countries": [],
+    "match_mode": "any"
+  },
+  "offer_title": {
+    "ru": "Трансфер из аэропорта",
+    "en": "Airport transfer",
+    "tr": "Havalimani transferi"
+  },
+  "offer_text": {
+    "ru": "Заказ трансфера заранее с фиксированной подачей.",
+    "en": "Pre-book your airport transfer with a fixed pickup arrangement.",
+    "tr": "Havalimani transferinizi onceden sabit karsilama ile ayirtin."
+  },
+  "action_type": "telegram",
+  "action_value": "@airport_transfer_partner",
+  "contact": {
+    "name": "Transfer Desk",
+    "telegram": "@airport_transfer_partner",
+    "whatsapp": "+900000000000",
+    "phone": "+900000000000",
+    "email": "transfer@example.com"
+  },
+  "priority": 90,
+  "tags": ["travel", "transfer", "airport", "pickup"],
+  "languages": ["ru", "en", "tr"],
+  "disclosure": {
+    "ru": "Партнёрское предложение",
+    "en": "Partner offer",
+    "tr": "Partner teklifi"
+  },
+  "created_at": "2026-04-12T10:00:00+03:00",
+  "updated_at": "2026-04-12T10:00:00+03:00"
+}

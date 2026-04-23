@@ -1,0 +1,22 @@
+{
+  "category": "emergency",
+  "updated_at": "2026-03-25 18:24",
+  "status": "ok",
+  "items": [
+    {
+      "title": "112 Acil Çağrı Merkezi",
+      "details": "Единый экстренный номер",
+      "phone": "112"
+    },
+    {
+      "title": "Пожарная служба",
+      "details": "Пожарная помощь",
+      "phone": "110"
+    },
+    {
+      "title": "Полиция",
+      "details": "Полиция / экстренный вызов",
+      "phone": "155"
+    }
+  ]
+}

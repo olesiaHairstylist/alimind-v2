@@ -1,36 +1,36 @@
 {
   "category": "pharmacies",
-  "updated_at": "2026-03-23 19:56",
+  "updated_at": "2026-03-25 18:32",
   "items": [
     {
-      "title": "AYYÜCE ECZANESİ",
+      "title": "ŞİRİN ECZANESİ",
       "details": "Дежурная аптека (ALANYA MERKEZ)",
-      "address": "SARAY MAH. BAŞKENT HASTANESİ YANI NO:13 ALANYA",
-      "phone": "0(242) 511-15-61"
+      "address": "SARAY MH. YUNUS EMRE CD. BASKENT HASTANESI YANI",
+      "phone": "0(242) 513-14-16"
     },
     {
-      "title": "SAĞLIK ECZANESİ",
+      "title": "CADDE ECZANESİ",
       "details": "Дежурная аптека (ALANYA MERKEZ)",
-      "address": "KADIPASA MAH. IKIZLER SOK. 2 NOLU SAGLIK OCAGI KARSISI",
-      "phone": "0(242) 513-66-67"
+      "address": "ŞEKERHANE MAH.ALAİYE CAD. NO:91/B NÜFUS MÜDÜRLÜĞÜ CADDESİ MİGROS KARŞISI",
+      "phone": "0(242) 513-64-64"
     },
     {
-      "title": "EYUP ECZANESİ",
+      "title": "LAVANTA ECZANESİ",
       "details": "Дежурная аптека (ALANYA MERKEZ)",
-      "address": "CİKCİLLİ SAĞLIK OCAĞI KARŞISI ALANYUM ALIŞVERİŞ MERKEZİ ÜSTÜ",
-      "phone": "0(242) 515-31-30"
+      "address": "ALANYA AĞIZ VE DİŞ SAĞLIĞI MERKEZİ(DİŞ HASTANESİ) GİRİŞİ KARŞISI, DEVLET HASTANESİ ARKASI",
+      "phone": "0(242) 565-37-54"
     },
     {
-      "title": "LOTUS ECZANESİ",
+      "title": "MİRA ECZANESİ",
       "details": "Дежурная аптека (MAHMUTLAR)",
-      "address": "MAHMUTLAR MAH. MENDERES BULVARI SARUHAN APT. 16/D GARİP RESTAURANT YANI",
-      "phone": "0(540) 090-39-90"
+      "address": "KARGICAK MAH. GAZİPAŞA CAD. NO:11E ALANYA",
+      "phone": "0(242) 526-21-20"
     },
     {
-      "title": "ÖRS ECZANESİ",
+      "title": "MERCAN ECZANESİ",
       "details": "Дежурная аптека (KONAKLI)",
-      "address": "KONAKLI MAH. FATİH CAD. NO:156/A (KONAKLI SAĞLIK OCAĞI KARŞISI)",
-      "phone": "0(242) 565-11-72"
+      "address": "İSTİKLAL CADDESİ HAL YOLU ÜZERİ DENİZBANK VE GARANTİ BANKASI KARŞISI KONAKLI/ALANYA",
+      "phone": "0(242) 565-32-85"
     }
   ]
 }

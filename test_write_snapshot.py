@@ -1,5 +1,5 @@
-from app.modules.city_events.storage.pharmacies_snapshot_writer import write_pharmacies_snapshot
-from app.modules.directory.category_menu import build_directory_category_menu
+from app.modules import write_pharmacies_snapshot
+from app.modules import build_directory_category_menu
 
 path = write_pharmacies_snapshot(["2", "3", "5", "9"])
 

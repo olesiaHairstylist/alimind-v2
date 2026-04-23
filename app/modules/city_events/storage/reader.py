@@ -1,26 +1,10 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from app.modules.city_events.contracts.categories import CityEventCategory
-
-
-@dataclass
-class CityEventItem:
-    title: str
-    details: str
-    address: str
-    phone: str
-
-
-@dataclass
-class CityEventPayload:
-    category: str
-    updated_at: str
-    items: list[CityEventItem]
-
 
 CATEGORY_FILE_MAP: dict[CityEventCategory, str] = {
     CityEventCategory.PHARMACIES: "duty_pharmacies.json",
@@ -30,7 +14,7 @@ CATEGORY_FILE_MAP: dict[CityEventCategory, str] = {
 }
 
 
-def read_payload(data_dir: Path, category: CityEventCategory) -> CityEventPayload | None:
+def read_payload(data_dir: Path, category: CityEventCategory) -> dict[str, Any] | None:
     filename = CATEGORY_FILE_MAP.get(category)
     if filename is None:
         return None
@@ -42,18 +26,28 @@ def read_payload(data_dir: Path, category: CityEventCategory) -> CityEventPayloa
     with file_path.open("r", encoding="utf-8") as f:
         raw = json.load(f)
 
-    items = [
-        CityEventItem(
-            title=item.get("title", ""),
-            details=item.get("details", ""),
-            address=item.get("address", ""),
-            phone=item.get("phone", ""),
-        )
-        for item in raw.get("items", [])
-    ]
+    if not isinstance(raw, dict):
+        return None
 
-    return CityEventPayload(
-        category=raw.get("category", category.value),
-        updated_at=raw.get("updated_at", ""),
-        items=items,
-    )
+    items = raw.get("items", [])
+    if not isinstance(items, list):
+        items = []
+
+    normalized_items: list[dict[str, str]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        normalized_items.append(
+            {
+                "title": str(item.get("title", "")).strip(),
+                "details": str(item.get("details", "")).strip(),
+                "address": str(item.get("address", "")).strip(),
+                "phone": str(item.get("phone", "")).strip(),
+            }
+        )
+
+    return {
+        "category": str(raw.get("category", category.value)).strip(),
+        "updated_at": str(raw.get("updated_at", "")).strip(),
+        "items": normalized_items,
+    }

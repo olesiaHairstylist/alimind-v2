@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 from aiogram.types import InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
 
 
 def build_language_kb() -> InlineKeyboardMarkup:

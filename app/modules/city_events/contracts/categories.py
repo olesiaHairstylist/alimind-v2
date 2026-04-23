@@ -1,4 +1,4 @@
-# app/modules/city_events/contracts/categories.py
+from __future__ import annotations
 
 from enum import Enum
 

@@ -2,16 +2,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
-from app.modules.city_events.contracts.categories import ALL_CATEGORIES, CityEventCategory
-from app.modules.city_events.storage.reader import read_payload
-from app.modules.city_events.storage.schema import CityEventPayload
 
+from app.modules.city_events.contracts.categories import (
+    ALL_CATEGORIES,
+    CityEventCategory,
+)
 
 @dataclass(slots=True)
 class FeedEntry:
     category: CityEventCategory
-    payload: CityEventPayload | None
+    payload: dict[str, Any] | None
 
 
 def build_city_events_feed(data_dir: Path) -> list[FeedEntry]:

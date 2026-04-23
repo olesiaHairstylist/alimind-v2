@@ -1,11 +1,33 @@
+from __future__ import annotations
+
+import json
 import re
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 import requests
 from bs4 import BeautifulSoup
 
+from app.data.system.source_health_contracts import (
+    health_ok,
+    health_error,
+    ErrorCode,
+)
+from app.data.system.health_writer import write_health
+
+
+APP_DIR = Path(__file__).resolve().parents[3]
+RAW_FILE = APP_DIR / "data" / "sources" / "pharmacies_raw.json"
 
 URL = "https://www.alanyaeo.org.tr/tr/nobetci-eczaneler"
-
 PHONE_RE = re.compile(r"0\(\d{3}\)\s*\d{3}-\d{2}-\d{2}")
+
+ISTANBUL_TZ = ZoneInfo("Europe/Istanbul")
+
+
+def now_tr_iso() -> str:
+    return datetime.now(ISTANBUL_TZ).isoformat()
 
 
 def _clean(text: str) -> str:
@@ -18,7 +40,6 @@ def fetch_pharmacies_from_html() -> list[dict]:
 
     soup = BeautifulSoup(resp.text, "html.parser")
 
-    # Берём основной текстовый поток страницы
     lines: list[str] = []
     for s in soup.stripped_strings:
         text = _clean(str(s))
@@ -27,7 +48,6 @@ def fetch_pharmacies_from_html() -> list[dict]:
 
     items: list[dict] = []
 
-    # Ищем начало нужного блока
     try:
         start = lines.index("Nöbetçi Eczane Listesi") + 1
     except ValueError:
@@ -39,7 +59,6 @@ def fetch_pharmacies_from_html() -> list[dict]:
     while i < len(lines):
         line = lines[i]
 
-        # стоп на следующем большом блоке страницы
         if line in {
             "Türk Eczacıları Birliği",
             "Eczacı Odaları",
@@ -58,7 +77,6 @@ def fetch_pharmacies_from_html() -> list[dict]:
         }:
             break
 
-        # район: обычно UPPERCASE и не телефон
         if (
             line == line.upper()
             and not PHONE_RE.fullmatch(line)
@@ -69,7 +87,6 @@ def fetch_pharmacies_from_html() -> list[dict]:
             i += 1
             continue
 
-        # запись аптеки: название + следующий телефон + потом адрес
         if "ECZANESİ" in line:
             name = line
             phone = ""
@@ -96,3 +113,66 @@ def fetch_pharmacies_from_html() -> list[dict]:
         i += 1
 
     return items
+
+
+def save_raw(data: list[dict]) -> Path:
+    RAW_FILE.parent.mkdir(parents=True, exist_ok=True)
+    RAW_FILE.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    return RAW_FILE
+
+
+def write_pharmacies_health(items: list[dict]) -> None:
+    if not items:
+        write_health(
+            health_error(
+                source_name="pharmacies",
+                error_code=ErrorCode.INVALID_PAYLOAD,
+                error_details="No pharmacy items parsed from HTML source",
+            )
+        )
+        return
+
+    write_health(
+        health_ok(
+            source_name="pharmacies",
+            items_count=len(items),
+            updated_at=now_tr_iso(),
+        )
+    )
+
+
+def write_pharmacies_health_error(error: Exception) -> None:
+    error_code = ErrorCode.TIMEOUT if isinstance(error, requests.Timeout) else ErrorCode.FETCH_FAILED
+
+    write_health(
+        health_error(
+            source_name="pharmacies",
+            error_code=error_code,
+            error_details=str(error),
+        )
+    )
+
+
+def run_fetch() -> Path:
+    try:
+        data = fetch_pharmacies_from_html()
+        print("FETCHED:", len(data))
+
+        path = save_raw(data)
+        write_pharmacies_health(data)
+
+        return path
+
+    except Exception as e:
+        write_pharmacies_health_error(e)
+        print("FETCH ERROR:", e)
+        raise
+
+
+if __name__ == "__main__":
+    path = run_fetch()
+    print("RAW SAVED:", path)
+    print("ABS:", path.resolve())
