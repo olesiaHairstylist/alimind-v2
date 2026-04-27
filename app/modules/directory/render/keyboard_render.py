@@ -102,15 +102,37 @@ def build_directory_object_back_kb(
     category_id: str,
     subcategory_id: str,
     lang: str = "ru",
+    object_id: str | None = None,
+    has_maps: bool = False,
+    instagram_url: str | None = None,
 ) -> InlineKeyboardMarkup:
+    print("DEBUG MAP BUTTON:", has_maps, object_id)
     b = InlineKeyboardBuilder()
     texts = _nav_texts(lang)
 
+    # 📍 КНОПКА КАРТЫ (первая строка)
+    if has_maps and object_id:
+        b.button(
+            text="📍 Как добраться",
+            callback_data=f"maps:open:{object_id}",
+        )
+    if instagram_url:
+        b.button(
+            text="📷 Instagram",
+            url=instagram_url,
+        )
+
+    # 🔙 Назад
     b.button(
         text=texts["back"],
         callback_data=build_directory_subcategory_cb(category_id, subcategory_id),
     )
-    b.button(text=texts["main_menu"], callback_data="main:menu")
+
+    # 🏠 Главное меню
+    b.button(
+        text=texts["main_menu"],
+        callback_data="main:menu",
+    )
 
     b.adjust(1)
 

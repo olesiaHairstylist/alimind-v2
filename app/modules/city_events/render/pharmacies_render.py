@@ -6,7 +6,44 @@ from typing import Any
 TITLE = "💊 Дежурные аптеки"
 
 
-def render_pharmacies(payload: dict[str, Any]) -> str:
+def _clean_text(value: str, limit: int = 95) -> str:
+    value = (value or "").strip()
+
+    if len(value) > limit:
+        value = value[:limit].rsplit(" ", 1)[0] + "..."
+
+    return value
+
+
+def _extract_district(address: str) -> str:
+    if not address:
+        return ""
+
+    lower = address.lower()
+
+    districts = {
+        "mahmutlar": "Mahmutlar",
+        "oba": "Oba",
+        "kadipaşa": "Kadipaşa",
+        "kadipasa": "Kadipaşa",
+        "kale": "Kale",
+        "saray": "Saray",
+        "cikcilli": "Cikcilli",
+        "tosmur": "Tosmur",
+        "kestel": "Kestel",
+        "konaklı": "Konaklı",
+        "konakli": "Konaklı",
+        "avsallar": "Avsallar",
+    }
+
+    for key, label in districts.items():
+        if key in lower:
+            return label
+
+    return ""
+
+
+def render_pharmacies(payload: dict[str, Any], lang: str = "ru") -> str:
     if not payload:
         return f"{TITLE}\n\nНет данных"
 
@@ -16,25 +53,30 @@ def render_pharmacies(payload: dict[str, Any]) -> str:
     if status == "empty":
         return f"{TITLE}\n\nСегодня данных нет"
 
-    lines: list[str] = ["💊 Дежурные аптеки", ""]
+    lines: list[str] = [TITLE, ""]
 
     for idx, item in enumerate(items, start=1):
-        title = item.get("title", "")
-        details = item.get("details", "")
-        address = item.get("address", "")
+        title = _clean_text(item.get("title", ""), 60)
+        details = _clean_text(item.get("details", ""), 95)
+        address = _clean_text(item.get("address", ""), 95)
         phone = item.get("phone", "")
 
-        lines.append(f"{idx}. {title}")
+        district = _extract_district(address)
 
-        if details:
-            lines.append(f"{details}")
+        lines.append(f"{idx}) {title}")
+
+        if district:
+            lines.append(f"📍 Район: {district}")
 
         if address:
-            lines.append(f"📍 {address}")
+            lines.append(f"🏠 Адрес: {address}")
+
+        if details:
+            lines.append(f"🧭 Как найти: {details}")
 
         if phone:
             lines.append(f"📞 {phone}")
 
-        lines.append("")  # отступ между карточками
+        lines.append("")
 
     return "\n".join(lines).strip()

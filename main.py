@@ -20,6 +20,8 @@ from app.modules.city_events.ui.router import router as city_events_router
 from app.modules.core.language.handler import router as language_router
 from app.modules.directory.router import router as directory_router
 from app.modules.phrasebook.router import router as phrasebook_router
+from app.modules.maps.handlers import router as maps_router
+from app.modules.watchdog.service import run_watchdog
 from app.modules.partners.handlers.tickets_preview_click import (
     router as tickets_preview_partner_click_router,
 )
@@ -53,17 +55,14 @@ async def main() -> None:
     dp.include_router(language_router)
     dp.include_router(directory_router)
     dp.include_router(sea_status_router)
-
+    dp.include_router(maps_router)
     dp.include_router(phrasebook_router)
     dp.include_router(tickets_preview_partner_click_router)
     dp.include_router(city_events_router)
     dp.include_router(admin_health_router)
     dp.include_router(admin_help_router)
 
-
-
-
-
+    await run_watchdog(bot)
 
     await dp.start_polling(bot)
 

@@ -4,7 +4,9 @@ from pathlib import Path
 from typing import Any
 
 from aiogram.types import CallbackQuery
-
+from urllib.parse import quote_plus
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+from app.modules.city_events.ui.callbacks import CITY_EVENTS_BACK_CB
 from app.modules.city_events.contracts.categories import CityEventCategory
 from app.modules.city_events.render.keyboard_render import (
     build_city_events_back_kb,
@@ -58,7 +60,26 @@ def _menu_text(lang: str) -> str:
         "en": "City Events\n\nChoose a section:",
         "tr": "Şehir Etkinlikleri\n\nBir bölüm seçin:",
     }.get(lang, "События города\n\nВыберите раздел:")
+def build_pharmacies_action_kb(items: list[dict[str, Any]], lang: str):
+    b = InlineKeyboardBuilder()
 
+    labels = {
+        "ru": {"back": "⬅️ Назад"},
+        "en": {"back": "⬅️ Back"},
+        "tr": {"back": "⬅️ Geri"},
+    }.get(lang, {"back": "⬅️ Назад"})
+
+    for idx, item in enumerate(items, start=1):
+        title = item.get("title") or item.get("name") or f"Аптека {idx}"
+        address = item.get("address", "")
+        query = f"{title} {address} Alanya"
+        url = f"https://www.google.com/maps/search/?api=1&query={quote_plus(query)}"
+
+        b.button(text=f"📍 {idx}. {title[:28]}", url=url)
+
+    b.button(text=labels["back"], callback_data=CITY_EVENTS_BACK_CB)
+    b.adjust(1)
+    return b.as_markup()
 
 async def open_city_events_menu(callback: CallbackQuery) -> None:
     lang = _get_lang(callback)
@@ -75,12 +96,15 @@ async def open_pharmacies(callback: CallbackQuery) -> None:
     data = read_public_file(PHARMACIES_PUBLIC_FILE)
     text = render_pharmacies(data, lang=lang)
 
+    items = data.get("items") or []
+    if not isinstance(items, list):
+        items = []
+
     await callback.message.edit_text(
         text,
         parse_mode=None,
-        reply_markup=build_city_events_back_kb(lang),
+        reply_markup=build_pharmacies_action_kb(items, lang),
     )
-
 
 async def open_electricity(callback: CallbackQuery) -> None:
     lang = _get_lang(callback)
@@ -103,12 +127,15 @@ async def open_emergency(callback: CallbackQuery) -> None:
     data = read_public_file(EMERGENCY_PUBLIC_FILE)
     text = render_emergency(data, lang=lang)
 
+    items = data.get("items") or []
+    if not isinstance(items, list):
+        items = []
+
     await callback.message.edit_text(
         text,
         parse_mode=None,
-        reply_markup=build_city_events_back_kb(lang),
+        reply_markup=build_pharmacies_action_kb(items, lang),
     )
-
 
 async def _open_category(callback: CallbackQuery, category: CityEventCategory) -> None:
     lang = _get_lang(callback)

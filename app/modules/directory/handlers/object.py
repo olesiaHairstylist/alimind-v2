@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-
+from app.core.text import get_text
 from aiogram import F, Router
 from aiogram.types import CallbackQuery, FSInputFile, Message
 
@@ -41,11 +41,19 @@ def _resolve_object_view(object_id: str, lang: str) -> tuple[dict, str, object, 
     obj = load_object_by_id(object_id)
     if not obj:
         return None
-
+    print("OBJECT MAP DEBUG:", object_id, obj.get("lat"), obj.get("lng"))
     category_id = obj.get("category", "")
     subcategory_id = obj.get("subcategory", "")
     card_text = render_object_card(obj, lang=lang)
-    reply_markup = build_directory_object_back_kb(category_id, subcategory_id, lang)
+    reply_markup = build_directory_object_back_kb(
+        category_id,
+        subcategory_id,
+        lang,
+        object_id=object_id,
+        has_maps=bool(obj.get("lat") and obj.get("lng")),
+        instagram_url=get_text(obj.get("instagram"), lang)
+        
+    )
     image_path = str(obj.get("image_path", "")).strip()
     return obj, card_text, reply_markup, image_path
 
@@ -73,8 +81,7 @@ async def send_directory_object_card(message: Message, object_id: str, lang: str
 
     return True
 
-
-@router.callback_query(F.data.func(is_directory_open_cb))
+@router.callback_query(F.data.startswith("directory:open:"))
 async def open_directory_object(callback: CallbackQuery) -> None:
     data = callback.data or ""
     object_id = parse_directory_open_cb(data)

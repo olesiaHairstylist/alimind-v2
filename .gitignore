@@ -20,3 +20,19 @@ Thumbs.db
 
 # Logs
 *.log
+# system runtime
+app/data/system/*.json
+
+# debug files
+*_debug.*
+water_*.html
+water_*.txt
+# generated city events data
+app/data/public/
+app/data/sources/
+
+# runtime caches
+app/data/city_events/*_cache.json
+
+# local test scripts
+test_*.py

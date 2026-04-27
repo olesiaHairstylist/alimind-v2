@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+from app.modules.city_events.sources.pharmacies_source import run_fetch as run_pharmacies_source
 from app.modules.city_events.sources.water_source import run_fetch as run_water_source
 from app.modules.city_events.services.water_public_builder import run_build as build_water_public
 from app.modules.city_events.services.pharmacies_public_builder import build_public_from_raw as build_pharmacies_public
@@ -9,6 +9,7 @@ from app.modules.city_events.services.emergency_public_builder import build_publ
 def update_electricity() -> None:
     from app.modules.city_events.sources.electricity_source import run_fetch as run_electricity_source
     from app.modules.city_events.services.electricity_public_builder import (
+
         build_public_from_raw as build_electricity_public,
     )
 
@@ -26,6 +27,7 @@ def update_electricity() -> None:
 
 
 def update_pharmacies() -> None:
+    run_pharmacies_source()
     payload = build_pharmacies_public()
 
     status = payload.get("status")

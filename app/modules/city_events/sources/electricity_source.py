@@ -8,7 +8,7 @@ from typing import Any
 
 import requests
 
-from app.modules.city_events.sources.electricity_html_extractor import (
+from app.modules.city_events.sources.electricity_extractor import (
     extract_outage_blocks_from_html,
     filter_alanya_blocks,
 )
