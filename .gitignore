@@ -35,4 +35,10 @@ app/data/sources/
 app/data/city_events/*_cache.json
 
 # local test scripts
-test_*.py
+test_*.pyapp/data/public/city_events/
+app/data/public/city_events/
+app/data/city_events/
+app/data/sources/
+app/data/public/city_events/
+app/data/city_events/
+app/data/sources/
