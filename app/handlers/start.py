@@ -18,63 +18,78 @@ TICKETS_PARTNER_URL = "YOUR_PARTNER_URL"
 
 def render_main_menu_text(lang: str = "ru") -> str:
     text_map = {
-        "ru": "Добро пожаловать в AliMind",
-        "en": "Welcome to AliMind",
-        "tr": "AliMind'e hoş geldiniz",
+        "ru": (
+            "Актуальная информация по городу\n\n"
+            "⚡ Отключения\n"
+            "🏥 Дежурные аптеки\n\n"
+            "🔄 Обновлено: 16:12\n\n"
+            "Что вам нужно сейчас?\n"
+            "Выберите — покажу быстро 👇"
+        ),
+        "en": (
+            "Current city information\n\n"
+            "⚡ Outages\n"
+            "🏥 Duty pharmacies\n\n"
+            "🔄 Updated: 16:12\n\n"
+            "What do you need now?\n"
+            "Choose — I’ll show it quickly 👇"
+        ),
+        "tr": (
+            "Güncel şehir bilgileri\n\n"
+            "⚡ Kesintiler\n"
+            "🏥 Nöbetçi eczaneler\n\n"
+            "🔄 Güncellendi: 16:12\n\n"
+            "Şimdi neye ihtiyacınız var?\n"
+            "Seçin — hızlıca göstereyim 👇"
+        ),
     }
     return text_map.get(lang, text_map["ru"])
 
+
 def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
-    labels = {
+    all_labels = {
         "ru": {
-            "sea_status": "🌊 Море сейчас",
-            "city_events": "🏙 События города",
-            "directory": "🛠 Услуги",
-            "tickets_entry": "✈️ Поиск билетов",
-            "phrasebook": "🗣 Разговорник",
-            "info": "ℹ️ Информация",
-            "website": "🌐 Сайт AliMind",
+            "city": "⚡ Город сейчас",
+            "services": "🛠 Услуги",
+            "rent": "🏠 Жильё",
+            "tickets": "✈️ Билеты",
+            "phrasebook": "💬 Разговорник",
+            "currency": "💱 Валюта",
+            "sea": "🌊 Море",
         },
         "en": {
-            "sea_status": "🌊 Sea now",
-            "city_events": "🏙 City Events",
-            "directory": "🛠 Services",
-            "tickets_entry": "✈️ Ticket search",
-            "phrasebook": "🗣 Phrasebook",
-            "info": "ℹ️ Information",
-            "website": "🌐 AliMind Website",
+            "city": "⚡ City now",
+            "services": "🛠 Services",
+            "rent": "🏠 Housing",
+            "tickets": "✈️ Flights",
+            "phrasebook": "💬 Phrasebook",
+            "currency": "💱 Currency",
+            "sea": "🌊 Sea",
         },
         "tr": {
-            "sea_status": "🌊 Deniz şimdi",
-            "city_events": "🏙 Şehir Etkinlikleri",
-            "directory": "🛠 Hizmetler",
-            "tickets_entry": "✈️ Bilet ara",
-            "phrasebook": "🗣 Konuşma kalıpları",
-            "info": "ℹ️ Bilgi",
-            "website": "🌐 AliMind Sitesi",
+            "city": "⚡ Şehir şimdi",
+            "services": "🛠 Hizmetler",
+            "rent": "🏠 Konut",
+            "tickets": "✈️ Biletler",
+            "phrasebook": "💬 Konuşma",
+            "currency": "💱 Döviz",
+            "sea": "🌊 Deniz",
         },
-    }.get(
-        lang,
-        {
-            "sea_status": "🌊 Море сейчас",
-            "city_events": "🏙 События города",
-            "directory": "🛠 Услуги",
-            "tickets_entry": "✈️ Поиск билетов",
-            "phrasebook": "🗣 Разговорник",
-            "info": "ℹ️ Информация",
-            "website": "🌐 Сайт AliMind",
-        },
-    )
+    }
+
+    labels = all_labels.get(lang, all_labels["ru"])
 
     b = InlineKeyboardBuilder()
-    b.button(text=labels["sea_status"], callback_data="sea_status:open")
-    b.button(text=labels["city_events"], callback_data="city_events:menu")
-    b.button(text=labels["directory"], callback_data="directory:menu")
-    b.button(text=labels["tickets_entry"], url="https://aviasales.tpm.li/zQsb4TXR")
+
+    b.button(text=labels["city"], callback_data="city_events:menu")
+    b.button(text=labels["services"], callback_data="directory:menu")
+    b.button(text=labels["rent"], callback_data="rent:entry")
+    b.button(text=labels["tickets"], url="https://aviasales.tpm.li/zQsb4TXR")
     b.button(text=labels["phrasebook"], callback_data="phrasebook:menu")
-    b.button(text=labels["info"], callback_data="main:info")
-    b.button(text=labels["website"], url="https://alimindcity.com/")
-    b.adjust(1)
+    b.button(text=labels["currency"], callback_data="currency:menu")
+    b.button(text=labels["sea"], callback_data="sea_status:open")
+
+    b.adjust(1, 1, 1, 1, 3)
     return b.as_markup()
 
 
