@@ -21,13 +21,23 @@ from app.modules.core.language.handler import router as language_router
 from app.modules.directory.router import router as directory_router
 from app.modules.phrasebook.router import router as phrasebook_router
 from app.modules.maps.handlers import router as maps_router
-from app.modules.currency.router import router as currency_router
 from app.modules.watchdog.service import run_watchdog
-
-
+from app.modules.currency.handlers import router as currency_router
 from app.modules.partners.handlers.tickets_preview_click import (
     router as tickets_preview_partner_click_router,
 )
+
+async def schedule_updates():
+    while True:
+        try:
+            update_emergency_contacts()
+            update_pharmacies()
+            print("UPDATE OK")
+        except Exception as e:
+            print("UPDATE ERROR:", e)
+
+        await asyncio.sleep(3600)
+
 
 async def main() -> None:
     load_dotenv()
@@ -39,21 +49,15 @@ async def main() -> None:
     bot = Bot(token=bot_token)
     dp = Dispatcher()
 
+    # ✅ КОМАНДЫ
     await bot.set_my_commands([
-        BotCommand(command="tickets_preview", description="Preview tickets with partner block"),
-        BotCommand(command="admin_help", description="Админ-справка"),
-        BotCommand(command="admin_health", description="Состояние системы"),
         BotCommand(command="language", description="Выбрать язык"),
-        BotCommand(command="add_partner", description="Добавить партнёра"),
-        BotCommand(command="partner_check", description="Проверить партнёра"),
-        BotCommand(command="partner_disable", description="Отключить партнёра"),
-        BotCommand(command="partner_update", description="Обновить партнёра"),
-        BotCommand(command="partner_photo", description="Добавить фото партнёру"),
     ])
 
-    update_emergency_contacts()
-    update_pharmacies()
+    # ✅ ОБНОВЛЕНИЯ (в фоне)
+    asyncio.create_task(schedule_updates())
 
+    # ✅ РОУТЕРЫ
     dp.include_router(start_router)
     dp.include_router(language_router)
     dp.include_router(directory_router)
@@ -61,14 +65,18 @@ async def main() -> None:
     dp.include_router(maps_router)
     dp.include_router(phrasebook_router)
     dp.include_router(tickets_preview_partner_click_router)
-    dp.include_router(currency_router)
     dp.include_router(city_events_router)
     dp.include_router(admin_health_router)
-
-
+    dp.include_router(currency_router)
     dp.include_router(admin_help_router)
 
-    await run_watchdog(bot)
+    # ✅ WATCHDOG
+    asyncio.create_task(run_watchdog(bot))
+
+    me = await bot.get_me()
+    print("BOT USERNAME:", me.username)
+    print("BOT ID:", me.id)
+    print("START POLLING")
 
     await dp.start_polling(bot)
 
