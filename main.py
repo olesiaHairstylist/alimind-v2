@@ -21,6 +21,7 @@ from app.modules.core.language.handler import router as language_router
 from app.modules.directory.router import router as directory_router
 from app.modules.phrasebook.router import router as phrasebook_router
 from app.modules.maps.handlers import router as maps_router
+from app.modules.currency.router import router as currency_router
 from app.modules.watchdog.service import run_watchdog
 
 
@@ -60,6 +61,7 @@ async def main() -> None:
     dp.include_router(maps_router)
     dp.include_router(phrasebook_router)
     dp.include_router(tickets_preview_partner_click_router)
+    dp.include_router(currency_router)
     dp.include_router(city_events_router)
     dp.include_router(admin_health_router)
 
