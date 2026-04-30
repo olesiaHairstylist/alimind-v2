@@ -1,32 +1,32 @@
 [
   {
-    "name": "TEZCAN ECZANESİ",
+    "name": "BAŞER ECZANESİ",
     "details": "Дежурная аптека (ALANYA MERKEZ)",
-    "address": "CUMA PAZARI GÜNEY GİRİŞİ ŞEKERCİLER MARKET KARŞISI",
-    "phone": "0(242) 513-78-59"
+    "address": "SARAY MAHALLESİ HURİLER SOKAK NO:4/A SARAY AİLE SAĞLI MERKEZİ KARŞISI ALANYA",
+    "phone": "0(242) 519-07-06"
   },
   {
-    "name": "TUNA ECZANESİ",
+    "name": "GÜNEYLİOĞLU ECZANESİ",
     "details": "Дежурная аптека (ALANYA MERKEZ)",
-    "address": "KADIPAŞA MAH. TEL SOK. 2. NOLU SAĞLIK OCAĞI KARŞISI",
-    "phone": "0(242) 519-03-11"
+    "address": "GÜLLERPINARI MH. HASANAKÇALIOGLU CD. DAYIOGLU OTO YIKAMA KARSISI",
+    "phone": "0(242) 513-11-13"
   },
   {
-    "name": "AYNUR ECZANESİ",
+    "name": "YAZAN ECZANESİ",
     "details": "Дежурная аптека (ALANYA MERKEZ)",
-    "address": "OBA MAH. FİDANLIK CAD. EĞİTİM ARAŞTIRMA HASTANESİ KARŞISI NO:5/A ALANYA",
-    "phone": "0(242) 538-91-99"
+    "address": "OBA MAH. FİDANLIK CAD. YENİ ALKÜ DEVLET HASTANESİ KARŞISI KAHVELAND YANI NO:19/A ALANYA",
+    "phone": "0(242) 538-70-07"
   },
   {
-    "name": "ANILGAN ECZANESİ",
+    "name": "MAHMUTLAR ECZANESİ",
     "details": "Дежурная аптека (MAHMUTLAR)",
-    "address": "MAHMUTLAR MAH. 4 YOL MEVKİİ, GOLD CİTY OTEL KAVŞAĞI DORİS AYTUR OTEL KARŞISI",
-    "phone": "0(242) 528-62-00"
+    "address": "MAHMUTLAR MAH. ATATÜRK CAD. 123/DE HASBUL KARŞISI YEKTA MALL AVM MİGROS YANI",
+    "phone": "0(530) 087-45-73"
   },
   {
-    "name": "YENİ MEVLANA ECZANESİ",
+    "name": "ALAİYE ECZANESİ",
     "details": "Дежурная аптека (KONAKLI)",
-    "address": "KALE MAH. ALAADDIN KEYKUBAT BULVARI NO:6/B",
-    "phone": "0(242) 565-36-00"
+    "address": "KONAKLI MAH.İSTİKLAL CAD. NO:4/G ALANYA ANTALYA",
+    "phone": "0(242) 565-32-91"
   }
 ]

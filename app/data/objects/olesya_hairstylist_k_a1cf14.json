@@ -3,19 +3,19 @@
   "title": {
     "ru": "Olesya Hairstylist — холодный блонд и сложное окрашивание",
     "en": "Olesya Hairstylist — cool blonde and advanced coloring",
-    "tr": "Olesya Hairstylist — soguk sarı ve ileri seviye sac boyama"
+    "tr": "Olesya Hairstylist — soğuk sarı ve ileri seviye saç boyama"
   },
   "category": "beauty",
   "subcategory": "hair",
   "description_short": {
     "ru": "Холодный блонд и сложное окрашивание с гарантией качества.",
     "en": "Cool blonde and advanced coloring with guaranteed quality.",
-    "tr": "Kalite garantili soguk sarı ve ileri seviye sac boyama."
+    "tr": "Kalite garantili soğuk sarı ve ileri seviye saç boyama."
   },
   "description_full": {
     "ru": "Работа с любым типом волос. Холодный блонд, сложные техники окрашивания, восстановление и уход.",
     "en": "Work with any hair type. Cool blonde, advanced coloring techniques, restoration, and care.",
-    "tr": "Her sac tipiyle calısılır. Soguk sarı, ileri seviye boyama teknikleri, onarım ve bakım."
+    "tr": "Her saç tipiyle çalışılır. Soğuk sarı, ileri seviye boyama teknikleri, onarım ve bakım."
   },
   "location": {
     "ru": "Alanya, Mahmutlar",
@@ -29,8 +29,10 @@
   },
   "image_url": "",
   "image_path": "app/data/object_photos/olesya_hairstylist_k_a1cf14.jpg",
-  "languages": [
-    "ru"
-  ],
-  "is_partner": true
+  "languages": ["ru"],
+  "is_partner": true,
+  "lat": 36.4806835,
+  "lng": 32.1054144,
+  "maps_url": "https://www.google.com/maps/place/VA+BEAUTY+ZONE+MAHMUTLAR/@36.4806878,32.1028395,17z/data=!3m1!4b1!4m6!3m5!1s0x14dc90a0165a173d:0xdeefef25e41c251f!8m2!3d36.4806835!4d32.1054144!16s%2Fg%2F11htv4v7jf?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D",
+  "instagram": "https://www.instagram.com/olesya.hair07"
 }
