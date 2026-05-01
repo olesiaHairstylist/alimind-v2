@@ -1,32 +1,38 @@
 {
-  "id": "trener_po_boksu_5c1cc6 ",
+  "id": "trener_po_boksu_5c1cc6",
   "title": {
-    "ru": "Тренер по боксу",
-    "en": "Boxing trainer",
-    "tr": "Boks antrenörü"
+    "ru": "Тренер по боксу в Alanya Boks Club Başkurt",
+    "en": "Boxing trainer at Alanya Boks Club Başkurt",
+    "tr": "Alanya Boks Club Başkurt'ta boks antrenörü"
   },
   "category": "sport",
   "subcategory": "boxing",
   "description_short": {
-    "ru": "Персональные тренировки по боксу",
-    "en": "Personal boxing training",
-    "tr": "Kişisel boks antrenmanları"
+    "ru": "Персональные и групповые тренировки по боксу для детей и взрослых.",
+    "en": "Personal and group boxing training for children and adults.",
+    "tr": "Çocuklar ve yetişkinler için bireysel ve grup boks antrenmanları."
   },
   "description_full": {
-    "ru": "Подготовка к соревнованиям, техника, выносливость",
-    "en": "Competition preparation, technique, endurance",
-    "tr": "Müsabaka hazırlığı, teknik ve dayanıklılık"
+    "ru": "Боксерский клуб в Алании. Тренировки для начинающих, детей и взрослых. Подготовка к соревнованиям, развитие техники, выносливости и физической формы.",
+    "en": "Boxing club in Alanya. Training for beginners, children and adults. Competition preparation, technique, endurance and fitness.",
+    "tr": "Alanya'da boks kulübü. Yeni başlayanlar, çocuklar ve yetişkinler için antrenmanlar. Müsabaka hazırlığı, teknik ve dayanıklılık."
   },
   "location": {
-    "ru": "Alanya",
-    "en": "Alanya",
-    "tr": "Alanya"
+    "ru": "Alanya, GymFactory Alanya XL",
+    "en": "Alanya, GymFactory Alanya XL",
+    "tr": "Alanya, GymFactory Alanya XL"
   },
   "contact": {
     "ru": "@Farid8891",
     "en": "@Farid8891",
     "tr": "@Farid8891"
   },
+  "image_url": "",
+  "image_path": "app/data/object_photos/trener_po_boksu_5c1cc6.jpg",
   "languages": ["ru"],
-  "is_partner": false
+  "is_partner": false,
+  "lat": 36.494115,
+  "lng": 32.090063,
+  "maps_url": "https://www.google.com/maps/place/GymFactory+Alanya+XL/@36.494115,32.090063,17z",
+  "instagram": "https://www.instagram.com/abc_bashkurt"
 }

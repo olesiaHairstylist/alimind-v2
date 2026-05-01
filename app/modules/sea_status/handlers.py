@@ -5,9 +5,14 @@ from aiogram.types import CallbackQuery
 
 from app.modules.core.language.service import get_user_lang
 from app.modules.sea_status.sea_status import get_sea_status
-
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 router = Router()
 
+def build_sea_back_kb():
+    b = InlineKeyboardBuilder()
+    b.button(text="⬅️ Назад в меню", callback_data="main:menu")
+    b.adjust(1)
+    return b.as_markup()
 
 @router.callback_query(F.data == "sea_status:open")
 async def sea_status_handler(callback: CallbackQuery) -> None:
@@ -86,5 +91,8 @@ async def sea_status_handler(callback: CallbackQuery) -> None:
         f"{verdict_text}\n\n"
         f"{labels[3]}: {data['updated']}"
     )
-    await callback.message.answer(text)
+    await callback.message.answer(
+        text,
+        reply_markup=build_sea_back_kb(),
+    )
     await callback.answer()
