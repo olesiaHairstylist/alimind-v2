@@ -28,6 +28,7 @@ from app.modules.rent.router import router as rent_router
 from app.modules.analytics.admin_handler import router as analytics_admin_router
 from app.modules.admin.handlers.admin_menu import router as admin_menu_router
 from app.modules.residence_calc.handlers import router as residence_calc_router
+from app.modules.group_moderation.router import router as group_moderation_router
 from app.modules.partners.handlers.tickets_preview_click import (
     router as tickets_preview_partner_click_router,
 )
@@ -81,6 +82,7 @@ async def main() -> None:
     dp.include_router(rent_router)
     dp.include_router(currency_router)
     dp.include_router(analytics_admin_router)
+    dp.include_router(group_moderation_router)
     dp.include_router(admin_help_router)
     # ✅ WATCHDOG
     asyncio.create_task(run_watchdog(bot))
