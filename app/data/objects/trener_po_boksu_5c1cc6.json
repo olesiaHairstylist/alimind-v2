@@ -29,7 +29,9 @@
   },
   "image_url": "",
   "image_path": "app/data/object_photos/trener_po_boksu_5c1cc6.jpg",
-  "languages": ["ru"],
+  "languages": [
+    "ru"
+  ],
   "is_partner": false,
   "lat": 36.494115,
   "lng": 32.090063,

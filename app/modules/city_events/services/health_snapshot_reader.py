@@ -6,7 +6,7 @@ from typing import Any
 
 
 BASE_DIR = Path(__file__).resolve().parents[3]
-HEALTH_PATH = BASE_DIR / "data" / "system" / "health" / "city_events_health.json"
+HEALTH_PATH = BASE_DIR / "data" / "system" / "watchdog_snapshot.json"
 
 
 def read_health_snapshot() -> dict[str, Any] | None:

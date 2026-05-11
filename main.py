@@ -23,7 +23,11 @@ from app.modules.phrasebook.router import router as phrasebook_router
 from app.modules.maps.handlers import router as maps_router
 from app.modules.watchdog.service import run_watchdog
 from app.modules.currency.handlers import router as currency_router
+from app.modules.analytics.middleware import AnalyticsMiddleware
 from app.modules.rent.router import router as rent_router
+from app.modules.analytics.admin_handler import router as analytics_admin_router
+from app.modules.admin.handlers.admin_menu import router as admin_menu_router
+from app.modules.residence_calc.handlers import router as residence_calc_router
 from app.modules.partners.handlers.tickets_preview_click import (
     router as tickets_preview_partner_click_router,
 )
@@ -59,19 +63,25 @@ async def main() -> None:
     asyncio.create_task(schedule_updates())
 
     # ✅ РОУТЕРЫ
+    dp = Dispatcher()
+
+    dp.update.middleware(AnalyticsMiddleware())
+
     dp.include_router(start_router)
     dp.include_router(language_router)
     dp.include_router(directory_router)
+    dp.include_router(residence_calc_router)
     dp.include_router(sea_status_router)
     dp.include_router(maps_router)
     dp.include_router(phrasebook_router)
     dp.include_router(tickets_preview_partner_click_router)
     dp.include_router(city_events_router)
     dp.include_router(admin_health_router)
+    dp.include_router(admin_menu_router)
     dp.include_router(rent_router)
     dp.include_router(currency_router)
+    dp.include_router(analytics_admin_router)
     dp.include_router(admin_help_router)
-
     # ✅ WATCHDOG
     asyncio.create_task(run_watchdog(bot))
 

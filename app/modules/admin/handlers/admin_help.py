@@ -16,5 +16,6 @@ async def admin_help_handler(message: Message):
     await message.answer(
         "Admin commands:\n\n"
         "/admin_health - system health\n"
+        "/admin_flow - user path report\n"
         "/click_signal <partner_id> - click signal diagnostic"
     )

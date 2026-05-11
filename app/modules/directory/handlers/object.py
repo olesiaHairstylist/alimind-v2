@@ -13,7 +13,7 @@ from app.modules.directory.contracts.callbacks import (
 from app.modules.directory.render.card_render import render_object_card
 from app.modules.directory.render.keyboard_render import build_directory_object_back_kb
 from app.modules.directory.services.loader import load_object_by_id
-
+from aiogram.exceptions import TelegramBadRequest
 router = Router()
 
 
@@ -101,7 +101,12 @@ async def open_directory_object(callback: CallbackQuery) -> None:
     _, card_text, reply_markup, image_path = view
 
     if image_path and Path(image_path).exists():
-        await callback.message.delete()
+
+        try:
+            await callback.message.delete()
+        except TelegramBadRequest:
+            pass
+
         await callback.message.answer_photo(
             photo=FSInputFile(image_path),
             caption=card_text,

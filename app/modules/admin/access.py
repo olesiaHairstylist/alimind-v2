@@ -5,6 +5,8 @@ import os
 
 def get_admin_user_id() -> int | None:
     raw = os.getenv("ADMIN_USER_ID")
+    print("ADMIN_USER_ID RAW:", repr(raw))
+
     if not raw:
         return None
 

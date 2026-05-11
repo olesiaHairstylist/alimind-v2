@@ -11,7 +11,9 @@ from app.modules.core.language.service import set_user_lang
 from app.modules.directory.handlers.object import send_directory_object_card
 
 router = Router()
-
+@router.message(Command("myid"))
+async def my_id(message: Message):
+    await message.answer(f"Ваш ID: {message.from_user.id}")
 
 def _language_prompt_text() -> str:
     return "Выберите язык / Select language / Dil secin"

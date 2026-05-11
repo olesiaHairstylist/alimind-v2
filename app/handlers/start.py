@@ -87,6 +87,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
     b.button(text=labels["tickets"], url="https://aviasales.tpm.li/zQsb4TXR")
     b.button(text=labels["phrasebook"], callback_data="phrasebook:menu")
     b.button(text=labels["currency"], callback_data="currency:menu")
+    b.button(text="🧾  ВНЖ", callback_data="rescalc:start")
     b.button(text=labels["sea"], callback_data="sea_status:open")
 
     b.adjust(1, 1, 1, 1, 3)
