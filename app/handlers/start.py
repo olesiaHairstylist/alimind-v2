@@ -51,6 +51,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
         "ru": {
             "city": "⚡ Город сейчас",
             "services": "🛠 Услуги",
+            "sport": "🥊 Спорт",
             "rent": "🏠 Жильё",
             "tickets": "✈️ Билеты",
             "phrasebook": "💬 Разговорник",
@@ -60,6 +61,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
         "en": {
             "city": "⚡ City now",
             "services": "🛠 Services",
+            "sport": "🥊 Sport",
             "rent": "🏠 Housing",
             "tickets": "✈️ Flights",
             "phrasebook": "💬 Phrasebook",
@@ -69,6 +71,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
         "tr": {
             "city": "⚡ Şehir şimdi",
             "services": "🛠 Hizmetler",
+            "sport": "🥊 Spor",
             "rent": "🏠 Konut",
             "tickets": "✈️ Biletler",
             "phrasebook": "💬 Konuşma",
@@ -83,6 +86,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
 
     b.button(text=labels["city"], callback_data="city_events:menu")
     b.button(text=labels["services"], callback_data="directory:menu")
+    b.button(text=labels["sport"], url="https://alimindcity.com/boxing-alanya/")
     b.button(text=labels["rent"], callback_data="rent:entry")
     b.button(text=labels["tickets"], url="https://aviasales.tpm.li/zQsb4TXR")
     b.button(text=labels["phrasebook"], callback_data="phrasebook:menu")
@@ -90,7 +94,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
     b.button(text="🧾  ВНЖ", callback_data="rescalc:start")
     b.button(text=labels["sea"], callback_data="sea_status:open")
 
-    b.adjust(1, 1, 1, 1, 3)
+    b.adjust(1, 2, 2, 3, 1)
     return b.as_markup()
 
 
