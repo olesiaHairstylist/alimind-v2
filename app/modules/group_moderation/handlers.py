@@ -29,12 +29,13 @@ DISTRICTS = [
     "алания",
 ]
 
-
+RENT_SALE_TOPIC_IDS = {
+    16,
+}
 def is_real_estate_topic(message: Message) -> bool:
     thread_id = getattr(message, "message_thread_id", None)
 
-    if not RENT_SALE_TOPIC_IDS:
-        return False
+
 
     return thread_id in RENT_SALE_TOPIC_IDS
 
@@ -88,8 +89,7 @@ def build_listing_hint(text: str) -> str | None:
 async def group_message_moderation(message: Message):
 
     text = message.text or message.caption or ""
-    print("THREAD ID:", message.message_thread_id)
-    print("CHAT:", message.chat.title)
+
     result = check_group_message(text)
 
     if result["delete"]:
@@ -106,10 +106,8 @@ async def group_message_moderation(message: Message):
 
         return
 
-    # TEMP: проверка soft-модуля без фильтра по темам
-    # if not is_real_estate_topic(message):
-    #     return
-
+    if not is_real_estate_topic(message):
+        return
     hint = build_listing_hint(text)
 
     if not hint:
