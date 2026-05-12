@@ -43,3 +43,10 @@ app/data/public/city_events/
 app/data/city_events/
 app/data/sources/
 .idea/
+app/data/system/*.jsonl
+.idea/
+__pycache__/
+*.pyc
+app/data/system/*.jsonl
+app/data/public/city_events/*.json
+app/data/sources/*_raw.json
