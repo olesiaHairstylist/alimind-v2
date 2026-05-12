@@ -7,9 +7,9 @@ from collections import Counter
 EVENTS_PATH = Path("app/data/system/analytics_events.jsonl")
 
 
-def build_user_flow_report(limit: int = 20) -> str:
+def _read_events() -> list[dict]:
     if not EVENTS_PATH.exists():
-        return "Нет данных аналитики"
+        return []
 
     events = []
 
@@ -24,32 +24,99 @@ def build_user_flow_report(limit: int = 20) -> str:
             if not user_id:
                 continue
 
-            label = event.get("data") or event.get("text")
-            if not label:
-                continue
+            events.append(event)
 
-            if isinstance(label, str) and label.startswith("/admin"):
-                continue
+    return events
 
-            events.append({
-                "user_id": user_id,
-                "type": event.get("type"),
-                "label": label,
-                "ts": event.get("ts"),
-            })
 
-    if not events:
+def _get_label(event: dict) -> str | None:
+    label = event.get("data") or event.get("text")
+
+    if not label:
+        return None
+
+    if isinstance(label, str) and label.startswith("/admin"):
+        return None
+
+    return str(label)
+
+
+def get_recent_users(limit: int = 10) -> list[int]:
+    events = _read_events()
+
+    recent = []
+    seen = set()
+
+    for event in reversed(events):
+        user_id = event.get("user_id")
+        label = _get_label(event)
+
+        if not user_id or not label:
+            continue
+
+        if user_id in seen:
+            continue
+
+        seen.add(user_id)
+        recent.append(user_id)
+
+        if len(recent) >= limit:
+            break
+
+    return recent
+
+
+def build_recent_users_report(limit: int = 10) -> str:
+    users = get_recent_users(limit=limit)
+
+    if not users:
+        return "👥 Пользователи\n\nНет действий пользователей"
+
+    text = "👥 Последние активные пользователи\n\n"
+    text += f"Показано: {len(users)}\n\n"
+
+    for i, user_id in enumerate(users, start=1):
+        text += f"{i}. 👤 {user_id}\n"
+
+    text += "\nНажмите на пользователя, чтобы посмотреть его путь."
+
+    return text
+
+
+def build_user_flow_report(user_id: int | None = None, limit: int = 20) -> str:
+    events = _read_events()
+
+    clean_events = []
+
+    for event in events:
+        event_user_id = event.get("user_id")
+        label = _get_label(event)
+
+        if not event_user_id or not label:
+            continue
+
+        clean_events.append({
+            "user_id": event_user_id,
+            "type": event.get("type"),
+            "label": label,
+            "ts": event.get("ts"),
+        })
+
+    if not clean_events:
         return "Нет действий пользователей"
 
-    last_user_id = events[-1]["user_id"]
+    target_user_id = user_id or clean_events[-1]["user_id"]
 
     user_events = [
-        e for e in events
-        if e["user_id"] == last_user_id
+        e for e in clean_events
+        if e["user_id"] == target_user_id
     ][-limit:]
 
+    if not user_events:
+        return f"🧭 Путь пользователя\n\n👤 User ID: {target_user_id}\n\nДействий не найдено."
+
     text = "🧭 Путь пользователя\n\n"
-    text += f"👤 User ID: {last_user_id}\n"
+    text += f"👤 User ID: {target_user_id}\n"
     text += f"👣 Последние шаги: {len(user_events)}\n\n"
 
     for e in user_events:
@@ -59,7 +126,9 @@ def build_user_flow_report(limit: int = 20) -> str:
 
 
 def build_analytics_report() -> str:
-    if not EVENTS_PATH.exists():
+    events = _read_events()
+
+    if not events:
         return "Нет данных аналитики"
 
     users = set()
@@ -67,25 +136,19 @@ def build_analytics_report() -> str:
     callbacks = Counter()
     last_events = []
 
-    with EVENTS_PATH.open("r", encoding="utf-8") as f:
-        for line in f:
-            try:
-                event = json.loads(line)
-            except Exception:
-                continue
+    for event in events:
+        user_id = event.get("user_id")
+        if user_id:
+            users.add(user_id)
 
-            user_id = event.get("user_id")
-            if user_id:
-                users.add(user_id)
+        actions += 1
 
-            actions += 1
+        if event.get("type") == "callback":
+            data = event.get("data")
+            if data:
+                callbacks[data] += 1
 
-            if event.get("type") == "callback":
-                data = event.get("data")
-                if data:
-                    callbacks[data] += 1
-
-            last_events.append(event)
+        last_events.append(event)
 
     top = callbacks.most_common(5)
     last_events = last_events[-5:]
@@ -106,31 +169,24 @@ def build_analytics_report() -> str:
         text += f"{e.get('type')} → {e.get('data') or e.get('text')}\n"
 
     return text
+
+
 def build_exit_points_report() -> str:
-    if not EVENTS_PATH.exists():
+    events = _read_events()
+
+    if not events:
         return "Нет данных аналитики"
 
     last_by_user = {}
 
-    with EVENTS_PATH.open("r", encoding="utf-8") as f:
-        for line in f:
-            try:
-                event = json.loads(line)
-            except Exception:
-                continue
+    for event in events:
+        user_id = event.get("user_id")
+        label = _get_label(event)
 
-            user_id = event.get("user_id")
-            if not user_id:
-                continue
+        if not user_id or not label:
+            continue
 
-            label = event.get("data") or event.get("text")
-            if not label:
-                continue
-
-            if isinstance(label, str) and label.startswith("/admin"):
-                continue
-
-            last_by_user[user_id] = label
+        last_by_user[user_id] = label
 
     if not last_by_user:
         return "Нет точек выхода"
