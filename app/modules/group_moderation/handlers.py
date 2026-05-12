@@ -106,8 +106,9 @@ async def group_message_moderation(message: Message):
 
         return
 
-    if not is_real_estate_topic(message):
-        return
+    # TEMP
+    # if not is_real_estate_topic(message):
+    #     return
     hint = build_listing_hint(text)
 
     if not hint:
