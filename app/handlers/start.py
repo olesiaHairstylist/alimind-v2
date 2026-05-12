@@ -86,7 +86,10 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
 
     b.button(text=labels["city"], callback_data="city_events:menu")
     b.button(text=labels["services"], callback_data="directory:menu")
-    b.button(text=labels["sport"], url="https://alimindcity.com/boxing-alanya/")
+    b.button(
+        text=labels["sport"],
+        callback_data="directory:open:trener_po_boksu_5c1cc6"
+    )
     b.button(text=labels["rent"], callback_data="rent:entry")
     b.button(text=labels["tickets"], url="https://aviasales.tpm.li/zQsb4TXR")
     b.button(text=labels["phrasebook"], callback_data="phrasebook:menu")
