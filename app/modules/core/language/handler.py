@@ -14,7 +14,9 @@ router = Router()
 @router.message(Command("myid"))
 async def my_id(message: Message):
     await message.answer(f"Ваш ID: {message.from_user.id}")
-
+@router.message(Command("chatid"))
+async def chat_id(message: Message):
+    await message.answer(f"Chat ID: {message.chat.id}", parse_mode=None)
 def _language_prompt_text() -> str:
     return "Выберите язык / Select language / Dil secin"
 
