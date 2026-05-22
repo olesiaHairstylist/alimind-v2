@@ -1,0 +1,52 @@
+{
+  "id": "trener_po_plavaniyu_alanya_001",
+
+  "title": {
+    "ru": "Тренер по плаванию",
+    "en": "Swimming Coach",
+    "tr": "Yüzme Antrenörü"
+  },
+
+  "category": "sport",
+  "subcategory": "swimming",
+
+  "description_short": {
+    "ru": "Индивидуальные и групповые занятия по плаванию в Алании.",
+    "en": "Private and group swimming lessons in Alanya.",
+    "tr": "Alanya’da bireysel ve grup yüzme dersleri."
+  },
+
+  "description_full": {
+    "ru": "Индивидуальные тренировки по плаванию для детей и взрослых. Также проводятся групповые занятия и помощь в постановке техники.",
+    "en": "Private swimming training for children and adults. Group lessons and technique improvement are also available.",
+    "tr": "Çocuklar ve yetişkinler için bireysel yüzme eğitimi. Grup dersleri ve teknik geliştirme de yapılmaktadır."
+  },
+
+  "location": {
+    "ru": "Alanya",
+    "en": "Alanya",
+    "tr": "Alanya"
+  },
+
+  "contact": {
+    "ru": "+79636407077",
+    "en": "+79636407077",
+    "tr": "+79636407077"
+  },
+
+  "image_url": "",
+  "image_path": "",
+
+  "video_path": "data/object_videos/trener_plavanie_alanya.mp4",
+
+  "languages": ["ru"],
+
+  "is_partner": true,
+
+  "lat": null,
+  "lng": null,
+
+  "maps_url": "",
+
+  "youtube": ""
+}

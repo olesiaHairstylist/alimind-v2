@@ -13,7 +13,7 @@ from app.modules.directory.render.keyboard_render import build_directory_subcate
 from app.modules.directory.services.loader import load_subcategories
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 router = Router()
-STUB_CATEGORY_IDS = {"health", "home", "kids"}
+STUB_CATEGORY_IDS = {"health"}
 def build_about_text(lang: str = "ru") -> str:
     return {
         "ru": (
@@ -85,13 +85,7 @@ async def open_directory_category(callback: CallbackQuery) -> None:
     category_id = parse_directory_category_cb(data)
     lang = get_user_lang(callback.from_user.id) or "ru"
     texts = _texts(lang)
-    if category_id == "other":
-        await callback.message.edit_text(
-            build_about_text(lang),
-            reply_markup=build_about_kb(),
-        )
-        await callback.answer()
-        return
+
     if not category_id:
         await callback.answer(texts["error"], show_alert=False)
         return
@@ -116,4 +110,14 @@ async def open_directory_category(callback: CallbackQuery) -> None:
         f"📂 {category_title}\n\n{texts['choose']}",
         reply_markup=build_directory_subcategories_kb(category_id, subcategories, lang),
     )
+    await callback.answer()
+@router.callback_query(F.data == "about:open")
+async def open_about(callback: CallbackQuery) -> None:
+    lang = get_user_lang(callback.from_user.id) or "ru"
+
+    await callback.message.edit_text(
+        build_about_text(lang),
+        reply_markup=build_about_kb(),
+    )
+
     await callback.answer()

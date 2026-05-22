@@ -56,22 +56,14 @@ async def main() -> None:
     bot = Bot(token=bot_token)
     dp = Dispatcher()
 
-    # ✅ КОМАНДЫ
     await bot.set_my_commands([
         BotCommand(command="language", description="Выбрать язык"),
     ])
-
-    # ✅ ОБНОВЛЕНИЯ (в фоне)
-    asyncio.create_task(schedule_updates())
-
-    # ✅ РОУТЕРЫ
-    dp = Dispatcher()
 
     dp.update.middleware(AnalyticsMiddleware())
 
     dp.include_router(start_router)
     dp.include_router(language_router)
-
     dp.include_router(directory_router)
     dp.include_router(residence_calc_router)
     dp.include_router(sea_status_router)
@@ -80,17 +72,19 @@ async def main() -> None:
     dp.include_router(tickets_preview_partner_click_router)
     dp.include_router(city_events_router)
     dp.include_router(moderation_router)
-
     dp.include_router(admin_health_router)
     dp.include_router(admin_menu_router)
     dp.include_router(rent_router)
     dp.include_router(currency_router)
     dp.include_router(analytics_admin_router)
     dp.include_router(group_moderation_router)
-
     dp.include_router(admin_help_router)
-    # ✅ WATCHDOG
-    asyncio.create_task(run_watchdog(bot))
+
+    # ✅ Таски запускаем после старта polling, когда loop уже живёт
+    @dp.startup()
+    async def on_startup():
+        asyncio.create_task(schedule_updates())
+        asyncio.create_task(run_watchdog(bot))
 
     me = await bot.get_me()
     print("BOT USERNAME:", me.username)

@@ -51,7 +51,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
         "ru": {
             "city": "⚡ Город сейчас",
             "services": "🛠 Услуги",
-            "sport": "🥊 Спорт",
+            "sport": " Спорт",
             "rent": "🏠 Жильё",
             "tickets": "✈️ Билеты",
             "phrasebook": "💬 Разговорник",
@@ -61,7 +61,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
         "en": {
             "city": "⚡ City now",
             "services": "🛠 Services",
-            "sport": "🥊 Sport",
+            "sport": " Sport",
             "rent": "🏠 Housing",
             "tickets": "✈️ Flights",
             "phrasebook": "💬 Phrasebook",
@@ -71,7 +71,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
         "tr": {
             "city": "⚡ Şehir şimdi",
             "services": "🛠 Hizmetler",
-            "sport": "🥊 Spor",
+            "sport": " Spor",
             "rent": "🏠 Konut",
             "tickets": "✈️ Biletler",
             "phrasebook": "💬 Konuşma",
@@ -88,7 +88,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
     b.button(text=labels["services"], callback_data="directory:menu")
     b.button(
         text=labels["sport"],
-        callback_data="directory:open:trener_po_boksu_5c1cc6"
+        callback_data="directory:category:sport"
     )
     b.button(text=labels["rent"], callback_data="rent:entry")
     b.button(text=labels["tickets"], url="https://aviasales.tpm.li/zQsb4TXR")
@@ -161,8 +161,12 @@ async def open_main_menu(callback: CallbackQuery, state: FSMContext) -> None:
     text = render_main_menu_text(user_lang or "ru")
     reply_markup = build_main_menu(user_lang or "ru")
 
-    if callback.message.photo:
+    if (
+            callback.message.photo
+            or callback.message.video
+    ):
         await callback.message.delete()
+
         await callback.message.answer(
             text,
             reply_markup=reply_markup,
@@ -172,5 +176,3 @@ async def open_main_menu(callback: CallbackQuery, state: FSMContext) -> None:
             text,
             reply_markup=reply_markup,
         )
-
-    await callback.answer()

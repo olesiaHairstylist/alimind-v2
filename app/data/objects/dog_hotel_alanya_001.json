@@ -1,0 +1,52 @@
+{
+  "id": "dog_hotel_alanya_001",
+
+  "title": {
+    "ru": "Передержка собак в Алании и Анталье",
+    "en": "Dog Boarding in Alanya and Antalya",
+    "tr": "Alanya ve Antalya’da Köpek Bakımı"
+  },
+
+  "category": "other",
+  "subcategory": "pet_services",
+
+  "description_short": {
+    "ru": "Передержка мелких пород собак с заботой и домашней атмосферой.",
+    "en": "Dog boarding for small breeds with care and a home atmosphere.",
+    "tr": "Küçük ırk köpekler için ev ortamında bakım hizmeti."
+  },
+
+  "description_full": {
+    "ru": "Услуги передержки мелких пород собак в Анталье и Алании. Максимальная забота, спокойная домашняя атмосфера и внимание к питомцу.",
+    "en": "Dog boarding services for small breeds in Antalya and Alanya. Caring home atmosphere and attention for your pet.",
+    "tr": "Antalya ve Alanya’da küçük ırk köpekler için ev ortamında bakım hizmeti."
+  },
+
+  "location": {
+    "ru": "Анталья / Алания",
+    "en": "Antalya / Alanya",
+    "tr": "Antalya / Alanya"
+  },
+
+  "contact": {
+    "ru": "@ingaprflv",
+    "en": "@ingaprflv",
+    "tr": "@ingaprflv"
+  },
+
+  "image_url": "",
+  "image_path": "",
+
+  "languages": ["ru"],
+
+  "is_partner": true,
+
+  "lat": null,
+  "lng": null,
+
+  "maps_url": "",
+
+  "instagram": "",
+  "youtube": "",
+  "telegram": ""
+}

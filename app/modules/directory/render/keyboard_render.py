@@ -53,6 +53,10 @@ def build_directory_categories_kb(lang: str = "ru") -> InlineKeyboardMarkup:
             callback_data=build_directory_category_cb(category_id),
         )
 
+    b.button(
+        text="ℹ️ О проекте",
+        callback_data="about:open",
+    )
 
     b.button(text=texts["main_menu"], callback_data="main:menu")
     b.adjust(1)

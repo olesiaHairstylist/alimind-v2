@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from aiogram import F, Router
 from aiogram.types import CallbackQuery
-
+from aiogram.exceptions import TelegramBadRequest
 from app.modules.core.language.service import get_user_lang
 from app.modules.directory.contracts.callbacks import (
     is_directory_subcategory_cb,
@@ -72,9 +72,14 @@ async def open_directory_subcategory(callback: CallbackQuery) -> None:
             reply_markup=build_directory_objects_kb(objects, lang),
         )
     else:
-        await callback.message.edit_text(
-            screen_text,
-            reply_markup=build_directory_objects_kb(objects, lang),
-        )
-
+        try:
+            await callback.message.edit_text(
+                screen_text,
+                reply_markup=build_directory_objects_kb(objects, lang),
+            )
+        except TelegramBadRequest:
+            await callback.message.answer(
+                screen_text,
+                reply_markup=build_directory_objects_kb(objects, lang),
+            )
     await callback.answer()

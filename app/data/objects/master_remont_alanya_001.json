@@ -1,0 +1,52 @@
+{
+  "id": "master_remont_alanya_001",
+
+  "title": {
+    "ru": "Мастер на час — ремонт и бытовые работы",
+    "en": "Handyman Service",
+    "tr": "Tamir ve Ev Hizmetleri"
+  },
+
+  "category": "home",
+  "subcategory": "repair",
+
+  "description_short": {
+    "ru": "Бытовой ремонт и помощь по дому в Алании.",
+    "en": "Home repair and handyman services in Alanya.",
+    "tr": "Alanya’da ev tamiri ve tamir hizmetleri."
+  },
+
+  "description_full": {
+    "ru": "Сантехника, электрика, сборка мебели и мелкий бытовой ремонт.",
+    "en": "Plumbing, electrical work, furniture assembly and small repairs.",
+    "tr": "Su tesisatı, elektrik işleri, mobilya montajı ve küçük tamiratlar."
+  },
+
+  "location": {
+    "ru": "Alanya",
+    "en": "Alanya",
+    "tr": "Alanya"
+  },
+
+  "contact": {
+    "ru": "+79803065665",
+    "en": "+79803065665",
+    "tr": "+79803065665"
+  },
+
+  "image_url": "",
+  "image_path": "",
+
+   "video_path": "data/object_videos/master_remont_alanya.mp4",
+
+  "languages": ["ru"],
+
+  "is_partner": true,
+
+  "lat": null,
+  "lng": null,
+
+  "maps_url": "",
+
+  "youtube": "https://youtube.com/@alanyamen-repair?si=eo1b6n_XLNAw6Qz6"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "moto_taxi_alanya_001",
+
+  "title": {
+    "ru": "Мото такси и мотопрогулки",
+    "en": "Moto Taxi and Rides",
+    "tr": "Moto Taksi ve Motosiklet Turları"
+  },
+
+  "category": "other",
+  "subcategory": "transport",
+
+  "description_short": {
+    "ru": "Мототакси, мотопрогулки, фотосессии и срочная доставка в Алании.",
+    "en": "Moto taxi, rides, photoshoots and urgent delivery in Alanya.",
+    "tr": "Alanya’da moto taksi, motosiklet turları, fotoğraf çekimi ve hızlı teslimat."
+  },
+
+
+  "description_full": {
+  "ru": "Услуги мототакси, мотопрогулки по побережью и горным дорогам Алании на Yamaha MT-07. Также доступны фотосессии, срочная доставка документов, денежных средств и небольших грузов. Возможна быстрая доставка по Алании и Махмутлару. • Фотосессия — 1500 TL/час • Мототакси Махмутлар → Алания — ориентировочно 600 TL • Срочная доставка — от 50 TL/км. Опыт вождения в Турции более 4 лет.",
+  "en": "Moto taxi services, rides along Alanya coast and mountain roads on Yamaha MT-07. Photoshoots, urgent delivery of documents, money and small cargo are also available.",
+  "tr": "Yamaha MT-07 ile Alanya sahili ve dağ yollarında moto taksi ve motosiklet gezileri. Evrak, para ve küçük paket hızlı teslimat hizmeti de mevcuttur."
+},
+  "location": {
+    "ru": "Алания / Махмутлар",
+    "en": "Alanya / Mahmutlar",
+    "tr": "Alanya / Mahmutlar"
+  },
+
+  "contact": {
+    "ru": "+79636407077",
+    "en": "+79636407077",
+    "tr": "+79636407077"
+  },
+
+  "image_url": "",
+  "image_path": "",
+
+  "languages": ["ru"],
+
+  "is_partner": true,
+
+  "lat": null,
+  "lng": null,
+
+  "maps_url": "",
+
+  "instagram": "",
+  "youtube": "",
+  "telegram": ""
+}

@@ -1,0 +1,51 @@
+{
+  "id": "music_art_school_alanya_001",
+
+  "title": {
+    "ru": "Школа музыкального мастерства",
+    "en": "Music and Art School",
+    "tr": "Müzik ve Sanat Okulu"
+  },
+
+  "category": "kids",
+  "subcategory": "activities",
+
+  "description_short": {
+    "ru": "Вокал, фортепиано, гитара и рисование для детей и взрослых.",
+    "en": "Vocal, piano, guitar and art classes for children and adults.",
+    "tr": "Çocuklar ve yetişkinler için вокал, piyano, gitar ve resim dersleri."
+  },
+
+  "description_full": {
+    "ru": "Школа музыкального мастерства в Махмутларе. Вокал, сольфеджио, обучение игре на фортепиано и гитаре, а также изобразительное искусство. Есть детские и взрослые группы, индивидуальные занятия и обучение онлайн через Zoom.",
+    "en": "Music and art school in Mahmutlar. Vocal, solfeggio, piano, guitar and art classes. Group and private lessons available, including Zoom online lessons.",
+    "tr": "Mahmutlar’da müzik ve sanat okulu. Vokal, solfej, piyano, gitar ve resim dersleri. Grup, bireysel ve Zoom üzerinden online eğitim imkanı."
+  },
+
+  "location": {
+    "ru": "Махмутлар, Alanya",
+    "en": "Mahmutlar, Alanya",
+    "tr": "Mahmutlar, Alanya"
+  },
+
+  "contact": {
+    "ru": "+79636407077",
+    "en": "+79636407077",
+    "tr": "+79636407077"
+  },
+
+  "languages": ["ru"],
+
+  "is_partner": true,
+
+  "lat": null,
+  "lng": null,
+
+  "maps_url": "https://maps.app.goo.gl/HrvbKP2z1ZPxVMWq7",
+
+  "instagram": "https://instagram.com/music_art.school?igshid=YmMyMTA2M2Y=",
+
+  "youtube": "",
+
+  "telegram": "https://t.me/musicismyall"
+}

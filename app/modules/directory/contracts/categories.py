@@ -4,6 +4,7 @@ from app.core.text import get_text
 
 CATEGORY_ORDER = [
     "beauty",
+    "sport",
     "health",
     "legal",
     "home",
@@ -18,7 +19,12 @@ CATEGORY_SUBCATEGORY_ORDER: dict[str, list[str]] = {
     "legal": ["lawyer", "translation", "insurance", "notary"],
     "home": ["repair", "cleaning", "furniture", "appliances"],
     "kids": ["school", "tutor", "kindergarten", "activities"],
-    "other": ["transport", "photographer", "pet_services", "car_rental"],
+    "other": [
+        "transport",
+        "photographer",
+        "pet_services",
+        "car_rental",
+    ],
 }
 
 CATEGORY_ALIASES: dict[str, str] = {}
@@ -30,6 +36,7 @@ SUBCATEGORY_ALIASES: dict[str, str] = {
 CATEGORY_TITLES_I18N: dict[str, dict[str, str]] = {
     "ru": {
         "beauty": "Красота",
+        "sport": "Спорт",
 
         "health": "Здоровье",
         "legal": "Документы и право",
@@ -39,7 +46,7 @@ CATEGORY_TITLES_I18N: dict[str, dict[str, str]] = {
     },
     "en": {
         "beauty": "Beauty",
-
+        "sport": "Sport",
         "health": "Health",
         "legal": "Documents and Law",
         "home": "Home and Repair",
@@ -48,7 +55,7 @@ CATEGORY_TITLES_I18N: dict[str, dict[str, str]] = {
     },
     "tr": {
         "beauty": "Güzellik",
-
+        "sport": "Spor",
         "health": "Sağlık",
         "legal": "Belgeler ve Hukuk",
         "home": "Ev ve Tamir",
