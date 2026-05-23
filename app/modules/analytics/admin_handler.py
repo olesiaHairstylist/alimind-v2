@@ -9,6 +9,7 @@ from pathlib import Path
 
 from app.modules.analytics.report import (
     build_analytics_report,
+    build_analytics_overview,
     build_user_flow_report,
     build_exit_points_report,
     build_recent_users_report,
@@ -24,10 +25,11 @@ class PhotoAddState(StatesGroup):
 async def admin_analytics_handler(message: Message):
     user = message.from_user
 
-    if not user or not is_admin_user(user.id):
-        return
+    print("ADMIN CHECK:", user.id)
 
-    text = build_analytics_report()
+    if not user:
+        return
+    text = build_analytics_overview()
     await message.answer(text)
 
 @router.message(Command("admin_flow"))
@@ -47,7 +49,7 @@ async def admin_analytics_button(callback: CallbackQuery):
     if not user or not is_admin_user(user.id):
         return
 
-    text = build_analytics_report()
+    text = build_analytics_overview()
     await callback.message.answer(text)
     await callback.answer()
 
@@ -95,23 +97,6 @@ async def admin_health_button(callback: CallbackQuery):
         return
 
     await callback.message.answer("⚠️ Health / Watchdog пока не подключён.")
-    await callback.answer()
-
-
-@router.callback_query(F.data == "photo:add")
-async def admin_photo_add_button(callback: CallbackQuery, state: FSMContext):
-    user = callback.from_user
-    if not user or not is_admin_user(user.id):
-        await callback.answer()
-        return
-
-    # 🔥 запускаем старый сценарий
-
-
-    await state.clear()
-
-
-    await callback.message.answer("📸 Отправьте фото карточки:")
     await callback.answer()
 
 OBJECTS_PATH = Path("app/data/objects")

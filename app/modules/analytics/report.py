@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from collections import Counter
+from datetime import datetime, timedelta, timezone
 
 EVENTS_PATH = Path("app/data/system/analytics_events.jsonl")
 
@@ -199,5 +200,98 @@ def build_exit_points_report() -> str:
     text += "Где пользователь остановился последним:\n"
     for label, count in exits.most_common(10):
         text += f"→ {label} — {count}\n"
+
+    return text
+def _parse_ts(value: str | None) -> datetime | None:
+    if not value:
+        return None
+
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+
+        return dt
+    except Exception:
+        return None
+
+def build_analytics_overview() -> str:
+    events = _read_events()
+
+    if not events:
+        return "📊 Обзор системы\n\nНет данных аналитики."
+
+    now = datetime.now(timezone.utc)
+    day_ago = now - timedelta(hours=24)
+    week_ago = now - timedelta(days=7)
+
+    all_users = set()
+    active_24h = set()
+    new_7d = set()
+    first_seen: dict[int, datetime] = {}
+
+    callbacks = Counter()
+    today_actions = 0
+
+    last_events = []
+
+    for event in events:
+        user_id = event.get("user_id")
+        ts = _parse_ts(event.get("ts"))
+
+        if user_id:
+            all_users.add(user_id)
+
+            if ts:
+                if user_id not in first_seen or ts < first_seen[user_id]:
+                    first_seen[user_id] = ts
+
+                if ts >= day_ago:
+                    active_24h.add(user_id)
+
+        if ts and ts >= day_ago:
+            today_actions += 1
+
+        if event.get("type") == "callback":
+            data = event.get("data")
+            if data:
+                callbacks[data] += 1
+
+        label = _get_label(event)
+        if label:
+            last_events.append(label)
+
+    for user_id, first_ts in first_seen.items():
+        if first_ts >= week_ago:
+            new_7d.add(user_id)
+
+    top = callbacks.most_common(5)
+    last_events = last_events[-5:]
+
+    text = "📊 Обзор системы AliMind\n\n"
+
+    text += "👥 Пользователи\n"
+    text += f"Всего: {len(all_users)}\n"
+    text += f"Активных за 24ч: {len(active_24h)}\n"
+    text += f"Новых за 7 дней: {len(new_7d)}\n\n"
+
+    text += "📈 Активность\n"
+    text += f"Всего событий: {len(events)}\n"
+    text += f"Действий за 24ч: {today_actions}\n\n"
+
+    text += "🔥 Топ кнопок\n"
+    if top:
+        for data, count in top:
+            text += f"→ {data} — {count}\n"
+    else:
+        text += "Пока нет нажатий\n"
+
+    text += "\n🕒 Последние действия\n"
+    if last_events:
+        for label in last_events:
+            text += f"→ {label}\n"
+    else:
+        text += "Нет действий\n"
 
     return text
