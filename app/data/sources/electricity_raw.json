@@ -2,15 +2,33 @@
   "category": "electricity",
   "source": "aedas_html_v2",
   "source_url": "https://www.akdenizedas.com.tr/kesinti-liste",
-  "fetched_at": "2026-03-26T14:54:26+03:00",
+  "fetched_at": "2026-05-29T11:06:46+03:00",
   "status": "ok",
   "items": [
     {
-      "title": "ANTALYA,ALANYA,MERKEZ EMİŞBELENİ ÇETİN,MERKEZ PAYALLAR BARUTÇULAR,MERKEZ PAYALLAR MERKEZ,MERKEZ PAYALLAR Mah. BARUTÇULAR Cd,MERKEZ PAYALLAR Mah. MERKEZ Cd",
-      "start_at": "26/02/2026 09:30:00",
-      "end_at": "26/02/2026 16:30:00",
-      "note": "Yatırım Çalışması",
-      "details": "26.02.2026 09:30 - 16:30 ✅ Çalışma Tamamlandı Kesinti Nedeni: Yatırım Çalışması Etkilenen Cadde / Sokak ANTALYA,ALANYA,MERKEZ EMİŞBELENİ ÇETİN,MERKEZ PAYALLAR BARUTÇULAR,MERKEZ PAYALLAR MERKEZ,MERKEZ PAYALLAR Mah. BARUTÇULAR Cd,MERKEZ PAYALLAR Mah. MERKEZ Cd bölgelerinde 26/02/2026 09:30:00 - 26/02/2026 16:30:00 saatleri arasında Yatırım Çalışması Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır.",
+      "title": "ANTALYA,ALANYA,MERKEZ CİKCİLLİ 207,MERKEZ CİKCİLLİ 208,MERKEZ CİKCİLLİ Mah. 208 Sk.",
+      "start_at": "30/04/2026 16:30:00",
+      "end_at": "30/04/2026 17:30:00",
+      "note": "Bakım Çalışması",
+      "details": "30.04.2026 16:30 - 17:30 ✅ Çalışma Tamamlandı Kesinti Nedeni: Bakım Çalışması Etkilenen Cadde / Sokak ANTALYA,ALANYA,MERKEZ CİKCİLLİ 207,MERKEZ CİKCİLLİ 208,MERKEZ CİKCİLLİ Mah. 208 Sk. bölgelerinde 30/04/2026 16:30:00 - 30/04/2026 17:30:00 saatleri arasında Bakım Çalışması Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır.",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "title": "ANTALYA,ALANYA,MERKEZ CUMHURİYET UÇAK ÇIKMAZI",
+      "start_at": "30/04/2026 15:30:00",
+      "end_at": "30/04/2026 16:30:00",
+      "note": "Bakım Çalışması",
+      "details": "30.04.2026 15:30 - 16:30 ✅ Çalışma Tamamlandı Kesinti Nedeni: Bakım Çalışması Etkilenen Cadde / Sokak ANTALYA,ALANYA,MERKEZ CUMHURİYET UÇAK ÇIKMAZI bölgelerinde 30/04/2026 15:30:00 - 30/04/2026 16:30:00 saatleri arasında Bakım Çalışması Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır.",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "title": "ANTALYA,ALANYA,MERKEZ ŞEKERHANE Mah. ÇON Sk.,MERKEZ ŞEKERHANE Mah. ŞİRİN Sk.,MERKEZ ŞEKERHANE ÇON,MERKEZ ŞEKERHANE ŞİRİN",
+      "start_at": "30/04/2026 13:30:00",
+      "end_at": "30/04/2026 14:30:00",
+      "note": "Bakım Çalışması",
+      "details": "30.04.2026 13:30 - 14:30 ✅ Çalışma Tamamlandı Kesinti Nedeni: Bakım Çalışması Etkilenen Cadde / Sokak ANTALYA,ALANYA,MERKEZ ŞEKERHANE Mah. ÇON Sk.,MERKEZ ŞEKERHANE Mah. ŞİRİN Sk.,MERKEZ ŞEKERHANE ÇON,MERKEZ ŞEKERHANE ŞİRİN bölgelerinde 30/04/2026 13:30:00 - 30/04/2026 14:30:00 saatleri arasında Bakım Çalışması Sebebi ile İş Sağlığı ve Güvenliği’ni de gözeterek elektrik kesintisi yapılacaktır. 1 2 3 › Son »",
       "address": "",
       "phone": ""
     }

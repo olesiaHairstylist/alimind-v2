@@ -56,7 +56,14 @@ def _fetch_html(url: str) -> str:
     response = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
     response.raise_for_status()
     return response.text
+    html = response.text
 
+    Path("debug_electricity.html").write_text(
+        html,
+        encoding="utf-8",
+    )
+
+    return html
 
 def fetch_electricity_raw() -> ElectricityFetchResult:
     fetched_at = _now_iso()

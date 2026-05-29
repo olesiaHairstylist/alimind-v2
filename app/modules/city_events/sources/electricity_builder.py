@@ -62,11 +62,12 @@ def build_electricity_payload(
     }
     """
     source_items = raw_items or []
-    cards = build_electricity_cards(source_items)
+    cards = source_items
 
     payload: dict[str, Any] = {
         "category": "electricity",
         "updated_at": updated_at or _now_iso(),
+        "status": "ok" if cards else "empty",
         "items": cards,
     }
     return payload

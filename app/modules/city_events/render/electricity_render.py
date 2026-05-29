@@ -32,7 +32,29 @@ TO_MAP = {
     "en": "Until",
     "tr": "Bitis",
 }
+DISTRICT_RU = {
+    "CİKCİLLİ": "Джикджилли",
+    "CUMHURİYET": "Джумхуриет",
+    "ŞEKERHANE": "Шекерхане",
+    "OBA": "Оба",
+    "TOSMUR": "Тосмур",
+    "MAHMUTLAR": "Махмутлар",
+    "KARGICAK": "Каргыджак",
+    "AVSALLAR": "Авсаллар",
+    "PAYALLAR": "Паяллар",
+    "TÜRKLER": "Тюрклер",
+    "KONAKLI": "Конаклы",
+}
+def _find_district(title: str) -> str:
+    upper = title.upper()
 
+    for district in DISTRICT_RU:
+        if district in upper:
+            return district
+
+    return ""
+def _district_ru_name(district: str) -> str:
+    return DISTRICT_RU.get(district, "")
 
 def _short_time(value: str) -> str:
     value = (value or "").strip()
@@ -71,8 +93,15 @@ def render_electricity(payload: dict[str, Any], lang: str = "ru") -> str:
                 note = str(item.get("note", "")).strip()
                 address = str(item.get("address", "")).strip()
                 phone = str(item.get("phone", "")).strip()
+                clean_title = (
+                    title_value
+                    .replace("ANTALYA,", "")
+                    .replace("ALANYA,", "")
+                    .replace("MERKEZ ", "")
+                )
+                location = clean_title.replace(",", "\n• ")
 
-                lines.append(f"{idx}. {title_value}")
+                lines.append(f"📍 {location}")
 
                 start_short = _short_time(start_at)
                 end_short = _short_time(end_at)
@@ -103,7 +132,29 @@ def render_electricity(payload: dict[str, Any], lang: str = "ru") -> str:
             end_at = str(item.get("end_at", "")).strip()
             note = str(item.get("note", "")).strip()
 
-            lines.append(f"{idx}. {title_value}")
+            clean_title = (
+                title_value
+                .replace("ANTALYA,", "")
+                .replace("ALANYA,", "")
+                .replace("MERKEZ ", "")
+            )
+
+            location = clean_title.replace(",", "\n• ")
+            district = _find_district(clean_title)
+            display_location = location
+
+            if district:
+                display_location = display_location.replace(district, "").strip()
+                display_location = display_location.replace("• ", "• ")
+
+            lines.append(f"📍 Район: {district}")
+
+            if lang == "ru" and district:
+                ru_name = _district_ru_name(district)
+                if ru_name:
+                    lines.append(f"({ru_name})")
+
+            lines.append("")
 
             start_short = _short_time(start_at)
             end_short = _short_time(end_at)
@@ -117,7 +168,15 @@ def render_electricity(payload: dict[str, Any], lang: str = "ru") -> str:
                     lines.append(f"🕒 {TO_MAP.get(lang, TO_MAP['ru'])} {end_short}")
 
             if note:
-                lines.append(f"📌 {note}")
+                if note == "Bakım Çalışması":
+                    note = "Техническое обслуживание"
+
+                elif note == "Yatırım Çalışması":
+                    note = "Плановые работы"
+
+                elif note == "Güvenlik":
+                    note = "Работы по безопасности"
+                lines.append(f"🔧 {note}")
 
             lines.append("")
 

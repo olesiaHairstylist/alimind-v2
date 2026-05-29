@@ -94,6 +94,9 @@ async def open_city_events_menu(callback: CallbackQuery) -> None:
 async def open_pharmacies(callback: CallbackQuery) -> None:
     lang = _get_lang(callback)
     data = read_public_file(PHARMACIES_PUBLIC_FILE)
+    print("ELECTRICITY_PUBLIC_FILE:", ELECTRICITY_PUBLIC_FILE)
+    print("ELECTRICITY_ITEMS:", len(data.get("items", [])))
+    print("ELECTRICITY_DATA:", data)
     text = render_pharmacies(data, lang=lang)
 
     items = data.get("items") or []

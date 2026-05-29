@@ -48,7 +48,10 @@ def parse_iso_dt(value: Any) -> datetime | None:
         "%Y-%m-%d %H:%M",
         "%d.%m.%Y %H:%M",
         "%d.%m.%Y %H:%M:%S",
+        "%d/%m/%Y %H:%M:%S",
     ):
+
+
         try:
             return datetime.strptime(raw, fmt)
         except ValueError:
