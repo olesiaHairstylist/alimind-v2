@@ -8,7 +8,30 @@ from typing import Any
 
 def _now_iso() -> str:
     return datetime.now().astimezone().isoformat(timespec="seconds")
+def _parse_dt(value: str | None) -> datetime | None:
+    if not value:
+        return None
 
+    for fmt in ("%d/%m/%Y %H:%M:%S", "%d.%m.%Y %H:%M"):
+        try:
+            return datetime.strptime(value, fmt).astimezone()
+        except ValueError:
+            continue
+
+    return None
+
+
+def _is_actual_item(item: dict[str, Any]) -> bool:
+    details = item.get("details", "") or ""
+
+    if "Çalışma Tamamlandı" in details:
+        return False
+
+    end_at = _parse_dt(item.get("end_at"))
+    if end_at and end_at < datetime.now().astimezone():
+        return False
+
+    return True
 
 def extract_raw_items(raw_data: Any) -> list[dict[str, Any]]:
     """
@@ -62,7 +85,7 @@ def build_electricity_payload(
     }
     """
     source_items = raw_items or []
-    cards = source_items
+    cards = [item for item in source_items if _is_actual_item(item)]
 
     payload: dict[str, Any] = {
         "category": "electricity",
