@@ -55,7 +55,7 @@ def _write_raw(payload: dict[str, Any]) -> None:
 def _fetch_html(url: str) -> str:
     response = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
     response.raise_for_status()
-    return response.text
+
     html = response.text
 
     Path("debug_electricity.html").write_text(
@@ -67,7 +67,7 @@ def _fetch_html(url: str) -> str:
 
 def fetch_electricity_raw() -> ElectricityFetchResult:
     fetched_at = _now_iso()
-
+    last_error = None
     for url in (PRIMARY_URL, FALLBACK_URL):
         try:
             html = _fetch_html(url)
@@ -84,18 +84,22 @@ def fetch_electricity_raw() -> ElectricityFetchResult:
                 )
 
             # HTML доступен, но полезных ALANYA блоков не нашли
-            return ElectricityFetchResult(
-                status="empty",
-                source_url=url,
-                items=[],
-                fetched_at=fetched_at,
-                error=None,
-            )
+            # HTML доступен, но полезных ALANYA блоков не нашли — пробуем следующий URL
+            continue
 
         except requests.RequestException as exc:
             last_error = f"{type(exc).__name__}: {exc}"
         except Exception as exc:
             last_error = f"{type(exc).__name__}: {exc}"
+
+    if last_error is None:
+        return ElectricityFetchResult(
+            status="empty",
+            source_url=FALLBACK_URL,
+            items=[],
+            fetched_at=fetched_at,
+            error=None,
+        )
 
     return ElectricityFetchResult(
         status="error",
@@ -104,7 +108,6 @@ def fetch_electricity_raw() -> ElectricityFetchResult:
         fetched_at=fetched_at,
         error=last_error,
     )
-
 
 def run_fetch() -> dict[str, Any]:
     """

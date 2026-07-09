@@ -33,12 +33,20 @@ from app.modules.group_moderation.router import router as group_moderation_route
 from app.modules.partners.handlers.tickets_preview_click import (
     router as tickets_preview_partner_click_router,
 )
-
+from app.modules.city_events.services.updater import (
+    update_emergency_contacts,
+    update_pharmacies,
+    update_electricity,
+    update_water,
+)
 async def schedule_updates():
     while True:
         try:
             update_emergency_contacts()
             update_pharmacies()
+            update_electricity()
+            update_water()
+
             print("UPDATE OK")
         except Exception as e:
             print("UPDATE ERROR:", e)
