@@ -45,8 +45,14 @@ def build_city_events_menu_kb(lang: str = "ru") -> InlineKeyboardMarkup:
 
     b = InlineKeyboardBuilder()
     b.button(text=labels["pharmacies"], callback_data=CITY_EVENTS_PHARMACIES_CB)
-    b.button(text=labels["electricity"], callback_data=CITY_EVENTS_ELECTRICITY_CB)
-    b.button(text=labels["water"], callback_data=CITY_EVENTS_WATER_CB)
+    b.button(
+        text=labels["electricity"],
+        url="https://www.akdenizedas.com.tr/elektrik-kesintisi-sorgulama?il=ANTALYA&ilce=ALANYA",
+    )
+    b.button(
+        text=labels["water"],
+        url="https://kesinti.asat.gov.tr/dbo_kesintiliste/list",
+    )
     b.button(text=labels["emergency"], callback_data=CITY_EVENTS_EMERGENCY_CB)
     b.button(text=labels["main_menu"], callback_data="main:menu")
     b.adjust(1)
