@@ -13,6 +13,7 @@ from app.modules.analytics.report import (
     build_user_flow_report,
     build_exit_points_report,
     build_recent_users_report,
+    build_monthly_users_report,
 )
 from app.modules.directory.handlers.partner_add import PartnerPhotoStates
 from app.modules.analytics.keyboards import build_recent_users_kb
@@ -43,6 +44,15 @@ async def admin_flow_handler(message: Message):
     kb = build_recent_users_kb()
 
     await message.answer(text, reply_markup=kb)
+@router.callback_query(F.data == "admin:monthly_users")
+async def admin_monthly_users_button(callback: CallbackQuery):
+    user = callback.from_user
+    if not user or not is_admin_user(user.id):
+        return
+
+    text = build_monthly_users_report()
+    await callback.message.answer(text)
+    await callback.answer()
 @router.callback_query(F.data == "admin:analytics")
 async def admin_analytics_button(callback: CallbackQuery):
     user = callback.from_user

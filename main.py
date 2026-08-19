@@ -66,6 +66,7 @@ async def main() -> None:
 
     await bot.set_my_commands([
         BotCommand(command="language", description="Выбрать язык"),
+        BotCommand(command="admin", description="Админ-панель"),
         BotCommand(command="admin_analytics", description="Обзор системы"),
         BotCommand(command="admin_flow", description="Путь пользователей"),
         BotCommand(command="admin_help", description="Admin help"),

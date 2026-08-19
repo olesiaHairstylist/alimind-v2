@@ -20,6 +20,10 @@ async def admin_menu_handler(message: Message):
 
     kb.button(text="📊 Аналитика", callback_data="admin:analytics")
     kb.button(text="🧭 Путь пользователя", callback_data="admin:flow")
+    kb.button(
+        text="📅 Пользователи по месяцам",
+        callback_data="admin:monthly_users",
+    )
     kb.button(text="⚠️ Health / Watchdog", callback_data="admin:health")
     kb.button(text="🚪 Точки выхода", callback_data="admin:exits")
 
