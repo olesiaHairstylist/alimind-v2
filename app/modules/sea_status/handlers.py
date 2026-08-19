@@ -8,9 +8,36 @@ from app.modules.sea_status.sea_status import get_sea_status
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 router = Router()
 
-def build_sea_back_kb():
+def build_sea_back_kb(lang: str = "ru"):
+    labels = {
+        "ru": {
+            "beaches": "🏖 Пляжи онлайн",
+            "back": "⬅️ Назад в меню",
+        },
+        "en": {
+            "beaches": "🏖 Beaches Live",
+            "back": "⬅️ Back to menu",
+        },
+        "tr": {
+            "beaches": "🏖 Plajlar Canlı",
+            "back": "⬅️ Menüye dön",
+        },
+    }.get(lang, {
+        "beaches": "🏖 Пляжи онлайн",
+        "back": "⬅️ Назад в меню",
+    })
+
     b = InlineKeyboardBuilder()
-    b.button(text="⬅️ Назад в меню", callback_data="main:menu")
+
+    b.button(
+        text=labels["beaches"],
+        url="https://www.alanya.bel.tr/PlajKameralar",
+    )
+    b.button(
+        text=labels["back"],
+        callback_data="main:menu",
+    )
+
     b.adjust(1)
     return b.as_markup()
 
@@ -93,6 +120,6 @@ async def sea_status_handler(callback: CallbackQuery) -> None:
     )
     await callback.message.answer(
         text,
-        reply_markup=build_sea_back_kb(),
+        reply_markup=build_sea_back_kb(lang),
     )
     await callback.answer()

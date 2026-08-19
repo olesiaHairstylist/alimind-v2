@@ -17,6 +17,7 @@ def build_city_events_menu_kb(lang: str = "ru") -> InlineKeyboardMarkup:
         "ru": {
             "pharmacies": "💊 Дежурные аптеки",
             "electricity": "🔌 Отключения электричества",
+            "alanya_online": "📹 Алания онлайн",
             "water": "🚰 Отключения воды",
             "emergency": "🚨 Экстренные службы",
             "main_menu": "🏠 Главное меню",
@@ -24,6 +25,7 @@ def build_city_events_menu_kb(lang: str = "ru") -> InlineKeyboardMarkup:
         "en": {
             "pharmacies": "💊 Duty Pharmacies",
             "electricity": "🔌 Electricity Outages",
+            "alanya_online": "📹 Alanya Live",
             "water": "🚰 Water Outages",
             "emergency": "🚨 Emergency Contacts",
             "main_menu": "🏠 Main Menu",
@@ -32,12 +34,14 @@ def build_city_events_menu_kb(lang: str = "ru") -> InlineKeyboardMarkup:
             "pharmacies": "💊 Nobetci Eczaneler",
             "electricity": "🔌 Elektrik Kesintileri",
             "water": "🚰 Su Kesintileri",
+            "alanya_online": "📹 Alanya Canlı",
             "emergency": "🚨 Acil Hizmetler",
             "main_menu": "🏠 Ana Menu",
         },
     }.get(lang, {
         "pharmacies": "💊 Дежурные аптеки",
         "electricity": "🔌 Отключения электричества",
+        "alanya_online": "📹 Алания онлайн",
         "water": "🚰 Отключения воды",
         "emergency": "🚨 Экстренные службы",
         "main_menu": "🏠 Главное меню",
@@ -52,6 +56,10 @@ def build_city_events_menu_kb(lang: str = "ru") -> InlineKeyboardMarkup:
     b.button(
         text=labels["water"],
         url="https://kesinti.asat.gov.tr/dbo_kesintiliste/list",
+    )
+    b.button(
+        text=labels["alanya_online"],
+        url="https://www.alanya.bel.tr/Kameralar",
     )
     b.button(text=labels["emergency"], callback_data=CITY_EVENTS_EMERGENCY_CB)
     b.button(text=labels["main_menu"], callback_data="main:menu")

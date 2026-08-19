@@ -60,6 +60,8 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
             "rent": "🏠 Недвижимость Аланьи",
             "pharmacies": "💊 Дежурные аптеки",
             "alanya_online": "📹 Алания онлайн",
+            # ru
+            "esim": "📱 eSIM −15%",
 
 
         },
@@ -75,6 +77,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
             "news": "📰 Новости Аланьи ",
             "pharmacies": "💊 Duty Pharmacies",
             "alanya_online": "📹 Alanya Live",
+            "esim": "📱 eSIM −15%",
 
 
         },
@@ -90,6 +93,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
             "news": "📰 Новости Аланьи ",
             "pharmacies": "💊 Nöbetçi Eczaneler",
             "alanya_online": "📹 Alanya Canlı",
+            "esim": "📱 eSIM −15%",
 
 
         },
@@ -116,8 +120,8 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
     b.button(text="🧾  ВНЖ", callback_data="rescalc:start")
     b.button(text=labels["sea"], callback_data="sea_status:open")
     b.button(
-        text=labels["alanya_online"],
-        callback_data="alanya_online:menu",
+        text=labels["esim"],
+        callback_data="partner:yesim:open",
     )
 
     b.button(text=labels["news"], url="https://t.me/alania_life07")
@@ -129,46 +133,7 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
     b.adjust(1, 2, 2, 3, 1, 1, 1, 1)
     return b.as_markup()
 
-def build_alanya_online_menu(lang: str = "ru") -> InlineKeyboardMarkup:
-    labels = {
-        "ru": {
-            "city": "🏙 Городские камеры",
-            "beaches": "🏖 Пляжные камеры",
-            "back": "⬅️ Назад",
-        },
-        "en": {
-            "city": "🏙 City cameras",
-            "beaches": "🏖 Beach cameras",
-            "back": "⬅️ Back",
-        },
-        "tr": {
-            "city": "🏙 Şehir kameraları",
-            "beaches": "🏖 Plaj kameraları",
-            "back": "⬅️ Geri",
-        },
-    }.get(lang, {
-        "city": "🏙 Городские камеры",
-        "beaches": "🏖 Пляжные камеры",
-        "back": "⬅️ Назад",
-    })
 
-    b = InlineKeyboardBuilder()
-
-    b.button(
-        text=labels["city"],
-        url="https://www.alanya.bel.tr/Kameralar",
-    )
-    b.button(
-        text=labels["beaches"],
-        url="https://www.alanya.bel.tr/PlajKameralar",
-    )
-    b.button(
-        text=labels["back"],
-        callback_data="main:menu",
-    )
-
-    b.adjust(1)
-    return b.as_markup()
 def _extract_start_object_id(message: Message) -> str | None:
     text = (message.text or "").strip()
     parts = text.split(maxsplit=1)
@@ -248,21 +213,60 @@ async def open_main_menu(callback: CallbackQuery, state: FSMContext) -> None:
             reply_markup=reply_markup,
         )
 
-@router.callback_query(lambda c: c.data == "alanya_online:menu")
-async def open_alanya_online(callback: CallbackQuery) -> None:
+@router.callback_query(lambda c: c.data == "partner:yesim:open")
+async def open_yesim_offer(callback: CallbackQuery) -> None:
     user = callback.from_user
     user_lang = get_user_lang(user.id) if user else "ru"
 
     text_map = {
-        "ru": "📹 Алания онлайн\n\nВыберите камеры:",
-        "en": "📹 Alanya Live\n\nChoose cameras:",
-        "tr": "📹 Alanya Canlı\n\nKamera seçin:",
-
+        "ru": (
+            "📱 eSIM для путешествий\n\n"
+            "Мобильный интернет без физической SIM-карты.\n"
+            "Работает во многих странах мира.\n\n"
+            "🎁 Скидка 15% на первую покупку Yesim\n"
+            "Промокод: ALIMIND15"
+        ),
+        "en": (
+            "📱 eSIM for travel\n\n"
+            "Mobile internet without a physical SIM card.\n"
+            "Available in many countries worldwide.\n\n"
+            "🎁 15% off your first Yesim purchase\n"
+            "Promo code: ALIMIND15"
+        ),
+        "tr": (
+            "📱 Seyahat için eSIM\n\n"
+            "Fiziksel SIM kart olmadan mobil internet.\n"
+            "Dünyanın birçok ülkesinde kullanılabilir.\n\n"
+            "🎁 İlk Yesim alışverişinde %15 indirim\n"
+            "Promosyon kodu: ALIMIND15"
+        ),
     }
+
+    b = InlineKeyboardBuilder()
+
+    b.button(
+        text={
+            "ru": "🌍 Выбрать eSIM",
+            "en": "🌍 Choose eSIM",
+            "tr": "🌍 eSIM seç",
+        }.get(user_lang or "ru", "🌍 Выбрать eSIM"),
+        url="https://yesim.app/?partner_id=5253",
+    )
+
+    b.button(
+        text={
+            "ru": "⬅️ Назад",
+            "en": "⬅️ Back",
+            "tr": "⬅️ Geri",
+        }.get(user_lang or "ru", "⬅️ Назад"),
+        callback_data="main:menu",
+    )
+
+    b.adjust(1)
 
     await callback.message.edit_text(
         text_map.get(user_lang or "ru", text_map["ru"]),
-        reply_markup=build_alanya_online_menu(user_lang or "ru"),
+        reply_markup=b.as_markup(),
     )
 
     await callback.answer()

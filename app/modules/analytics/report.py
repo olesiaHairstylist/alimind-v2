@@ -6,7 +6,46 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 
 EVENTS_PATH = Path("app/data/system/analytics_events.jsonl")
+ADMIN_USER_IDS = {843256275}
 
+LABELS = {
+    "main:menu": "🏠 Главное меню",
+    "sea_status:open": "🌊 Море",
+    "city_events:menu": "⚡ Город сейчас",
+    "city_events:pharmacies": "💊 Дежурные аптеки",
+    "city_events:electricity": "🔌 Электричество",
+    "city_events:water": "🚰 Вода",
+    "city_events:emergency": "🚨 Экстренные службы",
+    "directory:menu": "🛠 Услуги",
+    "currency:menu": "💱 Валюта",
+    "phrasebook:menu": "💬 Разговорник",
+    "rescalc:start": "🧾 ВНЖ",
+    "rent:entry": "🏠 Недвижимость",
+    "lang:ru": "🇷🇺 Русский язык",
+    "lang:en": "🇬🇧 English",
+    "lang:tr": "🇹🇷 Türkçe",
+    "/language": "🌐 Смена языка",
+    "partner:yesim:open": "📱 eSIM Yesim",
+}
+
+
+def _human_label(label: str) -> str:
+    if label in LABELS:
+        return LABELS[label]
+
+    if label.startswith("directory:category:"):
+        category = label.removeprefix("directory:category:")
+        return f"📂 Категория: {category}"
+
+    if label.startswith("directory:subcategory:"):
+        subcategory = label.removeprefix("directory:subcategory:")
+        return f"📁 Подкатегория: {subcategory}"
+
+    if label.startswith("directory:open:"):
+        object_id = label.removeprefix("directory:open:")
+        return f"📍 Объект: {object_id}"
+
+    return label
 
 def _read_events() -> list[dict]:
     if not EVENTS_PATH.exists():
@@ -25,7 +64,14 @@ def _read_events() -> list[dict]:
             if not user_id:
                 continue
 
+            if user_id in ADMIN_USER_IDS:
+                continue
+
             events.append(event)
+
+
+
+
 
     return events
 
@@ -54,7 +100,8 @@ def get_recent_users(limit: int = 10) -> list[int]:
 
         if not user_id or not label:
             continue
-
+        if user_id in ADMIN_USER_IDS:
+            continue
         if user_id in seen:
             continue
 
@@ -121,7 +168,7 @@ def build_user_flow_report(user_id: int | None = None, limit: int = 20) -> str:
     text += f"👣 Последние шаги: {len(user_events)}\n\n"
 
     for e in user_events:
-        text += f"→ {e['label']}\n"
+        text += f"→ {_human_label(e['label'])}\n"
 
     return text
 
@@ -199,7 +246,7 @@ def build_exit_points_report() -> str:
 
     text += "Где пользователь остановился последним:\n"
     for label, count in exits.most_common(10):
-        text += f"→ {label} — {count}\n"
+        text += f"→ {_human_label(label)} — {count}\n"
 
     return text
 def _parse_ts(value: str | None) -> datetime | None:
@@ -283,14 +330,14 @@ def build_analytics_overview() -> str:
     text += "🔥 Топ кнопок\n"
     if top:
         for data, count in top:
-            text += f"→ {data} — {count}\n"
+            text += f"→ {_human_label(data)} — {count}\n"
     else:
         text += "Пока нет нажатий\n"
 
     text += "\n🕒 Последние действия\n"
     if last_events:
         for label in last_events:
-            text += f"→ {label}\n"
+            text += f"→ {_human_label(label)}\n"
     else:
         text += "Нет действий\n"
 
