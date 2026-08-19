@@ -168,11 +168,66 @@ def build_user_flow_report(user_id: int | None = None, limit: int = 20) -> str:
     text += f"👣 Последние шаги: {len(user_events)}\n\n"
 
     for e in user_events:
-        text += f"→ {_human_label(e['label'])}\n"
+        ts = _parse_ts(e.get("ts"))
+
+        if ts:
+            local_ts = ts.astimezone(timezone(timedelta(hours=3)))
+            time_str = local_ts.strftime("%d.%m %H:%M")
+            text += f"→ {time_str} — {_human_label(e['label'])}\n"
+        else:
+            text += f"→ {_human_label(e['label'])}\n"
 
     return text
 
+def build_monthly_users_report(months: int = 12) -> str:
+    events = _read_events()
 
+    if not events:
+        return "📅 Пользователи по месяцам\n\nНет данных."
+
+    monthly_users: dict[str, set[int]] = {}
+
+    for event in events:
+        user_id = event.get("user_id")
+        ts = _parse_ts(event.get("ts"))
+
+        if not user_id or not ts:
+            continue
+
+        month_key = ts.strftime("%Y-%m")
+        monthly_users.setdefault(month_key, set()).add(user_id)
+
+    if not monthly_users:
+        return "📅 Пользователи по месяцам\n\nНет данных."
+
+    months_sorted = sorted(monthly_users.keys(), reverse=True)[:months]
+    months_sorted.reverse()
+
+    text = "📅 Пользователи AliMind по месяцам\n\n"
+
+    month_names = {
+        "01": "Январь",
+        "02": "Февраль",
+        "03": "Март",
+        "04": "Апрель",
+        "05": "Май",
+        "06": "Июнь",
+        "07": "Июль",
+        "08": "Август",
+        "09": "Сентябрь",
+        "10": "Октябрь",
+        "11": "Ноябрь",
+        "12": "Декабрь",
+    }
+
+    for month_key in months_sorted:
+        year, month = month_key.split("-")
+        name = month_names.get(month, month)
+        count = len(monthly_users[month_key])
+
+        text += f"{name} {year} — 👥 {count}\n"
+
+    return text
 def build_analytics_report() -> str:
     events = _read_events()
 
