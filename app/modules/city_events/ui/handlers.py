@@ -153,6 +153,12 @@ def _pharmacy_card_kb(item: dict[str, Any], district: str, lang: str):
     address = str(item.get("address") or "").strip()
     maps_url = str(item.get("maps_url") or "").strip()
     query = quote_plus(f"{title} {address} Alanya")
+    destination = quote_plus(f"{title}, {district}, Alanya")
+    route_url = (
+        f"https://www.google.com/maps/dir/?api=1&destination={destination}"
+        if title
+        else maps_url or f"https://www.google.com/maps/search/?api=1&query={query}"
+    )
     route_label = {
         "ru": f"📍 Маршрут — {title}",
         "en": f"📍 Route — {title}",
@@ -160,7 +166,7 @@ def _pharmacy_card_kb(item: dict[str, Any], district: str, lang: str):
     }.get(lang, f"📍 Маршрут — {title}")
     b.button(
         text=route_label[:64],
-        url=maps_url or f"https://www.google.com/maps/search/?api=1&query={query}",
+        url=route_url,
     )
     b.adjust(1)
     return b.as_markup()
