@@ -126,7 +126,8 @@ def _pharmacy_card_text(item: dict[str, Any], district: str, lang: str) -> str:
 def _pharmacy_card_kb(item: dict[str, Any], district: str, lang: str):
     b = InlineKeyboardBuilder()
     title = str(item.get("title") or item.get("name") or "Аптека").strip()
-    destination = quote_plus(f"{title}, {district}, Alanya")
+    address = str(item.get("address") or "").strip()
+    query = quote_plus(f"{title} {address} Alanya")
     route_label = {
         "ru": f"📍 Маршрут — {title}",
         "en": f"📍 Route — {title}",
@@ -134,7 +135,7 @@ def _pharmacy_card_kb(item: dict[str, Any], district: str, lang: str):
     }.get(lang, f"📍 Маршрут — {title}")
     b.button(
         text=route_label[:64],
-        url=f"https://www.google.com/maps/dir/?api=1&destination={destination}",
+        url=f"https://www.google.com/maps/search/?api=1&query={query}",
     )
     b.adjust(1)
     return b.as_markup()
