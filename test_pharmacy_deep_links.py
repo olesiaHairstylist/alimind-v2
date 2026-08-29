@@ -84,3 +84,15 @@ def test_full_list_navigation_leads_to_main_menu_not_full_list_again():
     ]
     assert "main:menu" in callbacks
     assert "pharmacy:district:all" not in callbacks
+
+
+def test_district_navigation_offers_full_list_and_main_menu():
+    markup = build_pharmacy_districts_kb("ru", show_all=True)
+    callbacks = [
+        button.callback_data
+        for row in markup.inline_keyboard
+        for button in row
+        if button.callback_data
+    ]
+    assert "pharmacy:district:all" in callbacks
+    assert "main:menu" in callbacks
