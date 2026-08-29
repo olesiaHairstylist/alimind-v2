@@ -4,7 +4,7 @@ from app.modules.city_events.services.pharmacy_districts import (
     filter_pharmacies,
     item_district_code,
 )
-from app.modules.city_events.ui.handlers import _pharmacy_card_kb
+from app.modules.city_events.ui.handlers import _pharmacy_card_kb, _pharmacy_card_text
 
 
 class FakeMessage:
@@ -62,3 +62,9 @@ def test_route_uses_proven_google_maps_search_format():
     assert url.startswith("https://www.google.com/maps/search/?api=1&query=")
     assert "EM%C4%B0R+ECZANES%C4%B0" in url
     assert "ATAT" in url
+
+
+def test_card_does_not_create_fake_cad_no_link():
+    text = _pharmacy_card_text(ITEMS[0], "Mahmutlar", "ru")
+    assert "CAD.NO:" not in text
+    assert "CAD. NO 129/A" in text
