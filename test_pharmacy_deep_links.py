@@ -4,6 +4,7 @@ from app.modules.city_events.services.pharmacy_districts import (
     filter_pharmacies,
     item_district_code,
 )
+from app.modules.city_events.ui.handlers import _pharmacy_card_kb
 
 
 class FakeMessage:
@@ -52,3 +53,11 @@ def test_all_returns_full_list_and_unknown_is_safe():
 def test_turkish_district_names_are_normalized():
     item = {"details": "Nöbetçi eczane (ÇIKÇILLI)", "address": ""}
     assert item_district_code(item) == "cikcilli"
+
+
+def test_route_uses_short_pharmacy_and_district_destination():
+    markup = _pharmacy_card_kb(ITEMS[0], "Mahmutlar", "ru")
+    url = markup.inline_keyboard[0][0].url
+    assert url is not None
+    assert "destination=EM%C4%B0R+ECZANES%C4%B0%2C+Mahmutlar%2C+Alanya" in url
+    assert "ATAT" not in url
