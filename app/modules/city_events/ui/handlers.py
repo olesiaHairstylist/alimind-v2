@@ -30,6 +30,7 @@ from app.modules.city_events.services.pharmacy_districts import (
 )
 
 APP_DIR = Path(__file__).resolve().parents[3]
+ALIMIND_CITY_URL = "https://alimindcity.com/"
 
 PHARMACIES_PUBLIC_FILE = (
     APP_DIR
@@ -105,11 +106,18 @@ def build_pharmacy_districts_kb(lang: str, *, show_all: bool = True):
         }.get(lang, "Все дежурные аптеки")
         b.button(text=f"💊 {all_label}", callback_data="pharmacy:district:all")
 
+    site_label = {
+        "ru": "Другие разделы AliMind City",
+        "en": "Other AliMind City sections",
+        "tr": "Diğer AliMind City bölümleri",
+    }.get(lang, "Другие разделы AliMind City")
+    b.button(text=f"🌐 {site_label}", url=ALIMIND_CITY_URL)
+
     main_label = {
-        "ru": "Главное меню",
-        "en": "Main menu",
-        "tr": "Ana menü",
-    }.get(lang, "Главное меню")
+        "ru": "Главное меню бота",
+        "en": "Bot main menu",
+        "tr": "Bot ana menüsü",
+    }.get(lang, "Главное меню бота")
     b.button(text=f"🏠 {main_label}", callback_data="main:menu")
     b.adjust(2, 2, 2, 2, 2, 1, 1)
     return b.as_markup()
