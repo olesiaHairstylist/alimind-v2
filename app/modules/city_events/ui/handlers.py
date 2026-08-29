@@ -89,7 +89,7 @@ def build_pharmacies_action_kb(items: list[dict[str, Any]], lang: str):
     return b.as_markup()
 
 
-def build_pharmacy_districts_kb(lang: str):
+def build_pharmacy_districts_kb(lang: str, *, show_all: bool = True):
     b = InlineKeyboardBuilder()
     for code, district in PHARMACY_DISTRICTS.items():
         b.button(
@@ -97,12 +97,20 @@ def build_pharmacy_districts_kb(lang: str):
             callback_data=f"pharmacy:district:{code}",
         )
 
-    all_label = {
-        "ru": "Все дежурные аптеки",
-        "en": "All duty pharmacies",
-        "tr": "Tüm nöbetçi eczaneler",
-    }.get(lang, "Все дежурные аптеки")
-    b.button(text=f"💊 {all_label}", callback_data="pharmacy:district:all")
+    if show_all:
+        all_label = {
+            "ru": "Все дежурные аптеки",
+            "en": "All duty pharmacies",
+            "tr": "Tüm nöbetçi eczaneler",
+        }.get(lang, "Все дежурные аптеки")
+        b.button(text=f"💊 {all_label}", callback_data="pharmacy:district:all")
+    else:
+        main_label = {
+            "ru": "Главное меню",
+            "en": "Main menu",
+            "tr": "Ana menü",
+        }.get(lang, "Главное меню")
+        b.button(text=f"🏠 {main_label}", callback_data="main:menu")
     b.adjust(2, 2, 2, 2, 2, 1, 1)
     return b.as_markup()
 
@@ -186,12 +194,25 @@ async def send_pharmacies_by_district(
             reply_markup=_pharmacy_card_kb(item, item_label, lang),
         )
 
-    follow_up = {
-        "ru": "Показать другие аптеки или выбрать другой район:",
-        "en": "Show other pharmacies or choose another area:",
-        "tr": "Diğer eczaneleri gösterin veya başka bir bölge seçin:",
-    }.get(lang, "Показать другие аптеки или выбрать другой район:")
-    await message.answer(follow_up, reply_markup=build_pharmacy_districts_kb(lang))
+    if district_code == "all":
+        follow_up = {
+            "ru": "Выберите район или вернитесь в главное меню:",
+            "en": "Choose an area or return to the main menu:",
+            "tr": "Bir bölge seçin veya ana menüye dönün:",
+        }.get(lang, "Выберите район или вернитесь в главное меню:")
+    else:
+        follow_up = {
+            "ru": "Показать другие аптеки или выбрать другой район:",
+            "en": "Show other pharmacies or choose another area:",
+            "tr": "Diğer eczaneleri gösterin veya başka bir bölge seçin:",
+        }.get(lang, "Показать другие аптеки или выбрать другой район:")
+    await message.answer(
+        follow_up,
+        reply_markup=build_pharmacy_districts_kb(
+            lang,
+            show_all=district_code != "all",
+        ),
+    )
     return True
 
 
