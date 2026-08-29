@@ -1,1 +1,54 @@
-ZnJvbSBhcHAuaGFuZGxlcnMuc3RhcnQgaW1wb3J0IF9leHRyYWN0X3N0YXJ0X3BoYXJtYWN5X2NvZGUKZnJvbSBhcHAubW9kdWxlcy5jaXR5X2V2ZW50cy5zZXJ2aWNlcy5waGFybWFjeV9kaXN0cmljdHMgaW1wb3J0ICgKICAgIGRpc3RyaWN0X2xhYmVsLAogICAgZmlsdGVyX3BoYXJtYWNpZXMsCiAgICBpdGVtX2Rpc3RyaWN0X2NvZGUsCikKCgpjbGFzcyBGYWtlTWVzc2FnZToKICAgIGRlZiBfX2luaXRfXyhzZWxmLCB0ZXh0OiBzdHIpOgogICAgICAgIHNlbGYudGV4dCA9IHRleHQKCgpJVEVNUyA9IFsKICAgIHsKICAgICAgICAidGl0bGUiOiAiRU3EsFIgRUNaQU5FU8SwIiwKICAgICAgICAiZGV0YWlscyI6ICLQlNC10LbRg9GA0L3QsNGPINCw0L/RgtC10LrQsCAoTUFITVVUTEFSKSIsCiAgICAgICAgImFkZHJlc3MiOiAiQVRBVMOcUksgQ0FELiBOTzoxMjkvQSIsCiAgICAgICAgInBob25lIjogIjAoMjQyKSA1MjgtNzEtNzMiLAogICAgfSwKICAgIHsKICAgICAgICAidGl0bGUiOiAiT0JBIEVDWkFORVPEsCIsCiAgICAgICAgImRldGFpbHMiOiAi0JTQtdC20YPRgNC90LDRjyDQsNC/0YLQtdC60LAgKE9CQSkiLAogICAgICAgICJhZGRyZXNzIjogIk9CQSBNQUguIEFMQU5ZQSIsCiAgICAgICAgInBob25lIjogIjAoMjQyKSAwMDAtMDAtMDAiLAogICAgfSwKXQoKCmRlZiB0ZXN0X2V4dHJhY3RzX3N1cHBvcnRlZF9kZWVwX2xpbmtfcGF5bG9hZCgpOgogICAgYXNzZXJ0IF9leHRyYWN0X3N0YXJ0X3BoYXJtYWN5X2NvZGUoRmFrZU1lc3NhZ2UoIi9zdGFydCBwaGFybWFjeV9tYWhtdXRsYXIiKSkgPT0gIm1haG11dGxhciIKICAgIGFzc2VydCBfZXh0cmFjdF9zdGFydF9waGFybWFjeV9jb2RlKEZha2VNZXNzYWdlKCIvc3RhcnQgcGhhcm1hY3lfYWxsIikpID09ICJhbGwiCgoKZGVmIHRlc3RfcGxhaW5fc3RhcnRfaXNfdW5jaGFuZ2VkKCk6CiAgICBhc3NlcnQgX2V4dHJhY3Rfc3RhcnRfcGhhcm1hY3lfY29kZShGYWtlTWVzc2FnZSgiL3N0YXJ0IikpIGlzIE5vbmUKICAgIGFzc2VydCBfZXh0cmFjdF9zdGFydF9waGFybWFjeV9jb2RlKEZha2VNZXNzYWdlKCIvc3RhcnQgb2JqX2V4YW1wbGUiKSkgaXMgTm9uZQoKCmRlZiB0ZXN0X2ZpbHRlcnNfYnlfYXV0aG9yaXRhdGl2ZV9zb3VyY2VfcmVnaW9uKCk6CiAgICBhc3NlcnQgaXRlbV9kaXN0cmljdF9jb2RlKElURU1TWzBdKSA9PSAibWFobXV0bGFyIgogICAgYXNzZXJ0IGZpbHRlcl9waGFybWFjaWVzKElURU1TLCAibWFobXV0bGFyIikgPT0gW0lURU1TWzBdXQogICAgYXNzZXJ0IGZpbHRlcl9waGFybWFjaWVzKElURU1TLCAib2JhIikgPT0gW0lURU1TWzFdXQoKCmRlZiB0ZXN0X2FsbF9yZXR1cm5zX2Z1bGxfbGlzdF9hbmRfdW5rbm93bl9pc19zYWZlKCk6CiAgICBhc3NlcnQgZmlsdGVyX3BoYXJtYWNpZXMoSVRFTVMsICJhbGwiKSA9PSBJVEVNUwogICAgYXNzZXJ0IGZpbHRlcl9waGFybWFjaWVzKElURU1TLCAidW5rbm93biIpID09IFtdCiAgICBhc3NlcnQgZGlzdHJpY3RfbGFiZWwoInVua25vd24iKSBpcyBOb25lCgoKZGVmIHRlc3RfdHVya2lzaF9kaXN0cmljdF9uYW1lc19hcmVfbm9ybWFsaXplZCgpOgogICAgaXRlbSA9IHsiZGV0YWlscyI6ICJOw7ZiZXTDp2kgZWN6YW5lICjDh0lLw4dJTExJKSIsICJhZGRyZXNzIjogIiJ9CiAgICBhc3NlcnQgaXRlbV9kaXN0cmljdF9jb2RlKGl0ZW0pID09ICJjaWtjaWxsaSIK
+from app.handlers.start import _extract_start_pharmacy_code
+from app.modules.city_events.services.pharmacy_districts import (
+    district_label,
+    filter_pharmacies,
+    item_district_code,
+)
+
+
+class FakeMessage:
+    def __init__(self, text: str):
+        self.text = text
+
+
+ITEMS = [
+    {
+        "title": "EMİR ECZANESİ",
+        "details": "Дежурная аптека (MAHMUTLAR)",
+        "address": "ATATÜRK CAD. NO:129/A",
+        "phone": "0(242) 528-71-73",
+    },
+    {
+        "title": "OBA ECZANESİ",
+        "details": "Дежурная аптека (OBA)",
+        "address": "OBA MAH. ALANYA",
+        "phone": "0(242) 000-00-00",
+    },
+]
+
+
+def test_extracts_supported_deep_link_payload():
+    assert _extract_start_pharmacy_code(FakeMessage("/start pharmacy_mahmutlar")) == "mahmutlar"
+    assert _extract_start_pharmacy_code(FakeMessage("/start pharmacy_all")) == "all"
+
+
+def test_plain_start_is_unchanged():
+    assert _extract_start_pharmacy_code(FakeMessage("/start")) is None
+    assert _extract_start_pharmacy_code(FakeMessage("/start obj_example")) is None
+
+
+def test_filters_by_authoritative_source_region():
+    assert item_district_code(ITEMS[0]) == "mahmutlar"
+    assert filter_pharmacies(ITEMS, "mahmutlar") == [ITEMS[0]]
+    assert filter_pharmacies(ITEMS, "oba") == [ITEMS[1]]
+
+
+def test_all_returns_full_list_and_unknown_is_safe():
+    assert filter_pharmacies(ITEMS, "all") == ITEMS
+    assert filter_pharmacies(ITEMS, "unknown") == []
+    assert district_label("unknown") is None
+
+
+def test_turkish_district_names_are_normalized():
+    item = {"details": "Nöbetçi eczane (ÇIKÇILLI)", "address": ""}
+    assert item_district_code(item) == "cikcilli"
