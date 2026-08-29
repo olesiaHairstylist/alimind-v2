@@ -123,11 +123,10 @@ def _pharmacy_card_text(item: dict[str, Any], district: str, lang: str) -> str:
     return "\n".join(lines)
 
 
-def _pharmacy_card_kb(item: dict[str, Any], lang: str):
+def _pharmacy_card_kb(item: dict[str, Any], district: str, lang: str):
     b = InlineKeyboardBuilder()
     title = str(item.get("title") or item.get("name") or "Аптека").strip()
-    address = str(item.get("address") or "").strip()
-    destination = quote_plus(f"{title} {address} Alanya")
+    destination = quote_plus(f"{title}, {district}, Alanya")
     route_label = {
         "ru": f"📍 Маршрут — {title}",
         "en": f"📍 Route — {title}",
@@ -175,7 +174,7 @@ async def send_pharmacies_by_district(
         item_label = district_label(item_code or "") or label
         await message.answer(
             _pharmacy_card_text(item, item_label, lang),
-            reply_markup=_pharmacy_card_kb(item, lang),
+            reply_markup=_pharmacy_card_kb(item, item_label, lang),
         )
 
     follow_up = {
