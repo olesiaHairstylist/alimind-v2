@@ -19,6 +19,7 @@ from app.modules.city_events.ui.handlers import (
     open_electricity,
     open_emergency,
     open_pharmacies,
+    open_pharmacy_district,
     open_water,
 )
 
@@ -43,6 +44,10 @@ async def city_events_command(message: Message) -> None:
 router.callback_query.register(open_city_events_menu, lambda c: c.data == CITY_EVENTS_MENU_CB)
 router.callback_query.register(open_city_events_menu, lambda c: c.data == CITY_EVENTS_BACK_CB)
 router.callback_query.register(open_pharmacies, lambda c: c.data == CITY_EVENTS_PHARMACIES_CB)
+router.callback_query.register(
+    open_pharmacy_district,
+    lambda c: bool(c.data and c.data.startswith("pharmacy:district:")),
+)
 router.callback_query.register(open_electricity, lambda c: c.data == CITY_EVENTS_ELECTRICITY_CB)
 router.callback_query.register(open_water, lambda c: c.data == CITY_EVENTS_WATER_CB)
 router.callback_query.register(open_emergency, lambda c: c.data == CITY_EVENTS_EMERGENCY_CB)
