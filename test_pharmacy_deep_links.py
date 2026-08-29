@@ -115,3 +115,13 @@ def test_pharmacy_navigation_offers_return_to_website():
         if button.url
     ]
     assert "https://alimindcity.com/" in urls
+
+
+def test_route_prefers_official_map_coordinates():
+    item = dict(ITEMS[0])
+    item["maps_url"] = (
+        "https://www.google.com/maps/dir/?api=1&destination="
+        "36.48386893014357,32.1057536388447"
+    )
+    markup = _pharmacy_card_kb(item, "Mahmutlar", "ru")
+    assert markup.inline_keyboard[0][0].url == item["maps_url"]
