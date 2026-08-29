@@ -117,11 +117,14 @@ def test_pharmacy_navigation_offers_return_to_website():
     assert "https://alimindcity.com/" in urls
 
 
-def test_route_prefers_official_map_coordinates():
+def test_route_prefers_exact_pharmacy_name_over_approximate_coordinates():
     item = dict(ITEMS[0])
     item["maps_url"] = (
         "https://www.google.com/maps/dir/?api=1&destination="
         "36.48386893014357,32.1057536388447"
     )
     markup = _pharmacy_card_kb(item, "Mahmutlar", "ru")
-    assert markup.inline_keyboard[0][0].url == item["maps_url"]
+    url = markup.inline_keyboard[0][0].url
+    assert url is not None
+    assert "destination=EM%C4%B0R+ECZANES%C4%B0%2C+Mahmutlar%2C+Alanya" in url
+    assert "36.483868" not in url
