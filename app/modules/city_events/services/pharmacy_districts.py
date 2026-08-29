@@ -1,1 +1,59 @@
-ZnJvbSBfX2Z1dHVyZV9fIGltcG9ydCBhbm5vdGF0aW9ucwoKaW1wb3J0IHJlCmltcG9ydCB1bmljb2RlZGF0YQpmcm9tIHR5cGluZyBpbXBvcnQgQW55CgoKIyBQdWJsaWMgY29udHJhY3Qgc2hhcmVkIGJ5IFRlbGVncmFtIGRlZXAgbGlua3MgYW5kIHRoZSBwaGFybWFjeSBVSS4KIyBDb2RlcyBhcmUgc3RhYmxlIHN5c3RlbSBpZGVudGlmaWVyczsgYWxpYXNlcyByZWZsZWN0IHNvdXJjZSB2YWx1ZXMuClBIQVJNQUNZX0RJU1RSSUNUUzogZGljdFtzdHIsIGRpY3Rbc3RyLCBBbnldXSA9IHsKICAgICJhbGFueWFfbWVya2V6IjogewogICAgICAgICJsYWJlbCI6ICJBbGFueWEgTWVya2V6IiwKICAgICAgICAiYWxpYXNlcyI6ICgiQUxBTllBIE1FUktFWiIsICJNRVJLRVoiKSwKICAgIH0sCiAgICAib2JhIjogeyJsYWJlbCI6ICJPYmEiLCAiYWxpYXNlcyI6ICgiT0JBIiwpfSwKICAgICJtYWhtdXRsYXIiOiB7ImxhYmVsIjogIk1haG11dGxhciIsICJhbGlhc2VzIjogKCJNQUhNVVRMQVIiLCl9LAogICAgImtlc3RlbCI6IHsibGFiZWwiOiAiS2VzdGVsIiwgImFsaWFzZXMiOiAoIktFU1RFTCIsKX0sCiAgICAidG9zbXVyIjogeyJsYWJlbCI6ICJUb3NtdXIiLCAiYWxpYXNlcyI6ICgiVE9TTVVSIiwpfSwKICAgICJrb25ha2xpIjogeyJsYWJlbCI6ICJLb25ha2zEsSIsICJhbGlhc2VzIjogKCJLT05BS0xJIiwpfSwKICAgICJhdnNhbGxhciI6IHsibGFiZWwiOiAiQXZzYWxsYXIiLCAiYWxpYXNlcyI6ICgiQVZTQUxMQVIiLCl9LAogICAgImNpa2NpbGxpIjogeyJsYWJlbCI6ICLDh8Sxa8OnxLFsbMSxIiwgImFsaWFzZXMiOiAoIsOHSUvDh0lMTEkiLCAiQ0lLQ0lMTEkiKX0sCiAgICAia2FkaXBhc2EiOiB7ImxhYmVsIjogIkthZGlwYcWfYSIsICJhbGlhc2VzIjogKCJLQURJUEHFnkEiLCAiS0FESVBBU0EiKX0sCiAgICAic2FyYXkiOiB7ImxhYmVsIjogIlNhcmF5IiwgImFsaWFzZXMiOiAoIlNBUkFZIiwpfSwKICAgICJrYWxlIjogeyJsYWJlbCI6ICJLYWxlIiwgImFsaWFzZXMiOiAoIktBTEUiLCl9LAp9CgoKZGVmIF9ub3JtYWxpemUodmFsdWU6IG9iamVjdCkgLT4gc3RyOgogICAgdGV4dCA9IHVuaWNvZGVkYXRhLm5vcm1hbGl6ZSgiTkZLRCIsIHN0cih2YWx1ZSBvciAiIikpCiAgICB0ZXh0ID0gIiIuam9pbihjaGFyIGZvciBjaGFyIGluIHRleHQgaWYgbm90IHVuaWNvZGVkYXRhLmNvbWJpbmluZyhjaGFyKSkKICAgIHJldHVybiByZS5zdWIociJbXkEtWjAtOV0rIiwgIiAiLCB0ZXh0LnVwcGVyKCkpLnN0cmlwKCkKCgpkZWYgZGlzdHJpY3RfbGFiZWwoY29kZTogc3RyKSAtPiBzdHIgfCBOb25lOgogICAgZGlzdHJpY3QgPSBQSEFSTUFDWV9ESVNUUklDVFMuZ2V0KGNvZGUpCiAgICByZXR1cm4gc3RyKGRpc3RyaWN0WyJsYWJlbCJdKSBpZiBkaXN0cmljdCBlbHNlIE5vbmUKCgpkZWYgaXRlbV9kaXN0cmljdF9jb2RlKGl0ZW06IGRpY3Rbc3RyLCBBbnldKSAtPiBzdHIgfCBOb25lOgogICAgIyBkZXRhaWxzIGlzIGF1dGhvcml0YXRpdmUgYmVjYXVzZSB0aGUgc291cmNlIHBhcnNlciB3cml0ZXMgaXRzIHJlZ2lvbiB0aGVyZS4KICAgIHZhbHVlcyA9IChpdGVtLmdldCgiZGV0YWlscyIsICIiKSwgaXRlbS5nZXQoImFkZHJlc3MiLCAiIikpCiAgICBub3JtYWxpemVkX3ZhbHVlcyA9IHR1cGxlKF9ub3JtYWxpemUodmFsdWUpIGZvciB2YWx1ZSBpbiB2YWx1ZXMpCgogICAgZm9yIGNvZGUsIGRpc3RyaWN0IGluIFBIQVJNQUNZX0RJU1RSSUNUUy5pdGVtcygpOgogICAgICAgIGZvciBhbGlhcyBpbiBkaXN0cmljdFsiYWxpYXNlcyJdOgogICAgICAgICAgICBwYXR0ZXJuID0gcmYiKD86Xnxccyl7cmUuZXNjYXBlKF9ub3JtYWxpemUoYWxpYXMpKX0oPzpcc3wkKSIKICAgICAgICAgICAgaWYgYW55KHJlLnNlYXJjaChwYXR0ZXJuLCB2YWx1ZSkgZm9yIHZhbHVlIGluIG5vcm1hbGl6ZWRfdmFsdWVzKToKICAgICAgICAgICAgICAgIHJldHVybiBjb2RlCiAgICByZXR1cm4gTm9uZQoKCmRlZiBmaWx0ZXJfcGhhcm1hY2llcygKICAgIGl0ZW1zOiBsaXN0W2RpY3Rbc3RyLCBBbnldXSwgZGlzdHJpY3RfY29kZTogc3RyCikgLT4gbGlzdFtkaWN0W3N0ciwgQW55XV06CiAgICBpZiBkaXN0cmljdF9jb2RlID09ICJhbGwiOgogICAgICAgIHJldHVybiBpdGVtcwogICAgaWYgZGlzdHJpY3RfY29kZSBub3QgaW4gUEhBUk1BQ1lfRElTVFJJQ1RTOgogICAgICAgIHJldHVybiBbXQogICAgcmV0dXJuIFtpdGVtIGZvciBpdGVtIGluIGl0ZW1zIGlmIGl0ZW1fZGlzdHJpY3RfY29kZShpdGVtKSA9PSBkaXN0cmljdF9jb2RlXQo=
+from __future__ import annotations
+
+import re
+import unicodedata
+from typing import Any
+
+
+# Public contract shared by Telegram deep links and the pharmacy UI.
+# Codes are stable system identifiers; aliases reflect source values.
+PHARMACY_DISTRICTS: dict[str, dict[str, Any]] = {
+    "alanya_merkez": {
+        "label": "Alanya Merkez",
+        "aliases": ("ALANYA MERKEZ", "MERKEZ"),
+    },
+    "oba": {"label": "Oba", "aliases": ("OBA",)},
+    "mahmutlar": {"label": "Mahmutlar", "aliases": ("MAHMUTLAR",)},
+    "kestel": {"label": "Kestel", "aliases": ("KESTEL",)},
+    "tosmur": {"label": "Tosmur", "aliases": ("TOSMUR",)},
+    "konakli": {"label": "Konaklı", "aliases": ("KONAKLI",)},
+    "avsallar": {"label": "Avsallar", "aliases": ("AVSALLAR",)},
+    "cikcilli": {"label": "Çıkçıllı", "aliases": ("ÇIKÇILLI", "CIKCILLI")},
+    "kadipasa": {"label": "Kadipaşa", "aliases": ("KADIPAŞA", "KADIPASA")},
+    "saray": {"label": "Saray", "aliases": ("SARAY",)},
+    "kale": {"label": "Kale", "aliases": ("KALE",)},
+}
+
+
+def _normalize(value: object) -> str:
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    text = "".join(char for char in text if not unicodedata.combining(char))
+    return re.sub(r"[^A-Z0-9]+", " ", text.upper()).strip()
+
+
+def district_label(code: str) -> str | None:
+    district = PHARMACY_DISTRICTS.get(code)
+    return str(district["label"]) if district else None
+
+
+def item_district_code(item: dict[str, Any]) -> str | None:
+    # details is authoritative because the source parser writes its region there.
+    values = (item.get("details", ""), item.get("address", ""))
+    normalized_values = tuple(_normalize(value) for value in values)
+
+    for code, district in PHARMACY_DISTRICTS.items():
+        for alias in district["aliases"]:
+            pattern = rf"(?:^|\s){re.escape(_normalize(alias))}(?:\s|$)"
+            if any(re.search(pattern, value) for value in normalized_values):
+                return code
+    return None
+
+
+def filter_pharmacies(
+    items: list[dict[str, Any]], district_code: str
+) -> list[dict[str, Any]]:
+    if district_code == "all":
+        return items
+    if district_code not in PHARMACY_DISTRICTS:
+        return []
+    return [item for item in items if item_district_code(item) == district_code]
