@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 from typing import Any
 
 from aiogram.types import CallbackQuery, Message
@@ -109,6 +110,13 @@ def build_pharmacy_districts_kb(lang: str):
 def _pharmacy_card_text(item: dict[str, Any], district: str, lang: str) -> str:
     title = str(item.get("title") or item.get("name") or "").strip()
     address = str(item.get("address") or "").strip()
+    # Telegram treats `CAD.NO:129` as a URL because `.no` is a real domain.
+    address = re.sub(
+        r"\bCAD\.\s*NO\s*:?\s*",
+        "CAD. NO ",
+        address,
+        flags=re.IGNORECASE,
+    )
     phone = str(item.get("phone") or "").strip()
     heading = {
         "ru": f"📍 Дежурная аптека в районе {district}",
