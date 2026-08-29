@@ -37,15 +37,16 @@ def district_label(code: str) -> str | None:
 
 
 def item_district_code(item: dict[str, Any]) -> str | None:
-    # details is authoritative because the source parser writes its region there.
-    values = (item.get("details", ""), item.get("address", ""))
-    normalized_values = tuple(_normalize(value) for value in values)
-
-    for code, district in PHARMACY_DISTRICTS.items():
-        for alias in district["aliases"]:
-            pattern = rf"(?:^|\s){re.escape(_normalize(alias))}(?:\s|$)"
-            if any(re.search(pattern, value) for value in normalized_values):
-                return code
+    # The source may group Oba/Cikcilli/etc. under broad `ALANYA MERKEZ`.
+    # A district present in the address is therefore more precise. The source
+    # region in details remains the fallback for addresses without a district.
+    for value in (item.get("address", ""), item.get("details", "")):
+        normalized_value = _normalize(value)
+        for code, district in PHARMACY_DISTRICTS.items():
+            for alias in district["aliases"]:
+                pattern = rf"(?:^|\s){re.escape(_normalize(alias))}(?:\s|$)"
+                if re.search(pattern, normalized_value):
+                    return code
     return None
 
 
