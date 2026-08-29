@@ -4,7 +4,11 @@ from app.modules.city_events.services.pharmacy_districts import (
     filter_pharmacies,
     item_district_code,
 )
-from app.modules.city_events.ui.handlers import _pharmacy_card_kb, _pharmacy_card_text
+from app.modules.city_events.ui.handlers import (
+    _pharmacy_card_kb,
+    _pharmacy_card_text,
+    build_pharmacy_districts_kb,
+)
 
 
 class FakeMessage:
@@ -68,3 +72,15 @@ def test_card_does_not_create_fake_cad_no_link():
     text = _pharmacy_card_text(ITEMS[0], "Mahmutlar", "ru")
     assert "CAD.NO:" not in text
     assert "CAD. NO 129/A" in text
+
+
+def test_full_list_navigation_leads_to_main_menu_not_full_list_again():
+    markup = build_pharmacy_districts_kb("ru", show_all=False)
+    callbacks = [
+        button.callback_data
+        for row in markup.inline_keyboard
+        for button in row
+        if button.callback_data
+    ]
+    assert "main:menu" in callbacks
+    assert "pharmacy:district:all" not in callbacks
