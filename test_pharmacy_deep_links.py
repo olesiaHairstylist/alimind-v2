@@ -96,3 +96,14 @@ def test_district_navigation_offers_full_list_and_main_menu():
     ]
     assert "pharmacy:district:all" in callbacks
     assert "main:menu" in callbacks
+
+
+def test_pharmacy_navigation_offers_return_to_website():
+    markup = build_pharmacy_districts_kb("ru")
+    urls = [
+        button.url
+        for row in markup.inline_keyboard
+        for button in row
+        if button.url
+    ]
+    assert "https://alimindcity.com/" in urls
