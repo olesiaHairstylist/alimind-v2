@@ -104,13 +104,13 @@ def build_pharmacy_districts_kb(lang: str, *, show_all: bool = True):
             "tr": "Tüm nöbetçi eczaneler",
         }.get(lang, "Все дежурные аптеки")
         b.button(text=f"💊 {all_label}", callback_data="pharmacy:district:all")
-    else:
-        main_label = {
-            "ru": "Главное меню",
-            "en": "Main menu",
-            "tr": "Ana menü",
-        }.get(lang, "Главное меню")
-        b.button(text=f"🏠 {main_label}", callback_data="main:menu")
+
+    main_label = {
+        "ru": "Главное меню",
+        "en": "Main menu",
+        "tr": "Ana menü",
+    }.get(lang, "Главное меню")
+    b.button(text=f"🏠 {main_label}", callback_data="main:menu")
     b.adjust(2, 2, 2, 2, 2, 1, 1)
     return b.as_markup()
 
