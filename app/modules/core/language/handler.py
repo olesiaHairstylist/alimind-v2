@@ -9,6 +9,7 @@ from app.handlers.start import build_main_menu, render_main_menu_text
 from app.modules.core.language.keyboard import build_language_kb
 from app.modules.core.language.service import set_user_lang
 from app.modules.directory.handlers.object import send_directory_object_card
+from app.modules.city_events.ui.handlers import send_pharmacies_by_district
 
 router = Router()
 @router.message(Command("myid"))
@@ -35,6 +36,7 @@ async def set_language_handler(callback: CallbackQuery, state: FSMContext) -> No
     lang = (callback.data or "").split(":", 1)[1]
     data = await state.get_data()
     pending_object_id = str(data.get("pending_start_object_id", "")).strip()
+    pending_pharmacy_code = str(data.get("pending_start_pharmacy_code", "")).strip()
     set_user_lang(callback.from_user.id, lang)
     await state.clear()
 
@@ -58,6 +60,15 @@ async def set_language_handler(callback: CallbackQuery, state: FSMContext) -> No
             render_main_menu_text(lang),
             reply_markup=build_main_menu(lang),
         )
+        await callback.answer()
+        return
+
+    if pending_pharmacy_code:
+        try:
+            await callback.message.delete()
+        except Exception:
+            pass
+        await send_pharmacies_by_district(callback.message, pending_pharmacy_code, lang)
         await callback.answer()
         return
 

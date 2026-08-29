@@ -9,6 +9,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from app.modules.core.language.keyboard import build_language_kb
 from app.modules.core.language.service import get_user_lang
 from app.modules.directory.handlers.object import send_directory_object_card
+from app.modules.city_events.ui.handlers import send_pharmacies_by_district
 from aiogram.types import CallbackQuery, InlineKeyboardMarkup, Message
 
 router = Router()
@@ -149,6 +150,18 @@ def _extract_start_object_id(message: Message) -> str | None:
     return object_id or None
 
 
+def _extract_start_pharmacy_code(message: Message) -> str | None:
+    text = (message.text or "").strip()
+    parts = text.split(maxsplit=1)
+    if len(parts) < 2:
+        return None
+    payload = parts[1].strip()
+    if not payload.startswith("pharmacy_"):
+        return None
+    code = payload.removeprefix("pharmacy_").strip()
+    return code or None
+
+
 def _directory_empty_text(lang: str) -> str:
     return {
         "ru": "Объект не найден",
@@ -163,10 +176,13 @@ async def start_handler(message: Message, state: FSMContext) -> None:
     user = message.from_user
     user_lang = get_user_lang(user.id) if user else None
     object_id = _extract_start_object_id(message)
+    pharmacy_code = _extract_start_pharmacy_code(message)
 
     if not user_lang:
         if object_id:
             await state.update_data(pending_start_object_id=object_id)
+        elif pharmacy_code:
+            await state.update_data(pending_start_pharmacy_code=pharmacy_code)
         await message.answer(
             "Выберите язык / Select language / Dil seçin",
             reply_markup=build_language_kb(),
@@ -179,6 +195,10 @@ async def start_handler(message: Message, state: FSMContext) -> None:
             return
 
         await message.answer(_directory_empty_text(user_lang))
+
+    if pharmacy_code:
+        await send_pharmacies_by_district(message, pharmacy_code, user_lang)
+        return
 
     await message.answer(
         render_main_menu_text(user_lang),

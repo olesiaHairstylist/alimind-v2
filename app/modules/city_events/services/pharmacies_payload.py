@@ -48,6 +48,7 @@ def build_pharmacies_payload(
         details = str(item.get("details", "")).strip()
         address = str(item.get("address", "")).strip()
         phone = str(item.get("phone", "")).strip()
+        maps_url = str(item.get("maps_url", "")).strip()
 
         result_items.append(
             {
@@ -55,6 +56,7 @@ def build_pharmacies_payload(
                 "details": details,
                 "address": address,
                 "phone": phone,
+                "maps_url": maps_url,
             }
         )
 
