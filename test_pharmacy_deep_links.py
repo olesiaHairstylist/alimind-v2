@@ -59,6 +59,14 @@ def test_turkish_district_names_are_normalized():
     assert item_district_code(item) == "cikcilli"
 
 
+def test_precise_address_district_wins_over_broad_source_region():
+    item = {
+        "details": "Дежурная аптека (ALANYA MERKEZ)",
+        "address": "OBA MAH. ALANYA EĞİTİM ARAŞTIRMA HASTANESİ",
+    }
+    assert item_district_code(item) == "oba"
+
+
 def test_route_uses_proven_google_maps_search_format():
     markup = _pharmacy_card_kb(ITEMS[0], "Mahmutlar", "ru")
     url = markup.inline_keyboard[0][0].url
