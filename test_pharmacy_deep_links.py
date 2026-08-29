@@ -55,9 +55,10 @@ def test_turkish_district_names_are_normalized():
     assert item_district_code(item) == "cikcilli"
 
 
-def test_route_uses_short_pharmacy_and_district_destination():
+def test_route_uses_proven_google_maps_search_format():
     markup = _pharmacy_card_kb(ITEMS[0], "Mahmutlar", "ru")
     url = markup.inline_keyboard[0][0].url
     assert url is not None
-    assert "destination=EM%C4%B0R+ECZANES%C4%B0%2C+Mahmutlar%2C+Alanya" in url
-    assert "ATAT" not in url
+    assert url.startswith("https://www.google.com/maps/search/?api=1&query=")
+    assert "EM%C4%B0R+ECZANES%C4%B0" in url
+    assert "ATAT" in url
