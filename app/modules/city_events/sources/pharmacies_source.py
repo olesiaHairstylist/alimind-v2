@@ -22,6 +22,9 @@ RAW_FILE = APP_DIR / "data" / "sources" / "pharmacies_raw.json"
 
 URL = "https://www.alanyaeo.org.tr/tr/nobetci-eczaneler"
 PHONE_RE = re.compile(r"0\(\d{3}\)\s*\d{3}-\d{2}-\d{2}")
+MAP_COORDS_RE = re.compile(
+    r"[?&]q=(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)"
+)
 
 ISTANBUL_TZ = ZoneInfo("Europe/Istanbul")
 
@@ -34,11 +37,28 @@ def _clean(text: str) -> str:
     return " ".join(text.split()).strip()
 
 
+def _map_urls_by_address(soup: BeautifulSoup) -> dict[str, str]:
+    result: dict[str, str] = {}
+    for link in soup.find_all("a", href=True):
+        href = str(link.get("href") or "")
+        match = MAP_COORDS_RE.search(href)
+        address = _clean(link.get_text(" ", strip=True))
+        if not match or not address:
+            continue
+        latitude, longitude = match.groups()
+        result[address] = (
+            "https://www.google.com/maps/dir/?api=1&destination="
+            f"{latitude},{longitude}"
+        )
+    return result
+
+
 def fetch_pharmacies_from_html() -> list[dict]:
     resp = requests.get(URL, timeout=20)
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")
+    map_urls = _map_urls_by_address(soup)
 
     lines: list[str] = []
     for s in soup.stripped_strings:
@@ -104,6 +124,7 @@ def fetch_pharmacies_from_html() -> list[dict]:
                     "details": f"Дежурная аптека ({current_region})" if current_region else "Дежурная аптека",
                     "address": address,
                     "phone": phone,
+                    "maps_url": map_urls.get(address, ""),
                 }
             )
 
