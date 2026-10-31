@@ -20,7 +20,7 @@ LABELS = {
 def market_keyboard(lang: str):
     estate, goods, back, *_ = LABELS.get(lang, LABELS["ru"])
     builder = InlineKeyboardBuilder()
-    url = os.getenv("ALIMIND_SEARCH_URL", "").strip()
+    url = os.getenv("ALIMIND_SEARCH_URL", "https://alimindcity.com/search-ai/").strip()
     if url.startswith(("https://", "http://")):
         builder.button(text=estate, url=url)
     else:
