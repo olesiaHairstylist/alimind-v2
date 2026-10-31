@@ -8,6 +8,7 @@ from aiogram.types import BotCommand
 from dotenv import load_dotenv
 
 from app.handlers.start import router as start_router
+from app.modules.market.router import router as market_router
 
 from app.modules.sea_status.handlers import router as sea_status_router
 from app.modules.admin.handlers.admin_health import router as admin_health_router
@@ -75,6 +76,7 @@ async def main() -> None:
     dp.update.middleware(AnalyticsMiddleware())
 
     dp.include_router(start_router)
+    dp.include_router(market_router)
     dp.include_router(language_router)
     dp.include_router(directory_router)
     dp.include_router(residence_calc_router)

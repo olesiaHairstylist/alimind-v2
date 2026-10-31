@@ -112,8 +112,8 @@ def build_main_menu(lang: str = "ru") -> InlineKeyboardMarkup:
     )
 
     b.button(
-        text=labels["rent"],
-        url="https://t.me/alanya_rent07/16",
+        text="🛍 AliMind MARKET",
+        callback_data="market:menu",
     )
     b.button(text=labels["tickets"], url="https://aviasales.tpm.li/zQsb4TXR")
     b.button(text=labels["phrasebook"], callback_data="phrasebook:menu")
