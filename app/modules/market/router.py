@@ -17,6 +17,40 @@ LABELS = {
 }
 
 
+MARKET_DESCRIPTIONS = {
+    "ru": (
+        "🛍 AliMind MARKET — поиск недвижимости и вещей в Аланье\n\n"
+        "Городской поисковый сервис AliMind City.\n\n"
+        "🏠 Недвижимость\n"
+        "AliMind SEARCH: квартиры, виллы и другие объекты для покупки или аренды в Аланье.\n\n"
+        "🛒 Вещи и техника\n"
+        "Будущий поиск объявлений о продаже мебели, бытовой техники и других вещей "
+        "из Telegram-групп Аланьи. Раздел в разработке.\n\n"
+        "👇 Выберите интересующий раздел."
+    ),
+    "en": (
+        "🛍 AliMind MARKET — find property and second-hand goods in Alanya\n\n"
+        "A city search service by AliMind City.\n\n"
+        "🏠 Real estate\n"
+        "AliMind SEARCH: apartments, villas and other properties to buy or rent in Alanya.\n\n"
+        "🛒 Goods and electronics\n"
+        "A future search for furniture, appliances and other items listed in Alanya "
+        "Telegram groups. This section is under development.\n\n"
+        "👇 Choose a section."
+    ),
+    "tr": (
+        "🛍 AliMind MARKET — Alanya'da emlak ve ikinci el eşya arama\n\n"
+        "AliMind City'nin şehir arama hizmeti.\n\n"
+        "🏠 Gayrimenkul\n"
+        "AliMind SEARCH: Alanya'da satılık veya kiralık daire, villa ve diğer gayrimenkuller.\n\n"
+        "🛒 Eşya ve elektronik\n"
+        "Alanya'daki Telegram gruplarında paylaşılan mobilya, beyaz eşya ve diğer "
+        "satılık ürün ilanları için planlanan arama. Bu bölüm geliştirme aşamasındadır.\n\n"
+        "👇 Bir bölüm seçin."
+    ),
+}
+
+
 def market_keyboard(lang: str):
     estate, goods, back, *_ = LABELS.get(lang, LABELS["ru"])
     builder = InlineKeyboardBuilder()
@@ -38,7 +72,7 @@ def language(callback: CallbackQuery) -> str:
 @router.callback_query(F.data == "market:menu")
 async def open_market(callback: CallbackQuery) -> None:
     lang = language(callback)
-    await callback.message.edit_text(LABELS.get(lang, LABELS["ru"])[3], reply_markup=market_keyboard(lang))
+    await callback.message.edit_text(MARKET_DESCRIPTIONS.get(lang, MARKET_DESCRIPTIONS["ru"]), reply_markup=market_keyboard(lang))
     await callback.answer()
 
 
